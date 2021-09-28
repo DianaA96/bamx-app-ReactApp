@@ -1,12 +1,23 @@
 import React from 'react'
+import '../styles/HeaderBusqueda.css';
+import '../styles/general.css';
 
-function headerBusqueda() {
+function HeaderBusqueda() {
     return (
-        <div>
-            <h1>Hola</h1>
-            <button>Press</button>
-        </div>
+       <div className="header-container">
+           <div className="header-left">
+                <h1 className="titulo-header">Titulo</h1>
+                <input type="text" className="input-busqueda" />
+           </div>
+           <div className="header-right">
+                <div className="agregar-container">
+                    <h3>Agregar</h3>
+                    <button className='btn-agregar'><i class="fas fa-plus"></i></button>
+                </div>
+                <button className="btn-filtros">Filtros</button>
+           </div>
+       </div>
     )
 }
 
-export default headerBusqueda
+export default HeaderBusqueda
