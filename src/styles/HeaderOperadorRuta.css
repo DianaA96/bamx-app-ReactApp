@@ -1,0 +1,13 @@
+.headerOperador-container{
+    width: 50%;
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+    padding: 30px;
+}
+
+.headerOperador-container h1{
+    color: #F7F7F7;
+}

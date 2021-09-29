@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+
+/* Estilos generales de fuente. Pendientes a modificar a otra unidad. */
+
+h1{
+    font-family: 'Bebas Neue';
+    font-size: 60px;
+    font-weight: 400;
+    color: #1A1A1A
+}
+
+h2{
+    font-family: 'Bebas Neue';
+    font-size: 36px;
+    color: #1A1A1A
+}
+
+h3{
+    font-family: 'Bebas Neue';
+    font-size: 30px;
+    color: #1A1A1A
+}
+
+h4{
+    font-family: 'Bebas Neue';
+    font-size: 24px;
+    color: #1A1A1A
+}
+
+
+.p1{
+    font-family: 'Manrope';
+    font-size: 60px; 
+    color: #1A1A1A
+}
+
+.p2{
+    font-family: 'Manrope';
+    font-size: 36px;
+    color: #1A1A1A
+}
+
+.p3{
+    font-family: 'Manrope';
+    font-size: 30px; 
+    color: #1A1A1A
+}
+
+.p4{
+    font-family: 'Manrope';
+    font-size: 24px; 
+    color: #1A1A1A
+}
+
+.p5{
+    font-family: 'Manrope';
+    font-size: 18px; 
+    color: #1A1A1A
+}
+
+.p6{
+    font-family: 'Manrope';
+    font-size: 14px; 
+    color: #1A1A1A
+}
+
+p{
+    font-family: 'Manrope';
+    font-size: 18px;
+    color: #1A1A1A
+}
+
+.colorG900{
+    color: #F7F7F7;
+}
+
+.colorG100{
+    color: #1A1A1A;
+}

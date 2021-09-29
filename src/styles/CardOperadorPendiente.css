@@ -1,0 +1,21 @@
+.cardOperadorPendiente-container{
+    width: 30%;
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.detalles-OperadorPendiente{
+    text-align: start;
+}
+
+.detalles-OperadorPendiente .p4{
+    font-weight: 700;
+}
+
+.btn-asignarRutaRecoleccion{
+    width: 30%;
+}

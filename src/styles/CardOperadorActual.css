@@ -1,0 +1,40 @@
+.cardOperadorActual-container{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background: rgb(255, 255, 255);
+    padding: 20px;
+}
+
+.cardOperadorActual-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.detalles-OperadorActual{
+    text-align: start;
+}
+
+.detalles-OperadorActual .p4{
+    font-weight: 700;
+}
+
+.btn-asignarRutaRecoleccion{
+    width: 30%;
+}
+
+.cardOperadorActual-bottom{
+    display: flex;
+    flex-direction: column;
+    justify-content: bottom;
+    align-items: flex-start;
+}
+
+.barra-progresoRecolecciones{
+    background: #66FFA1;
+    border-radius: 25em;
+    height: 10px;
+}

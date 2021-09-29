@@ -1,0 +1,91 @@
+.modalDetallesRuta-container{
+    background: rgb(153, 153, 153);
+    width: 50%;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+.modalDetallesRuta-izquierda{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.modalDetallesRuta-izquierda img{
+    position: absolute;
+    margin-top: 150px;
+    margin-left: -100px;
+    width: 400px;
+}
+
+.modalDetallesRuta-derecha{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.modalDetallesRuta-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 80px;
+}
+
+.modalTitulo{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+.btn-cerrar{
+    border-style: none;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 25em;
+    
+}
+.btn-cerrar i {
+    font-size: 36px;
+}
+
+.btn-cerrar:hover{
+    cursor: pointer;
+}
+
+.modalDetallesRuta-body{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 80px;
+}
+
+.modalRutaIndividual{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modalRutaIndividual i{
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.infoRutaIndividual{
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+}
+
+.infoRutaIndividual .p4{
+    font-weight: 800;
+}
+
+.modalDetallesRuta-acciones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
