@@ -1,0 +1,46 @@
+.modalConfirmacion-container{
+    background: rgb(255, 255, 255);
+    width: 25%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+}
+
+.modalConfirmacion-header{
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 80px;
+}
+
+.modalConfirmacion-header i{
+    font-size: 36px;
+}
+
+.modalConfirmacion-body{
+    width: 60%;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 80px;
+}
+
+.modalConfirmacion-acciones{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-cerrar{
+    border-style: none;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 25em;
+    
+}
+
+.btn-cerrar:hover{
+    cursor: pointer;
+}
