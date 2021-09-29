@@ -4,7 +4,7 @@ import '../styles/general.css';
 
 function HeaderBusqueda() {
     return (
-       <div className="header-container">
+       <div className="headerBusqueda-container">
            <div className="header-left">
                 <h1 className="titulo-header">Titulo</h1>
                 <input type="text" className="input-busqueda" />
