@@ -1,7 +1,5 @@
 .cardOperadorPendiente-container{
     width: 30%;
-    background: rgb(255, 255, 255);
-    padding: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -12,7 +10,7 @@
     text-align: start;
 }
 
-.detalles-OperadorPendiente .p4{
+.detalles-OperadorPendiente .manrope4{
     font-weight: 700;
 }
 
