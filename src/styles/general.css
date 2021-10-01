@@ -4,66 +4,60 @@
 
 /* Estilos generales de fuente. Pendientes a modificar a otra unidad. */
 
-h1{
+.bebas1 {
     font-family: 'Bebas Neue';
     font-size: 60px;
     font-weight: 400;
-    color: #1A1A1A
 }
 
-h2{
+.bebas2 {
     font-family: 'Bebas Neue';
     font-size: 36px;
-    color: #1A1A1A
 }
 
-h3{
+.bebas3 {
     font-family: 'Bebas Neue';
     font-size: 30px;
-    color: #1A1A1A
 }
 
-h4{
+.bebas4 {
     font-family: 'Bebas Neue';
     font-size: 24px;
-    color: #1A1A1A
 }
 
+.bebas5 {
+    font-family: 'Bebas Neue';
+    font-size: 18px;
+}
 
-.p1{
+.manrope1 {
     font-family: 'Manrope';
     font-size: 60px; 
-    color: #1A1A1A
 }
 
-.p2{
+.manrope2 {
     font-family: 'Manrope';
     font-size: 36px;
-    color: #1A1A1A
 }
 
-.p3{
+.manrope3 {
     font-family: 'Manrope';
     font-size: 30px; 
-    color: #1A1A1A
 }
 
-.p4{
+.manrope4 {
     font-family: 'Manrope';
     font-size: 24px; 
-    color: #1A1A1A
 }
 
-.p5{
+.manrope5 {
     font-family: 'Manrope';
     font-size: 18px; 
-    color: #1A1A1A
 }
 
-.p6{
+.manrope6 {
     font-family: 'Manrope';
     font-size: 14px; 
-    color: #1A1A1A
 }
 
 p{
@@ -72,10 +66,10 @@ p{
     color: #1A1A1A
 }
 
-.colorG900{
+.blanco{
     color: #F7F7F7;
 }
 
-.colorG100{
+.negro{
     color: #1A1A1A;
 }
