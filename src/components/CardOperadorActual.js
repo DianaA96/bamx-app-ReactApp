@@ -1,6 +1,8 @@
 import React from 'react'
 import '../styles/CardOperadorActual.css';
 import '../styles/general.css';
+import '../styles/glass.css';
+import '../styles/botones.css';
 import iconoOperadorRuta from '../assets/icons/iconoOperadorRuta.png'
 
 
@@ -13,18 +15,18 @@ function CardOperadorActual() {
     }
 
     return (
-        <div className="cardOperadorActual-container">
+        <div className="cardOperadorActual-container lightGlass">
             <div className="cardOperadorActual-top">
                 <img src={iconoOperadorRuta} alt="" className="icono-card-operadorActual" />
                 <div className="detalles-OperadorActual">
-                    <p className="p4">Rodrigo Hernandez B.</p>
-                    <p className="p5">Operador #29321</p>
-                    <p className="p5 nombreRuta">Ruta Cuautepec-Yolotlan</p>
+                    <p className="manrope4">Rodrigo Hernandez B.</p>
+                    <p className="manrope5">Operador #29321</p>
+                    <p className="manrope5 nombreRuta">Ruta Cuautepec-Yolotlan</p>
                 </div>
-                <button className="btn-verDetalle">Asignar</button>
+                <button className="btnConfirmar bebas4 blanco">Asignar</button>
             </div>
             <div className="cardOperadorActual-bottom">
-                <p className="p5">2/4 recolecciones completas</p>
+                <p className="manrope5">2/4 recolecciones completas</p>
                 <div className="barra-progresoRecolecciones" style={barraStyle}></div>
             </div>
         </div>
