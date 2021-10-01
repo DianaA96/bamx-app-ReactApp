@@ -1,3 +1,7 @@
+button{
+    cursor: pointer;
+}
+
 button:focus {
     outline: none;
 }
@@ -22,7 +26,6 @@ button:focus {
     border-radius: 25em;
     text-align: center;
     border: 2px solid #009439;
-    cursor: pointer;
     padding-left: 1.5em;
     padding-right: 1.5em;
     padding-top: 0.2em;
@@ -35,7 +38,6 @@ button:focus {
     border-radius: 25em;
     text-align: center;
     border: 2px solid #EA2040;
-    cursor: pointer;
     padding-left: 1.5em;
     padding-right: 1.5em;
     padding-top: 0.2em;
@@ -48,7 +50,6 @@ button:focus {
     border-radius: 25em;
     text-align: center;
     border: 2px solid #F86F2D;
-    cursor: pointer;
     padding-left: 1.5em;
     padding-right: 1.5em;
     padding-top: 0.2em;
@@ -61,7 +62,6 @@ button:focus {
     border-radius: 25em;
     text-align: center;
     border: 2px solid #F6A2AF;
-    cursor: pointer;
     padding-left: 1.5em;
     padding-right: 1.5em;
     padding-top: 0.2em;
@@ -74,7 +74,6 @@ button:focus {
     border-radius: 25em;
     text-align: center;
     border: 2px solid #FFDF99;
-    cursor: pointer;
     padding-left: 1.5em;
     padding-right: 1.5em;
     padding-top: 0.2em;
@@ -87,9 +86,44 @@ button:focus {
     border-radius: 23px;
     text-align: center;
     border: 2px solid #009439;
-    cursor: pointer;
     padding-left: 2.3em;
     padding-right: 2.3em;
     padding-top: 0.7em;
     padding-bottom: 0.7em;
+}
+
+.btnMasGlass{
+    margin-left: 20px;
+    height: 2em;
+    width: 2em;
+    border-style: none;
+    background: rgba(49, 48, 48, 0.46);
+    backdrop-filter: blur( 30px );
+    -webkit-backdrop-filter: blur( 30px );
+    border-radius: 2em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1.6em;
+    color: white;
+}
+
+.btn-filtros{
+    width: 100%;
+    text-align: start;
+    background: transparent;
+    border-radius: 25em;
+    border: 3px solid rgba(255, 255, 255, 1);
+    padding: 0.8em
+}
+
+.btn-filtros:hover{
+    transform: none;
+}
+
+.btn-filtros:active{
+    transform: none;
+}
+
+.btnRecContrasena{
+    background: transparent;
+    border: none;
 }
