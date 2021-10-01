@@ -60,6 +60,11 @@
     font-size: 14px; 
 }
 
+.manrope7 {
+    font-family: 'Manrope';
+    font-size: 12px; 
+}
+
 p{
     font-family: 'Manrope';
     font-size: 18px;
@@ -72,6 +77,14 @@ p{
 
 .negro{
     color: #1A1A1A;
+}
+
+.delgada{
+    font-weight: lighter;
+}
+
+.subrayada{
+    text-decoration: underline;
 }
 
 .bold{

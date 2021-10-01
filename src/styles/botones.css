@@ -1,0 +1,129 @@
+button{
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    box-shadow: 0px 15px 25px -5px rgba(darken(dodgerblue, 40%));
+    transform: scale(1.03);
+}
+
+button:active {
+    box-shadow: 0px 4px 8px rgba(darken(dodgerblue, 30%));
+    transform: scale(.98);
+}
+
+button:focus {
+    outline: none;
+}
+
+.btnVerde{
+    background-color: #009439;
+    border: none;
+    border-radius: 25em;
+    text-align: center;
+    border: 2px solid #009439;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+.btnRojo{
+    background-color: #EA2040;
+    border: none;
+    border-radius: 25em;
+    text-align: center;
+    border: 2px solid #EA2040;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+.btnNaranja{
+    background-color: #F86F2D;
+    border: none;
+    border-radius: 25em;
+    text-align: center;
+    border: 2px solid #F86F2D;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+.btnRosa{
+    background-color: #F6A2AF;
+    border: none;
+    border-radius: 25em;
+    text-align: center;
+    border: 2px solid #F6A2AF;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+.btnAmarillo{
+    background-color: #FFDF99;
+    border: none;
+    border-radius: 25em;
+    text-align: center;
+    border: 2px solid #FFDF99;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+.btnVerdeCuadrado{
+    background-color: #009439;
+    border: none;
+    border-radius: 23px;
+    text-align: center;
+    border: 2px solid #009439;
+    padding-left: 2.3em;
+    padding-right: 2.3em;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+}
+
+.btnMasGlass{
+    margin-left: 20px;
+    height: 2em;
+    width: 2em;
+    border-style: none;
+    background: rgba(49, 48, 48, 0.46);
+    backdrop-filter: blur( 30px );
+    -webkit-backdrop-filter: blur( 30px );
+    border-radius: 2em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1.6em;
+    color: white;
+}
+
+.btn-filtros{
+    width: 100%;
+    text-align: start;
+    background: transparent;
+    border-radius: 25em;
+    border: 3px solid rgba(255, 255, 255, 1);
+    padding: 0.8em
+}
+
+.btn-filtros:hover{
+    transform: none;
+}
+
+.btn-filtros:active{
+    transform: none;
+}
+
+.btnRecContrasena{
+    background: transparent;
+    border: none;
+}

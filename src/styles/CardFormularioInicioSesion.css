@@ -1,0 +1,16 @@
+.formularioInicioSesion {
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.formularioCard{
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+}
+
+.formularioCard button{
+    margin: 0.3em;
+}
