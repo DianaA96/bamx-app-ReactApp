@@ -1,32 +1,35 @@
 .headerBusqueda-container{
-    width: 50%;
-    background: rgb(255, 255, 255);
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.headerBusqueda-top{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    margin-bottom: 1em;
 }
 
-.headerBusqueda-left{
-    width: 70%;
+.headerBusqueda-bottom{
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.input-busqueda{
-    width: 90%;
+.headerBusqueda-bottom .input-busqueda{
+    width: 65%;
+    margin-right: 0.5em;
 }
 
-.headerBusqueda-right{
+.headerBusqueda-bottom .btn-filtros{
     width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
 }
 
 .agregar-container{
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 20px;
 }

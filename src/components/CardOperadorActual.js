@@ -1,13 +1,14 @@
 import React from 'react'
 import '../styles/CardOperadorActual.css';
 import '../styles/general.css';
+import '../styles/botones.css';
 import '../styles/glass.css';
 import iconoOperadorRuta from '../assets/icons/iconoOperadorRuta.png'
 
 
 function CardOperadorActual() {
 
-    const progreso = (3/4 * 100)
+    const progreso = (2/4 * 100)
 
     const barraStyle = {
         width: progreso + `%`
@@ -22,7 +23,7 @@ function CardOperadorActual() {
                     <p className="manrope5">Operador #29321</p>
                     <p className="manrope5 nombreRuta">Ruta Cuautepec-Yolotlan</p>
                 </div>
-                <button className="btnConfirmar bebas4 blanco">Asignar</button>
+                <button className="btnConfirmar bebas3 blanco btnVerde">Ver detalle</button>
             </div>
             <div className="cardOperadorActual-bottom">
                 <p className="manrope5">2/4 recolecciones completas</p>

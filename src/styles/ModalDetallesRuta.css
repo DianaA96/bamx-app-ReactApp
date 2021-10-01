@@ -11,14 +11,14 @@
 .modalDetallesRuta-izquierda{
     display: flex;
     flex-direction: column;
-    
+    text-align: start;
 }
 
 .modalDetallesRuta-izquierda img{
     position: absolute;
-    margin-top: 150px;
-    margin-left: -100px;
-    width: 400px;
+    margin-top: 220px;
+    margin-left: -70px;
+    width: 20em;
 }
 
 .modalDetallesRuta-derecha{
@@ -91,4 +91,9 @@
     flex-direction: row;
     justify-content: space-around;
 }
+
+.modalDetallesRuta-acciones button{
+    margin: 0 0.5em;
+}
+
 

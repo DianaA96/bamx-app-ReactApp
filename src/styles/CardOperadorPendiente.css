@@ -1,19 +1,25 @@
 .cardOperadorPendiente-container{
-    width: 30%;
+    width: 520px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
 
+
+.icono-cardOperadorPendiente{
+    max-width: 4em;
+    max-height: 4em;
+    margin-right: 1.5em;
+}
+
 .detalles-OperadorPendiente{
+    width: 70%;
     text-align: start;
+    margin-right: 1.5em;
 }
 
 .detalles-OperadorPendiente .manrope4{
     font-weight: 700;
 }
 
-.btn-asignarRutaRecoleccion{
-    width: 30%;
-}
