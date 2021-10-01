@@ -1,0 +1,12 @@
+.cardPrincipal{
+    width: 40%;
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cardPrincipal img{
+    display: flex;
+    height: 30%;
+}
