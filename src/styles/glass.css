@@ -1,0 +1,19 @@
+.lightGlass{
+    background: rgba(205, 205, 205, 0.41);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 25px;
+    border: 1.3px solid rgba( 255, 255, 255, 0.18 );
+    padding: 1.250em
+}
+
+.darkGlass{
+    background: rgba( 49, 48, 48, 0.41 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 25px;
+    border: 1.3px solid rgba( 255, 255, 255, 0.18 );
+    padding: 1.250em
+}
