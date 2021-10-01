@@ -86,3 +86,7 @@ p{
 .subrayada{
     text-decoration: underline;
 }
+
+.bold{
+    font-weight: 700;
+}
