@@ -1,0 +1,27 @@
+input:focus{
+    outline: none;
+}
+
+.inputInicioSesion{
+    background: rgba(49, 48, 48, 0.46);
+    backdrop-filter: blur( 30px );
+    -webkit-backdrop-filter: blur( 30px );
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1em;
+    caret-color: #F7F7F7;
+    margin: 0.2em;
+}
+
+.inputInicioSesion::placeholder{
+    color: #F7F7F7;
+}
+
+.inputDarkGlass{
+    background: rgba(49, 48, 48, 0.46);
+    backdrop-filter: blur( 30px );
+    -webkit-backdrop-filter: blur( 30px );
+    border-radius: 25em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1em
+}
