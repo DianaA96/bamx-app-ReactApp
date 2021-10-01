@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/general.css';
 import '../styles/ModalDetallesRuta.css';
 import iconoRuta from '../assets/icons/iconoCRUDRuta.png'
+import '../styles/glass.css';
 
 function ModalDetallesRuta(props) {
 
@@ -26,16 +27,16 @@ function ModalDetallesRuta(props) {
     let numPuntosRecoleccion = donadores.length
 
     return (
-        <div className="modalDetallesRuta-container cristalOscuro">
+        <div className="modalDetallesRuta-container darkGlass">
             <section className="modalDetallesRuta-izquierda">
-                <h1 className="colorG900">Detalle de la ruta</h1>
+                <h1 className="bebas1 blanco">Detalle de la ruta</h1>
                 <img src={iconoRuta} alt="" />
             </section>
             <section className="modalDetallesRuta-derecha">
                 <section className="modalDetallesRuta-header">
                     <div className="modalTitulo">
-                        <p className="p4">{nombreRuta}</p>
-                        <p className="p5">{numPuntosRecoleccion} puntos de recolección</p>
+                        <p className="manrope4">{nombreRuta}</p>
+                        <p className="manrope5">{numPuntosRecoleccion} puntos de recolección</p>
                     </div>
                     <button className="btn-cerrar"><i class="fas fa-times-circle colorG100"></i></button>
                 </section>
@@ -44,8 +45,8 @@ function ModalDetallesRuta(props) {
                         <div className="modalRutaIndividual">
                             <i class="fas fa-map-marker-alt"></i>
                             <div className="infoRutaIndividual">
-                                <p className="p4">{donador.nombreDonador}</p>
-                                <p className="p5">{donador.ubicacionDonador}</p>
+                                <p className="manrope4">{donador.nombreDonador}</p>
+                                <p className="manrope5">{donador.ubicacionDonador}</p>
                             </div>
                         </div>
                     )}

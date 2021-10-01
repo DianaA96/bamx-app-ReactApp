@@ -73,3 +73,7 @@ p{
 .negro{
     color: #1A1A1A;
 }
+
+.bold{
+    font-weight: 700;
+}

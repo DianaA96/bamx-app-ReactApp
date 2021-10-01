@@ -2,13 +2,12 @@ import React from 'react'
 import '../styles/CardOperadorActual.css';
 import '../styles/general.css';
 import '../styles/glass.css';
-import '../styles/botones.css';
 import iconoOperadorRuta from '../assets/icons/iconoOperadorRuta.png'
 
 
 function CardOperadorActual() {
 
-    const progreso = (2/4 * 100)
+    const progreso = (3/4 * 100)
 
     const barraStyle = {
         width: progreso + `%`
