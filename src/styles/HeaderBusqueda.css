@@ -24,12 +24,13 @@
     margin-right: 0.5em;
 }
 
-.headerBusqueda-bottom .btn-filtros{
-    width: 30%;
-}
-
 .agregar-container{
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.headerBusqueda-filtros{
+    width: 30%;
+    position: relative;
 }

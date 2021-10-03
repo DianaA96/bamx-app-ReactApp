@@ -1,5 +1,6 @@
 .Formulario-container{
-    width: 600px;
+    width: 500px;
+    height: fit-content;
 }
 
 .formulario{
