@@ -1,0 +1,64 @@
+.contenedorMenuPrincipal {
+    width: 29%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0px 25px 0px 25px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.tituloMenuPrincipal img {
+    height: 5vw;
+    margin-bottom: 3vh;
+}
+
+.tituloMenuPrincipal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 10vh;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+.tabMenuPrincipal img {
+    width: 2.5vw;
+}
+
+.tabMenuPrincipal {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    height: 7vh;    
+    align-items: center;
+}
+
+.tabsMenuPrincipal button {
+    border: transparent;
+    background: transparent;
+    width: 100%;
+}
+
+.tabsMenuPrincipal button:hover {
+    background: rgba(49, 48, 48, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur( 4px );
+    cursor: pointer;
+}
+
+.tabsMenuPrincipal {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 0.5px;
+}
+
+.espacioMenuPrincipal {
+    width: 1.5vw;
+}
+
+.contenedorMenuPrincipal .manrope7{
+    text-align: left;
+    margin-left: 2vw;
+}
