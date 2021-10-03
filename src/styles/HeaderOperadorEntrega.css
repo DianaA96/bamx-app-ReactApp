@@ -1,0 +1,29 @@
+.headerTituloContainer {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.datosOperadorRecolecciones {
+    display: flex;
+    justify-content: space-around;
+}
+
+.datosOperador {
+    text-align: left;
+}
+
+.listaRestantes img {
+    height: 1.5vw;
+}
+
+.listaRestantes li {
+    list-style: none;
+}
+
+.datosRecolecciones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
