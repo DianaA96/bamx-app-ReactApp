@@ -16,7 +16,7 @@ function HeaderBusqueda() {
                 </div>
            </div>
            <div className="headerBusqueda-bottom">
-                <input type="text" className="input-busqueda inputDarkGlass bebas3 blanco" placeholder="Buscar" />
+                <input type="text" className="input-busqueda inputBusqueda bebas3 blanco" placeholder="Buscar" />
                 <button className="btn-filtros bebas3 blanco">Filtros</button>
            </div>
        </div>
