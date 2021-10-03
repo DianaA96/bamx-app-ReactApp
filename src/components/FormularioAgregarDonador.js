@@ -6,12 +6,12 @@ import '../styles/glass.css';
 import '../styles/inputs.css';
 import '../styles/botones.css';
 
-function FormularioAgregarUsuario() {
+function FormularioDonador() {
 
     const options = [
-        { value: 'Operador', label: 'Operador' },
-        { value: 'Coordinador de tráfico', label: 'Coordinador de tráfico' },
-        { value: 'Receptor', label: 'Receptor' }
+        { value: 'Recurrente', label: 'Recurrente' },
+        { value: 'Extraordinario', label: 'Extraordinario' },
+        { value: 'Único', label: 'Único' }
       ]
 
     const customSelectStyles = {
@@ -75,37 +75,45 @@ function FormularioAgregarUsuario() {
         <div className="Formulario-container lightGlass">
             <form action="" className="formulario">
                 <div className="item-formulario">
-                    <label htmlFor="nombreUsuario" className="input-label bebas4">Nombre Completo*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="nombreUsuario" placeholder="Nombre(s)"/>
+                    <label htmlFor="nombreDonador" className="input-label bebas4">Denominación del establecimiento*</label>
+                    <input type="text" className="inputDarkGlass manrope5" required name="nombreDonador" placeholder="Nombre"/>
                 </div>
+                <div className="item-formulario">
+                    <label htmlFor="determinante" className="input-label bebas4">Determinante*</label>
+                    <input type="text" className="inputDarkGlass manrope5" required name="determinante" placeholder="Ej.7827"/>
+                </div>
+               
+                <div className="item-formulario">
+                    <label htmlFor="calle" className="input-label bebas4">Dirección*</label>
+                    <input type="text" className="inputDarkGlass manrope5" required name="calle" placeholder="Calle"/>
+                </div>
+
                 <div className="formulario-col-2">
-                    <input type="text" className="inputDarkGlass manrope5" required name="apellidoPaterno" placeholder="Apellido Paterno"/>
-                    <input type="text" className="inputDarkGlass manrope5" required name="apellidoMaterno" placeholder="Apellido Materno"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="numExterior" placeholder="Num. Exterior"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="colonia" placeholder="Colonia"/>
                 </div>
-                <div className="item-formulario">
-                    <label htmlFor="idUsuario" className="input-label bebas4">Número de usuario*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="idUsuario" placeholder="Ej. SJHD782731"/>
+
+                <div className="formulario-col-2">
+                    <input type="text" className="inputDarkGlass manrope5" required name="municipio" placeholder="Municipio"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="codigoPostal" placeholder="Código Postal"/>
                 </div>
+
                 <div className="item-formulario">
-                    <label htmlFor="numTelefono" className="input-label bebas4">Número de teléfono*</label>
+                    <input type="text" className="inputDarkGlass manrope5" required name="estado" placeholder="Estado"/>
+                </div>
+
+                <div className="item-formulario">
+                    <label htmlFor="numTelefono" className="input-label bebas4">Teléfono de contacto*</label>
                     <input type="text" className="inputDarkGlass manrope5" required name="numTelefono" placeholder="Número a 10 dígitos"/>
                 </div>
-                <div className="item-formulario">
-                    <label htmlFor="correoElectronico" className="input-label bebas4">Correo electrónico*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="correoElectronico" placeholder="ejemplo@correo.com"/>
-                </div>
-                <div className="item-formulario">
-                    <label htmlFor="idUsuario" className="input-label bebas4">Contraseña*</label>
-                    <input type="password" className="inputDarkGlass manrope5" required name="idUsuario" placeholder="Mínimo 7 caracteres. Números y letras."/>
-                </div>
                 <div className="item-formulario espacio-extra">
-                    <label htmlFor="rolUsuario" className="input-label bebas4">Cargo en la organización*</label>
-                    <Select name="rolUsuario" id="select-rol" placeholder = "Tienda*" options={options} styles={customSelectStyles} required/>
+                    <label htmlFor="tipoDonador" className="input-label bebas4">Tipo*</label>
+                    <Select name="tipoDonador" id="select-tipoDonador" placeholder = "Seleccione el tipo de donador*" options={options} styles={customSelectStyles} required/>
                 </div>
-                <button className="btnVerde bebas2 blanco btn-formulario">Guardar</button>
+                <button className="btnNaranja bebas2 blanco btn-formulario">Guardar</button>
             </form>
         </div>
     )
 }
 
-export default FormularioAgregarUsuario
+export default FormularioDonador
