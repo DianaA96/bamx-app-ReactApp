@@ -1,9 +1,7 @@
 .cardOperadorActual-container{
     display: flex;
     flex-direction: column;
-    width: 30%;
-    background: rgb(255, 255, 255);
-    padding: 20px;
+    width: 600px;
 }
 
 .cardOperadorActual-top{
@@ -11,7 +9,12 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 1em;
+}
+
+.icono-card-operadorActual{
+    max-width: 4em;
+    max-height: 4em;
 }
 
 .detalles-OperadorActual{
@@ -24,6 +27,12 @@
 
 .btn-asignarRutaRecoleccion{
     width: 30%;
+}
+
+.nombreRuta{
+    margin-top: 1em;
+    font-weight: 500;
+    color: #4D4D4D;
 }
 
 .cardOperadorActual-bottom{

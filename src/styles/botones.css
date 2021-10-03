@@ -112,11 +112,13 @@ button:focus {
     background: transparent;
     border-radius: 25em;
     border: 3px solid rgba(255, 255, 255, 1);
-    padding: 0.8em
+    padding: 0.2em 1em;
 }
 
 .btn-filtros:hover{
     transform: none;
+    background: #F7F7F7;
+    color: #1a1a1a;
 }
 
 .btn-filtros:active{

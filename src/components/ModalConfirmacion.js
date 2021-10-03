@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/general.css';
 import '../styles/ModalConfirmacion.css';
 import '../styles/glass.css';
+import '../styles/botones.css';
 
 function ModalConfirmacion(props) {
     return (
@@ -15,8 +16,8 @@ function ModalConfirmacion(props) {
                 <p className="manrope4">¿Está seguro que desea {props.accion} {props.entidadObjetivo} <b>{props.nombreRuta}</b> ?</p>    
             </section>
             <section className="modalConfirmacion-acciones">
-                <button>Confirmar</button>
-                <button>Cancelar</button>
+                <button className="btnVerde bebas3 blanco">Confirmar</button>
+                <button className="btnRojo bebas3 blanco">Cancelar</button>
             </section>
         </div>
     )

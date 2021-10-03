@@ -7,7 +7,7 @@ function HeaderOperadorRuta() {
     return (
         <div className="headerOperador-container darkGlass ">
             <h1 className="titulo-header bebas1 blanco">Titulo</h1>
-            <p className="manrope2">Nombre Operador</p>
+            <p className="manrope2 bold">Nombre Operador</p>
             <p className="manrope4">ID Operador</p>
        </div>
     )

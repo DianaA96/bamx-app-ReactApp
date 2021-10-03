@@ -3,6 +3,7 @@ import '../styles/general.css';
 import '../styles/ModalDetallesRuta.css';
 import iconoRuta from '../assets/icons/iconoCRUDRuta.png'
 import '../styles/glass.css';
+import '../styles/botones.css';
 
 function ModalDetallesRuta(props) {
 
@@ -52,8 +53,8 @@ function ModalDetallesRuta(props) {
                     )}
                 </section>
                 <section className="modalDetallesRuta-acciones">
-                    <button>Eliminar Ruta</button>
-                    <button>Editar datos de la ruta</button>
+                    <button className="btnRosa bebas4">Eliminar Ruta</button>
+                    <button className="btnAmarillo bebas4">Editar datos de la ruta</button>
                 </section>
             </section>
         </div>

@@ -1,13 +1,7 @@
 .headerOperador-container{
-    width: 50%;
-    background: rgb(255, 255, 255);
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: start;
-    padding: 30px;
-}
-
-.headerOperador-container .manrope2{
-    font-weight: 700;
 }
