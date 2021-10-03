@@ -1,7 +1,8 @@
 import React from 'react'
 import Select from 'react-select'
 import '../styles/filtros.css';
-import '../styles/general.css'
+import '../styles/general.css';
+import '../styles/FiltroAsignarRutas.css'
 
 function FiltroRutas() {
 
@@ -75,25 +76,34 @@ function FiltroRutas() {
                     <p className="bebas3 blanco">Número de puntos de recolección</p>
                     <Select name="numPuntosRecoleccion" id="select-puntosRecoleccion" placeholder = "Seleccione una opción*" options={options} styles={customSelectStyles}/>
                 </div>
-                <div className="filtros-item">
-                    <p className="bebas3 blanco">Orden</p>
-                    <div className="radioBtn-item">
-                        <input type="radio" name="ordenFiltroRutas" id="alfAsc" checked/>
-                        <label htmlFor="alfAsc" className="manrope5 blanco">A-Z</label>
-                    </div>
-                    <div className="radioBtn-item">
-                        <input type="radio" name="ordenFiltroRutas" id="alfDesc" />
-                        <label htmlFor="alfDesc" className="manrope5 blanco">Z-A</label>
-                    </div>
-                    <div className="radioBtn-item">
-                        <input type="radio" name="ordenFiltroRutas" id="puntosDesc" />
-                        <label htmlFor="puntosDesc" className="manrope5 blanco">Número de puntos (Desc.)</label>
-                    </div>
-                    <div className="radioBtn-item">
-                        <input type="radio" name="ordenFiltroRutas" id="puntosAsc" />
-                        <label htmlFor="puntosAsc" className="manrope5 blanco">Número de puntos (Asc.)</label>
-                    </div>
+                <div className="opcionesFiltro manrope5 blanco">
+                <div class="contenedorRadioButtons">
+                    <input type="radio" name="select" id="opcion-1"/>
+                    <input type="radio" name="select" id="opcion-2"/>
+                    <input type="radio" name="select" id="opcion-3"/>
+                    <input type="radio" name="select" id="opcion-4"/>
+                    <label for="opcion-1" class="opcion opcion-1">
+                        <div class="dot"></div>
+                        <div className="espacioFiltros"></div>
+                        <span>A -Z</span>
+                    </label>
+                    <label for="opcion-2" class="opcion opcion-2">
+                        <div class="dot"></div>
+                        <div className="espacioFiltros"></div>
+                        <span>Z - A</span>
+                    </label>
+                    <label for="opcion-3" class="opcion opcion-3">
+                        <div class="dot"></div>
+                        <div className="espacioFiltros"></div>
+                        <span>Mayor a menor (número de puntos)</span>
+                    </label>
+                    <label for="opcion-4" class="opcion opcion-4">
+                        <div class="dot"></div>
+                        <div className="espacioFiltros"></div>
+                        <span>Menor a mayor (número de puntos)</span>
+                    </label>
                 </div>
+            </div>
             </form>
         </div>
     )

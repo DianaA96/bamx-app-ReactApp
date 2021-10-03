@@ -1,0 +1,13 @@
+.toastStyle{
+    background: rgba( 199, 199, 199, 0.29 );
+    box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border: 2px solid rgba( 205, 205, 205, 0.18 );
+    padding: 1.2em;
+    width: 13vw;
+    height: 3vh;
+    border-radius: 100px;
+    position: relative;
+    top: 90vh; left: 42vw;
+}
