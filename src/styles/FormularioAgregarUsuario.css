@@ -1,0 +1,43 @@
+.FormularioAgregarUsuario-container{
+    width: 600px;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+}
+
+.item-formulario{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-bottom: 1em;
+}
+
+.input-label{
+    margin-left: 1em;
+}
+
+.formulario-col-2{
+    margin-top: -0.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.formulario-col-2 input{
+    width: 50%;
+}
+.espacio-extra{
+    margin-bottom: 3em;
+}
+
+.btn-formulario{
+    position: absolute;
+    bottom: -1em;
+    align-self: center;
+    justify-self: end;
+    width: 50%;
+}
