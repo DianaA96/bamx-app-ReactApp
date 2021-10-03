@@ -23,5 +23,19 @@ input:focus{
     -webkit-backdrop-filter: blur( 30px );
     border-radius: 25em;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.8em 1em;
+}
+
+.inputDarkGlass::placeholder{
+    color: #F7F7F7;
+    opacity: 0.5;
+}
+
+.inputBusqueda{
+    background: rgba(49, 48, 48, 0.46);
+    backdrop-filter: blur( 30px );
+    -webkit-backdrop-filter: blur( 30px );
+    border-radius: 25em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 0.3em 1em;
 }
