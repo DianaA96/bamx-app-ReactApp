@@ -6,7 +6,7 @@ import '../styles/glass.css';
 import '../styles/inputs.css';
 import '../styles/botones.css';
 
-function FormularioAgregarUsuario() {
+function FormularioEditarUsuario() {
 
     const options = [
         { value: 'Operador', label: 'Operador' },
@@ -83,10 +83,6 @@ function FormularioAgregarUsuario() {
                     <input type="text" className="inputDarkGlass manrope5" required name="apellidoMaterno" placeholder="Apellido Materno"/>
                 </div>
                 <div className="item-formulario">
-                    <label htmlFor="idUsuario" className="input-label bebas4">Número de usuario*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="idUsuario" placeholder="Ej. SJHD782731"/>
-                </div>
-                <div className="item-formulario">
                     <label htmlFor="numTelefono" className="input-label bebas4">Número de teléfono*</label>
                     <input type="text" className="inputDarkGlass manrope5" required name="numTelefono" placeholder="Número a 10 dígitos"/>
                 </div>
@@ -108,4 +104,4 @@ function FormularioAgregarUsuario() {
     )
 }
 
-export default FormularioAgregarUsuario
+export default FormularioEditarUsuario

@@ -1,4 +1,4 @@
-.FormularioAgregarUsuario-container{
+.Formulario-container{
     width: 600px;
 }
 
@@ -28,8 +28,15 @@
 }
 
 .formulario-col-2 input{
-    width: 50%;
+    width: 42%;
 }
+
+.label-only{
+    text-align: start;
+    margin-left: 1em;
+    margin-bottom: 0.3em;
+}
+
 .espacio-extra{
     margin-bottom: 3em;
 }
@@ -40,4 +47,14 @@
     align-self: center;
     justify-self: end;
     width: 50%;
+}
+
+.agregar-inputDonador{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.agregar-inputDonador p{
+    margin-left: 0.5em;
 }
