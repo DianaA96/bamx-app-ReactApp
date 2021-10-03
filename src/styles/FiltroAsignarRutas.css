@@ -1,0 +1,64 @@
+.contenedorRadioButtons{
+    display: inline-flex;
+    height: 100px;
+    width: 400px;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    padding: 20px 15px;
+    flex-direction: column;
+}
+
+.contenedorRadioButtons .opcion{
+height: 100%;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+margin: 0 10px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.contenedorRadioButtons .opcion .dot{
+height: 20px;
+width: 20px;
+border: 1px solid white;
+border-radius: 50%;
+position: relative;
+}
+
+.contenedorRadioButtons .opcion .dot::before{
+position: absolute;
+content: "";
+top: 4px;
+left: 4px;
+width: 12px;
+height: 12px;
+background: white;
+border-radius: 50%;
+opacity: 0;
+transform: scale(1.5);
+transition: all 0.3s ease;
+}
+
+input[type="radio"]{
+display: none;
+}
+
+#opcion-1:checked:checked ~ .opcion-1 .dot::before,
+#opcion-2:checked:checked ~ .opcion-2 .dot::before,
+#opcion-3:checked:checked ~ .opcion-3 .dot::before,
+#opcion-4:checked:checked ~ .opcion-4 .dot::before{
+opacity: 1;
+transform: scale(1);
+background-color: #F7F7F7;
+}
+
+.contenedorRadioButtons .opcion span{
+font-size: 20px;
+}
+
+.espacioFiltros {
+width: 0.7vw;
+}
