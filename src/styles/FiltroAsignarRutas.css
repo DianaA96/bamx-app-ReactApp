@@ -1,6 +1,5 @@
 .contenedorRadioButtons{
     display: inline-flex;
-    height: 100px;
     width: 400px;
     align-items: center;
     justify-content: space-evenly;
