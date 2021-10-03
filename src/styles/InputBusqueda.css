@@ -1,0 +1,36 @@
+.inputBusqueda-container{
+    width: 70%;
+    padding: 0;
+    margin-right: 0.5em;
+    
+}
+
+.inputBusqueda-container form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.input-busqueda{
+    padding: 0.3em 1em;
+    border-style: none;
+    background: rgba(0, 0, 0, 0);
+}
+
+.buttonInputSearch {
+    margin-right: 1em;
+    background-color: transparent;
+    border-style: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    text-align: center;
+}
+
+.buttonInputSearch:hover {
+    box-shadow: none;
+    transform: none;
+}
+
+
+
