@@ -1,0 +1,12 @@
+.ImagenFormulario-container{
+    display: flex;
+    width: 500px;
+    height: inherit;
+    border-radius: 25px;
+}
+
+.img-formulario{
+    width: inherit;
+    object-fit: fill;
+    height: inherit ;
+}
