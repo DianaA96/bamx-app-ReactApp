@@ -1,15 +1,15 @@
 import React from "react";
 import '../styles/general.css';
 import '../styles/glass.css';
+import '../styles/filtros.css';
 import '../styles/FiltroAsignarRutas.css';
-import '../styles/MenuPrincipal.css';
 
 function FiltroAsignarRutas() {
     return(
-        <div className="lightGlass">
-            <div className="tituloCardFiltro bebas3 blanco delgada">
-                <h1>Orden</h1>
-            </div>
+        <div className="filtros-container darkGlass">
+            <h1 className="tituloCardFiltro bebas3 blanco">
+                Orden
+            </h1>
             <div className="opcionesFiltro manrope5 blanco">
                 <div class="contenedorRadioButtons">
                     <input type="radio" name="select" id="opcion-1"/>
@@ -19,7 +19,7 @@ function FiltroAsignarRutas() {
                     <label for="opcion-1" class="opcion opcion-1">
                         <div class="dot"></div>
                         <div className="espacioMenuPrincipal"></div>
-                        <span>A -Z</span>
+                        <span>A - Z</span>
                     </label>
                     <label for="opcion-2" class="opcion opcion-2">
                         <div class="dot"></div>
@@ -42,4 +42,4 @@ function FiltroAsignarRutas() {
     );
 }
 
-export default FiltroAsignarRutas
+export default FiltroAsignarRutas;
