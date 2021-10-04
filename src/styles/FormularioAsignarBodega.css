@@ -1,0 +1,36 @@
+.Formulario-containerBodega{
+    width: 20vw;
+    height: fit-content;
+}
+
+.item-formularioBodega{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-bottom: 1em;
+}
+
+.inputsBodegaEspecial {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.btn-formularioBodega{
+    bottom: -1em;
+    align-self: center;
+    justify-self: end;
+    width: 50%;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.tituloFormulario{
+    text-align: start;
+}
+
+.tituloFormulario hr {
+    border: 2px solid rgba(26, 26, 26, 0.3);
+    margin-bottom: 3vh;
+}
