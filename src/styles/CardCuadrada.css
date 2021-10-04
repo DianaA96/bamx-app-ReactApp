@@ -1,0 +1,16 @@
+.cardCuadrada {
+    display: flex;
+    flex-direction: column;
+    width: 13vw;
+    height: 13vw;
+    text-align: start;
+    padding: 2vw;
+}
+
+.cardCuadrada img {
+    position: absolute;
+    left: 9vw;
+    top: 10vw;
+    width: 6vw;
+    height: 5vw;
+}

@@ -1,0 +1,47 @@
+.cardOperadorEntrega{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    height: 13%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cardRecoleccionOperador {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    padding: 1vw;
+    width: 16%;
+    align-self: center;
+}
+
+.cardRecoleccionOperador img {
+    height: 2.5vw;
+}
+
+.infoRecoleccionOperador {
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    justify-content: space-around;
+}
+
+.infoOperadorEntrega {
+    width: 35%;
+    text-align: start;
+    align-content: space-between;
+}
+
+.botonAsignarRutaOperador {
+    display: flex;
+    align-items: center;
+}
+
+.nombreOperadorEntrega {
+    margin-bottom: 3.5vh;
+}
+
+.botonAsignarRutaOperador button {
+    padding-left: 1em;
+    padding-right: 1em;
+}
