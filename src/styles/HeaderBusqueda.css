@@ -30,6 +30,10 @@
     align-items: center;
 }
 
+.agregar-container h3{
+    margin-right: 0.5em;
+}
+
 .headerBusqueda-filtros{
     width: 30%;
     position: relative;

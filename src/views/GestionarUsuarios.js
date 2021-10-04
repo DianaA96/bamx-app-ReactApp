@@ -5,8 +5,46 @@ import CardCuadrada from '../components/CardCuadrada'
 import '../styles/views.css'
 
 function GestionarUsuarios() {
+    const users = [
+        {
+            nombre:'Daniel',
+            apellidoP:'Sanchez',
+            apellidoM:'Cornejo',
+            puesto:'Operador',
+        },
+        {
+            nombre:'Daniel',
+            apellidoP:'Sanchez',
+            apellidoM:'Cornejo',
+            puesto:'Operador',
+        },
+        {
+            nombre:'Daniel',
+            apellidoP:'Sanchez',
+            apellidoM:'Cornejo',
+            puesto:'Receptor',
+        },
+        {
+            nombre:'Daniel',
+            apellidoP:'Sanchez',
+            apellidoM:'Cornejo',
+            puesto:'Operador',
+        },
+        {
+            nombre:'Daniel',
+            apellidoP:'Sanchez',
+            apellidoM:'Cornejo',
+            puesto:'Receptor',
+        },
+        {
+            nombre:'Daniel',
+            apellidoP:'Sanchez',
+            apellidoM:'Cornejo',
+            puesto:'Coordinador de tráfico',
+        }
+    ]
     return (
-        <body>
+        <body className="red-gradient">
             <aside>
                 <MenuPrincipal></MenuPrincipal>
             </aside>
@@ -16,7 +54,9 @@ function GestionarUsuarios() {
                 </header>
                 <section className="contenido">
                     <div className="cardsCuadradas-container">
-                        <CardCuadrada></CardCuadrada>
+                        {users.map((user,i)=>
+                            <CardCuadrada user = {user}></CardCuadrada>
+                        )}
                     </div>
                 </section>
             </main>
