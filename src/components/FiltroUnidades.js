@@ -75,10 +75,6 @@ function FiltroRutas() {
     return (
         <div className="filtros-container darkGlass">
             <form action="" className="formFiltro">
-                <div className="filtros-item">
-                    <p className="bebas3 blanco">Número de puntos de recolección</p>
-                    <Select name="numPuntosRecoleccion" id="select-puntosRecoleccion" placeholder = "Seleccione una opción*" options={options} styles={customSelectStyles}/>
-                </div>
                 <div className="opcionesFiltro manrope5 blanco">
                     <p className="bebas3 blanco">Orden</p>
                     <div class="contenedorRadioButtons">
@@ -99,12 +95,12 @@ function FiltroRutas() {
                         <label for="opcion-3" class="opcion opcion-3">
                             <div class="dot"></div>
                             <div className="espacioFiltros"></div>
-                            <span>No. de donadores (Asc.)</span>
+                            <span>Vencimiento de póliza (Asc.)</span>
                         </label>
                         <label for="opcion-4" class="opcion opcion-4">
                             <div class="dot"></div>
                             <div className="espacioFiltros"></div>
-                            <span>No. de donadores (Desc.)</span>
+                            <span>Vencimiento de póliza (Desc.)</span>
                         </label>
                     </div>
                 </div>
