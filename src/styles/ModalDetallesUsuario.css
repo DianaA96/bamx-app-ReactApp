@@ -1,0 +1,76 @@
+.modalDetallesUsuario-container{
+    width: 50%;
+    padding: 1.75em !important;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+.modalDetallesUsuario-izquierda{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-left: -2vw;
+}
+
+.modalDetallesUsuario-izquierda img{
+    position: absolute;
+    margin-top: 210px;
+    margin-left: -30px;
+    width: 20em;
+}
+
+.modalDetallesUsuario-derecha{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.modalDetallesUsuario-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 70px;
+    padding-left: 1vw;
+}
+
+.modalDetallesUsuario-body{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 49px;
+    padding-left: 1vw;
+}
+
+.modalUsuarioIndividual{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modalUsuarioIndividual i{
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.infoUsuarioIndividual{
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+}
+
+.infoUsuarioIndividual .manrope4{
+    font-weight: 800;
+}
+
+.modalDetallesUsuario-acciones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.modalDetallesUsuario-acciones button{
+    margin: 0 0.5em;
+}

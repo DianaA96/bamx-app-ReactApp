@@ -94,3 +94,7 @@ p{
 .bold{
     font-weight: 700;
 }
+
+gris {
+    color: rgba(77, 77, 77, 1);
+}
