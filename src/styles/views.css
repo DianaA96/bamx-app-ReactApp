@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(111.13deg, #EA2040 2.15%, rgba(239, 73, 20, 0.71) 103.28%);
+}
+
+aside{
+    position: fixed;
+    width: 20%;
+}
+
+main{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    margin-left: 5vw;
+}
+
+header{
+    width: 80%;
+    display: flex;
+    align-self: center;
+    margin-top: 3em;
+    margin-bottom: 5em;
+}
+
+.contenido{
+    display: flex;
+    align-self: center;
+}
+
+
+
