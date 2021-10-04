@@ -4,7 +4,7 @@ import '../styles/filtros.css';
 import '../styles/general.css';
 import '../styles/FiltroAsignarRutas.css'
 
-function FiltroRutas() {
+function FiltroOperadoresRuta() {
 
     const options = [
         { value: '1', label: '1' },
@@ -76,16 +76,14 @@ function FiltroRutas() {
         <div className="filtros-container darkGlass">
             <form action="" className="formFiltro">
                 <div className="filtros-item">
-                    <p className="bebas3 blanco">Número de puntos de recolección</p>
-                    <Select name="numPuntosRecoleccion" id="select-puntosRecoleccion" placeholder = "Seleccione una opción*" options={options} styles={customSelectStyles}/>
+                    <p className="bebas3 blanco">Número de recolecciones hechas</p>
+                    <Select name="numRecoleccionesHechas" id="select-RecoleccionesHecha" placeholder = "Seleccione una opción*" options={options} styles={customSelectStyles}/>
                 </div>
                 <div className="opcionesFiltro manrope5 blanco">
                     <p className="bebas3 blanco">Orden</p>
                     <div class="contenedorRadioButtons">
                         <input type="radio" name="select" id="opcion-1" checked/>
                         <input type="radio" name="select" id="opcion-2"/>
-                        <input type="radio" name="select" id="opcion-3"/>
-                        <input type="radio" name="select" id="opcion-4"/>
                         <label for="opcion-1" class="opcion opcion-1">
                             <div class="dot"></div>
                             <div className="espacioFiltros"></div>
@@ -96,16 +94,6 @@ function FiltroRutas() {
                             <div className="espacioFiltros"></div>
                             <span>Z - A</span>
                         </label>
-                        <label for="opcion-3" class="opcion opcion-3">
-                            <div class="dot"></div>
-                            <div className="espacioFiltros"></div>
-                            <span>No. de donadores (Asc.)</span>
-                        </label>
-                        <label for="opcion-4" class="opcion opcion-4">
-                            <div class="dot"></div>
-                            <div className="espacioFiltros"></div>
-                            <span>No. de donadores (Desc.)</span>
-                        </label>
                     </div>
                 </div>
             </form>
@@ -113,4 +101,4 @@ function FiltroRutas() {
     )
 }
 
-export default FiltroRutas
+export default FiltroOperadoresRuta

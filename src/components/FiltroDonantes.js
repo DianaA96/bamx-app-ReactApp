@@ -12,10 +12,10 @@ function FiltroDonantes() {
             </h1>
             <div className="opcionesFiltro manrope5 blanco">
                 <div class="contenedorRadioButtons">
-                    <input type="radio" name="select" id="opcion-1"/>
-                    <input type="radio" name="select" id="opcion-2"/>
-                    <input type="radio" name="select" id="opcion-3"/>
-                    <input type="radio" name="select" id="opcion-4"/>
+                    <input type="radio" name="selectTipo" id="opcion-1" checked/>
+                    <input type="radio" name="selectTipo" id="opcion-2"/>
+                    <input type="radio" name="selectTipo" id="opcion-3"/>
+                    <input type="radio" name="selectTipo" id="opcion-4"/>
                     <label for="opcion-1" class="opcion opcion-1">
                         <div class="dot"></div>
                         <div className="espacioMenuPrincipal"></div>
@@ -43,8 +43,8 @@ function FiltroDonantes() {
             </h1>
             <div className="opcionesFiltro manrope5 blanco">
                 <div class="contenedorRadioButtons">
-                    <input type="radio" name="select" id="opcion-1"/>
-                    <input type="radio" name="select" id="opcion-2"/>
+                    <input type="radio" name="selectOrden" id="opcion-1" checked/>
+                    <input type="radio" name="selectOrden" id="opcion-2"/>
                     <label for="opcion-1" class="opcion opcion-1">
                         <div class="dot"></div>
                         <div className="espacioMenuPrincipal"></div>

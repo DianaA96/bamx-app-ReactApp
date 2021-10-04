@@ -36,7 +36,7 @@ function FormularioAgregarUsuario() {
         menu: base => ({
             ...base,
             borderRadius: "25px",
-            background: "rgba(205, 205, 205, 0.41)",
+            background: "#F7F7F7",
             boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
             backdropFilter: "blur( 80px )",
             color: "#F7F7F7",
@@ -55,7 +55,7 @@ function FormularioAgregarUsuario() {
         }),
         option: (base,{data, isDisabled, isFocused,isSelected}) => ({
             ...base,
-            color: "#F7F7F7",
+            color: "#1A1A1A",
             backgroundColor: isDisabled ? undefined: isSelected,
             "&:hover ": {
                 background: "rgba(49, 48, 48, 0.46)",
