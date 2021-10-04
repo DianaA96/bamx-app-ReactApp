@@ -36,6 +36,12 @@
     display: flex;
     align-items: center;
 }
+
 .nombreOperadorEntrega {
     margin-bottom: 3.5vh;
+}
+
+.botonAsignarRutaOperador button {
+    padding-left: 1em;
+    padding-right: 1em;
 }
