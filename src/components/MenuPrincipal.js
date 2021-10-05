@@ -13,12 +13,22 @@ import LogoGestionOperEnRut from '../assets/icons/iconoOperadorRuta.png';
 import LogoAsignarRutEnt from '../assets/icons/iconoBodega.png';
 import TabMenuPrincipal from "./TabMenuPrincipal";
 
-function MenuPrincipal() {
+function MenuPrincipal(props) {
 
+    let tabs, iconosTabs
     let tabs1 = ["Gestionar rutas", "Asignar rutas de recolección", "Gestión de operadores en ruta", "Asignar ruta de entrega", "Cerrar sesión"]
     let iconosTabs1 = [LogoGestionarRutas, LogoAsignarRutasRec, LogoGestionOperEnRut, LogoAsignarRutEnt, LogoCierreSesion]
     let tabs2 = ["Gestionar usuarios", "Gestionar donadores", "Gestionar unidades", "Cerrar sesión"]
     let iconosTabs2 = [LogoGestionarUsuarios, LogoGestionarDonadores, LogoGestionarUnidades, LogoCierreSesion]
+
+
+    if (props.idRolLogin === 1) {
+        tabs = tabs1
+        iconosTabs = iconosTabs1
+    } else {
+        tabs = tabs2
+        iconosTabs = iconosTabs2
+    }
 
     return(
         <> 
@@ -34,9 +44,9 @@ function MenuPrincipal() {
                         </span>
                     </li> 
 
-                    {tabs1.map((logo, index) =>
+                    {tabs.map((logo, index) =>
                         <li>
-                            <TabMenuPrincipal icono={iconosTabs1[index]} logo={logo}/>
+                            <TabMenuPrincipal icono={iconosTabs[index]} logo={logo}/>
                         </li>
                     )}
                 </ul>
