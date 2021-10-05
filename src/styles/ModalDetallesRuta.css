@@ -1,5 +1,20 @@
+.modal-overlay{
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 2vh;
+    overflow: auto;
+    background: rgba(44, 44, 44, 0.431);
+    z-index: 100;
+}
+
 .modalDetallesRuta-container{
-    width: 50%;
+    width: 50vw;
     padding: 1.75em !important;
     display: flex;
     flex-direction: row;

@@ -14,3 +14,8 @@
     width: 6vw;
     height: 6vw;
 }
+
+.cardCuadrada:hover{
+    cursor: pointer;
+    transform: scale(1.01);
+}
