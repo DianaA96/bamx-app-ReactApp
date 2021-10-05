@@ -72,6 +72,7 @@ function ItemDonador() {
     function hideDonador(){
         setDonadorVisibility("hidden");
     }
+    
     if (donadorVisibility === "visible") {
     return (
         <div className="item-formulario">

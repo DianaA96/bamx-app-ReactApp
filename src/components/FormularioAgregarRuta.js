@@ -8,7 +8,7 @@ import '../styles/botones.css';
 import ItemDonador from './ItemDonador';
 
 function FormularioAgregarRuta() {
-    var n = 1;
+
     var [donadores, setDonadores] = useState(1);
 
     function addInput(){
