@@ -1,15 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Select from 'react-select'
 import '../styles/general.css';
 import '../styles/botones.css';
 import '../styles/formularios.css';
 
-function ItemDonador(props) {
+function ItemDonador() {
+    
+    var [donadorVisibility, setDonadorVisibility] = useState("visible")
+
     const options = [
         { value: '321', label: 'Walmart' },
         { value: '3412', label: 'Superama' },
         { value: '9482', label: 'Soriana' }
-      ]
+    ]
 
     const customSelectStyles = {
         control: (base, state) => ({
@@ -67,10 +70,12 @@ function ItemDonador(props) {
     }
 
     function hideDonador(){
-        props.setDonadorVisibility("hidden");
+        setDonadorVisibility("hidden");
     }
+    
+    if (donadorVisibility === "visible") {
     return (
-        <div className="item-formulario" id={`donador${props.i}`}> 
+        <div className="item-formulario">
             <label htmlFor="donador" className="input-label bebas4">Punto de recolección / Donador*</label> 
             <div className="item-donador"> 
                 <Select name="donador" id="select-donador" placeholder ="Seleccione un donador*" options={options} styles={customSelectStyles} required/> 
@@ -78,6 +83,9 @@ function ItemDonador(props) {
             </div>
         </div>
     )
+    } else {
+        return (null)
+    }
 }
 
 export default ItemDonador

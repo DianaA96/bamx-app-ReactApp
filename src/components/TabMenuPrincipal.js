@@ -5,11 +5,14 @@ import '../styles/MenuPrincipal.css';
 
 function TabMenuPrincipal(props) {
     return(
-        <button className="tabMenuPrincipal">
-            <img src={props.icono} alt='Icon'/>
-            <span className="espacioMenuPrincipal">     </span>
-            <p className="tabMenuPrincipal bebas4 blanco delgada">{props.logo}</p>
-        </button>
+        <a href="">
+            <span className="contenedorImagen">
+                <img src={props.icono} alt='Icon'/>
+            </span>
+            <span className="nav-text menuCopy">
+                {props.logo}
+            </span>
+        </a>
     );
 }
 
