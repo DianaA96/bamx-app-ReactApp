@@ -9,6 +9,10 @@
     margin-top: 2em;
 }
 
+.filtros-container form{
+    position: relative;
+}
+
 .filtros-item{
     flex-direction: column;
     margin-bottom: 1em;
