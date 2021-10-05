@@ -21,22 +21,34 @@ function MenuPrincipal() {
     let iconosTabs2 = [LogoGestionarUsuarios, LogoGestionarDonadores, LogoGestionarUnidades, LogoCierreSesion]
 
     return(
-        <div className="contenedorMenuPrincipal lightGlass">
-            <div className="tituloMenuPrincipal">
-                <img src={Tomapple} alt='Logo del Banco de Alimentos de Morelos'/>    
-                <h1 className="bebas2 negro">Banco de Alimentos de Morelos</h1>
-            </div>
-            <div className="tabsMenuPrincipal">
-                {tabs1.map((logo, index) =>
-                <div>
-                    <TabMenuPrincipal icono={iconosTabs1[index]} logo={logo}/>
-                </div>
-                )}
-            </div>
-            <div className="fraseInferiorMenu">
-                <p className="manrope7 bold">Banco de Alimentos de Morelos, 2021</p>
-            </div>
-        </div>
+        <> 
+            <div className="area"></div>
+            <nav className="main-menu">
+                <ul>
+                    <li>
+                        <span className="contenedorImagenTomapple">
+                        <img src={Tomapple} alt='Icon'/>
+                        </span>
+                        <span className="bebas2 negro nav-text menuCopy">
+                            Banco de Alimentos de Morelos
+                        </span>
+                    </li> 
+
+                    {tabs1.map((logo, index) =>
+                        <li>
+                            <TabMenuPrincipal icono={iconosTabs1[index]} logo={logo}/>
+                        </li>
+                    )}
+                </ul>
+                <ul className="logout">
+                    <li>
+                        <span className="manrope7 negro menuCopy menuFraseFinal">
+                            Banco de Alimentos de Morelos, 2021.
+                        </span>
+                    </li>  
+                </ul>
+            </nav>
+        </>
     );
 }
 

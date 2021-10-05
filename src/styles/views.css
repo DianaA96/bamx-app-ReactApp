@@ -20,11 +20,6 @@ body{
     width: 100%;
 }
 
-aside{
-    position: fixed;
-    width: 20%;
-}
-
 main{
     width: 95%;
     display: flex;
@@ -55,6 +50,7 @@ header{
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
 .cardsCuadradas-container .cardCuadrada{
     margin-bottom: 1em;
 }
