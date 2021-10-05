@@ -17,7 +17,7 @@
 
 
 body{
-    width: 99.98%;
+    width: 99.988%;
     height: 100%;
     overflow-x: hidden;
 }
@@ -64,7 +64,48 @@ header{
     margin-bottom: 1em;
 }
 
+.cardsCuadradas-container::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px #afafaf;
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px #afafaf;
+	background-color: #afafaf;
+}
 
+.cardsCuadradas-container::-webkit-scrollbar
+{
+	width: 0.2em;
+	background-color: #afafaf;
+}
 
+.cardsCuadradas-container::-webkit-scrollbar-thumb
+{
+	border-radius: 2em;
+    background: rgba(0, 0, 0, 0.513);
+    padding: 1.250em;
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
+}
 
+body::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px #afafaf;
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px #afafaf;
+	background-color: #afafaf;
+}
 
+body::-webkit-scrollbar
+{
+	width: 0.5em;
+	background-color: #afafaf;
+}
+
+body::-webkit-scrollbar-thumb
+{
+	border-radius: 2em;
+    background: rgba(0, 0, 0, 0.513);
+    padding: 1.250em;
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
+}
