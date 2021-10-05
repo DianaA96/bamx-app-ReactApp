@@ -1,8 +1,9 @@
 import React from 'react'
 import Select from 'react-select'
-import '../styles/filtros.css';
 import '../styles/general.css';
-import '../styles/FiltroAsignarRutas.css'
+import '../styles/glass.css';
+import '../styles/filtros.css';
+import '../styles/FiltroAsignarRutas.css';
 
 function FiltroOperadoresRuta() {
 

@@ -18,6 +18,8 @@
 
 body{
     width: 100%;
+    height: 100%;
+    overflow-x: hidden;
 }
 
 main{
@@ -34,14 +36,15 @@ header{
     width: 80%;
     display: flex;
     align-self: center;
-    margin-top: 3em;
-    margin-bottom: 5em;
+    margin-top: 1em;
+    margin-bottom: 3em;
     z-index: 10;
 }
 
 .contenido{
-    width: 80vw;
+    width: 80%;
     z-index: 1;
+    margin-bottom: 3em;
 }
 
 .cardsCuadradas-container{
@@ -50,6 +53,11 @@ header{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    height: 71vh;
+    position: relative;
+    overflow: hidden;
+    overflow-y: scroll;
+
 }
 
 .cardsCuadradas-container .cardCuadrada{
