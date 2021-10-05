@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+}
+
+.red-gradient{
+    background: linear-gradient(111.13deg, #EA2040 2.15%, rgba(239, 73, 20, 0.71) 103.28%);
+}
+
+.green-gradient{
+    background: linear-gradient(113.19deg, #006627 40.72%, #3A9F0B 101.04%);
+}
+
+
+.orange-gradient{
+    background: linear-gradient(112.19deg, #F86F2D 22.06%, #EAA43B 103.31%);
+}
+
+
+body{
+    width: 100%;
+}
+
+aside{
+    position: fixed;
+    width: 20%;
+}
+
+main{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    margin-left: 5vw;
+}
+
+header{
+    width: 80%;
+    display: flex;
+    align-self: center;
+    margin-top: 3em;
+    margin-bottom: 5em;
+    z-index: 10;
+}
+
+.contenido{
+    width: 80vw;
+    z-index: 1;
+}
+
+.cardsCuadradas-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.cardsCuadradas-container .cardCuadrada{
+    margin-bottom: 1em;
+}
+
+
+
+
+
