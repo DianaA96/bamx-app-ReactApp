@@ -7,16 +7,13 @@ import '../styles/inputs.css';
 import '../styles/botones.css';
 import ItemDonador from './ItemDonador';
 
-
 function FormularioAgregarRuta() {
-    var n=1;
+    var n = 1;
     var [donadores, setDonadores] = useState(1);
-    var [donadorVisibility, setDonadorVisibility] = useState("visible")
 
     function addInput(){
-         setDonadores(donadores=donadores+1);
+        setDonadores(donadores=donadores+1);
     }
-
 
     return (
         <div className="Formulario-container lightGlass">
@@ -25,8 +22,8 @@ function FormularioAgregarRuta() {
                     <label htmlFor="nombreRuta" className="input-label bebas4">Nombre de la ruta*</label>
                     <input type="text" className="inputDarkGlass manrope5" required name="nombreRuta" placeholder="Nombre"/>
                 </div>
-                {[...Array(donadores)].map((donador, i) => 
-                    <ItemDonador id={i} setDonadorVisibility={setDonadorVisibility}></ItemDonador>
+                {[...Array(donadores)].map(() => 
+                    <ItemDonador></ItemDonador>
                 )}
                 <div className="agregar-inputDonador espacio-extra">
                     <button className="btnMasGlass" type="button" onClick={addInput}><i class="fas fa-plus"></i></button>
