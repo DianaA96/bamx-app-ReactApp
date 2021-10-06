@@ -36,6 +36,11 @@ function ModalDetallesRuta(props) {
         props.setModalVisibility(false)
     }
 
+    function showModalConfirmacion(){
+        props.setModalConfirmacionVisibility(true)
+        props.setModalVisibility(false)
+    }
+
     let nombreRuta = "GOBERNADORES-ARISTA"
     let numPuntosRecoleccion = donadores.length
 
@@ -67,7 +72,7 @@ function ModalDetallesRuta(props) {
                             )}
                         </section>
                         <section className="modalDetallesRuta-acciones">
-                            <button className="btnRosa bebas4">Eliminar Ruta</button>
+                            <button className="btnRosa bebas4" onClick={showModalConfirmacion}>Eliminar Ruta</button>
                             <button className="btnAmarillo bebas4">Editar datos de la ruta</button>
                         </section>
                     </section>

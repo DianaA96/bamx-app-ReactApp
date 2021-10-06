@@ -30,9 +30,11 @@
 .main-menu:hover,nav.main-menu.expanded {
     width: 27vw;
     overflow: visible;
+    transition: all 0.5s;
 }
 
 .main-menu {
+    
     background: rgba(205, 205, 205, 0.41);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4px );
@@ -90,9 +92,14 @@
 }
 
 .main-menu .nav-text {
+    opacity: 0;
     position:relative;
     display:table-cell;
     vertical-align:middle;
+}
+.main-menu:hover .nav-text{
+    opacity: 1;
+    transition: ease 0.8s;
 }
 
 .main-menu>ul.logout {

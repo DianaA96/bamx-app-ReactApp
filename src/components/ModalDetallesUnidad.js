@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/general.css';
 import '../styles/ModalDetallesRuta.css';
 import '../styles/ModalDetallesUsuario.css';
-import iconoUsuario from '../assets/icons/iconoUnidadDetalle.png'
+import iconoUnidad from '../assets/icons/iconoUnidadDetalle.png'
 import '../styles/glass.css';
 import '../styles/botones.css';
 import styled, { keyframes } from "styled-components";
@@ -16,15 +16,14 @@ const BounceInDiv = styled.div`
     animation: 1 0.5s ${BounceInAnimation};
 `;
 
-function ModalDetallesUsuario(props) {
+function ModalDetallesUnidad(props) {
 
-    let usuario = {
-        idUsuario: `${props.userId}`,
-        nombreUsuario: 'Daniel',
-        apellidosUsuario: 'Sánchez Cornejo',
-        rolUsuario: 'Operador',
-        correoUsuario: 'daniel@correofalso.com',
-        numeroTelfUsuario: '77 7234 5678' 
+    let unidad = {
+        idUnidad: `${props.vehicleId}`,
+        placas: 'CCV7-823-2731',
+        descripcionUnidad: 'Nissan NP 300',
+        numPoliza: '1829178',
+        vencimientoPoliza: '12-08-23'
     }
 
     function hideModal(){
@@ -40,30 +39,28 @@ function ModalDetallesUsuario(props) {
         <div className="modal-overlay">
             <BounceInDiv>
                 <div className="modalDetallesUsuario-container darkGlass">
-                    <section className="modalDetallesUsuario-izquierda">
-                        <h1 className="bebas1 blanco">Detalle del usuario</h1>
-                        <img src={iconoUsuario} alt="" />
+                    <section className="modalDetallesUnidad-izquierda">
+                        <h1 className="bebas1 blanco">Detalle de la unidad</h1>
+                        <img src={iconoUnidad} alt="" />
                     </section>
                     <section className="modalDetallesUsuario-derecha">
                         <section className="modalDetallesUsuario-header">
                             <div className="modalTitulo">
-                                <p className="manrope5">ID</p>
-                                <p className="manrope5">{usuario.idUsuario}</p>
+                                <p className="manrope5"><span className="bold">PLACA</span></p>
+                                <p className="manrope5">{unidad.placas}</p>
                             </div>
                             <button className="btn-cerrar" onClick={hideModal}><i class="fas fa-times-circle colorG100"></i></button>
                         </section>
                         <section className="modalDetallesUsuario-body">
                             <div className="modalTitulo">
-                                <p className="manrope4">{usuario.nombreUsuario}</p>
-                                <p className="manrope4">{usuario.apellidosUsuario}</p>
-                                <p className="manrope5">{usuario.rolUsuario}</p>
+                                <p className="manrope4"> {unidad.descripcionUnidad}</p>
                             </div>
                         </section>
                         <section className="modalDetallesUsuario-body">
                             <div className="modalUsuarioIndividual">
                                 <div className="infoUsuarioIndividual">
-                                    <p className="manrope5">{usuario.correoUsuario}</p>
-                                    <p className="manrope5">{usuario.numeroTelfUsuario}</p>
+                                    <p className="manrope5"><span className="bold">Número de póliza: </span>{unidad.numPoliza}</p>
+                                    <p className="manrope5"><span className="bold">Fecha de vencimiento: </span>{unidad.vencimientoPoliza}</p>
                                 </div>
                             </div>
                         </section>
@@ -78,4 +75,4 @@ function ModalDetallesUsuario(props) {
     )
 }
 
-export default ModalDetallesUsuario
+export default ModalDetallesUnidad
