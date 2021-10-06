@@ -10,15 +10,13 @@
     background: linear-gradient(113.19deg, #006627 40.72%, #3A9F0B 101.04%);
 }
 
-
 .orange-gradient{
     background: linear-gradient(112.19deg, #F86F2D 22.06%, #EAA43B 103.31%);
 }
 
-
 body{
     width: 99.988%;
-    height: 100%;
+    height: 100vh;
     overflow-x: hidden;
 }
 
@@ -56,8 +54,21 @@ header{
     height: 71vh;
     position: relative;
     overflow: hidden;
-    overflow-y: scroll;
+}
 
+.cardsOperadorPendiente-container .cardCuadrada{
+    margin-bottom: 2em;
+}
+
+.cardsOperadorPendiente-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: fit-content;
+    position: relative;
+    overflow: hidden;
 }
 
 .cardsCuadradas-container .cardCuadrada{
