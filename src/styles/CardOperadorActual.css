@@ -1,7 +1,8 @@
 .cardOperadorActual-container{
     display: flex;
     flex-direction: column;
-    width: 600px;
+    width: 580px;
+    margin-bottom: 2em;
 }
 
 .cardOperadorActual-top{
@@ -46,4 +47,6 @@
     background: #66FFA1;
     border-radius: 25em;
     height: 10px;
+    top: 95%;
+    left: 10px;
 }
