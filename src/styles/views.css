@@ -46,6 +46,11 @@ header{
     z-index: 1;
     margin-bottom: 3em;
 }
+.contenidoFormulario-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 
 .cardsCuadradas-container{
     width: 100%;
