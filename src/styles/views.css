@@ -125,3 +125,53 @@ body::-webkit-scrollbar-thumb
     backdrop-filter: blur( 20px );
     -webkit-backdrop-filter: blur( 20px );
 }
+
+.aguacateError {
+    align-self: center;
+    position: absolute;
+    left: 25%;
+    top: 20vh;
+}
+
+.sandiaError {
+    align-self: center;
+    position: absolute;
+    left: 25%;
+    top: 20vh;
+}
+
+.zanahoriaVacia {
+    align-self: center;
+    position: absolute;
+    left: 31%;
+    top: 10vh;
+}
+
+.limonCorredor{
+    align-self: center;
+    position: absolute;
+    left: 24%;
+    top: 13vh;
+}
+
+.apioCorredor{
+    align-self: center;
+    position: absolute;
+    left: 25%;
+    top: 17vh;
+}
+
+.brocoliVacio{
+    align-self: center;
+    position: absolute;
+    left: 23.5%;
+    top: 13vh;
+    height: 80vh;
+}
+
+.textoError {
+    align-self: center;
+    text-align: center;
+    position: relative;
+    top: 60vh
+}
