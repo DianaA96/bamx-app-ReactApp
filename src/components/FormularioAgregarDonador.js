@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Select from 'react-select'
 import '../styles/formularios.css';
 import '../styles/general.css';
@@ -6,7 +6,9 @@ import '../styles/glass.css';
 import '../styles/inputs.css';
 import '../styles/botones.css';
 
-function FormularioDonador() {
+function FormularioAgregarDonador(props) {
+
+    const [selectValue, setSelectValue] = useState('')
 
     const options = [
         { value: 'Recurrente', label: 'Recurrente' },
@@ -36,7 +38,7 @@ function FormularioDonador() {
         menu: base => ({
             ...base,
             borderRadius: "25px",
-            background: "rgba(205, 205, 205, 0.41)",
+            background: "#F7F7F7",
             boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
             backdropFilter: "blur( 80px )",
             color: "#F7F7F7",
@@ -49,13 +51,21 @@ function FormularioDonador() {
             ...base,
             borderRadius: "25px",
         }),
+        singleValue: base => ({
+            ...base,
+            color: "#F7F7F7",
+        }),
+        input: base => ({
+            ...base,
+            color: "#F7F7F7",
+        }),
         dropdownIndicator: base => ({
             ...base,
             color: "#F7F7F7"
         }),
         option: (base,{data, isDisabled, isFocused,isSelected}) => ({
             ...base,
-            color: "#F7F7F7",
+            color: "#1A1A1A",
             backgroundColor: isDisabled ? undefined: isSelected,
             "&:hover ": {
                 background: "rgba(49, 48, 48, 0.46)",
@@ -70,6 +80,20 @@ function FormularioDonador() {
         },
         })
     }
+
+
+    const handleSelectChange = selectedOption => {
+        let { label, value } = selectedOption
+        setSelectValue(value);
+        console.log(selectValue)
+    }
+
+
+    function showModal(){
+        props.setNombreDonador("Walmart Gobernadores")
+        props.setModalConfirmacionVisibility(true)
+    }
+
 
     return (
         <div className="Formulario-container lightGlass">
@@ -108,12 +132,12 @@ function FormularioDonador() {
                 </div>
                 <div className="item-formulario espacio-extra">
                     <label htmlFor="tipoDonador" className="input-label bebas4">Tipo*</label>
-                    <Select name="tipoDonador" id="select-tipoDonador" placeholder = "Seleccione el tipo de donador*" options={options} styles={customSelectStyles} required/>
+                    <Select name="tipoDonador" id="select-tipoDonador" placeholder = "Seleccione el tipo de donador*" options={options} styles={customSelectStyles} required onChange={handleSelectChange}/>
                 </div>
-                <button className="btnNaranja bebas2 blanco btn-formulario">Guardar</button>
+                <button className="btnNaranja bebas2 blanco btn-formulario" onClick={showModal}>Guardar</button>
             </form>
         </div>
     )
 }
 
-export default FormularioDonador
+export default FormularioAgregarDonador
