@@ -9,7 +9,7 @@ function TabMenuPrincipal(props) {
             <span className="contenedorImagen">
                 <img src={props.icono} alt='Icon'/>
             </span>
-            <span className="nav-text menuCopy">
+            <span className="nav-text menuCopy bebas3">
                 {props.logo}
             </span>
         </a>

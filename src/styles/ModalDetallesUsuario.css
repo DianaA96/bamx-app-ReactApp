@@ -37,6 +37,22 @@
     width: 20em;
 }
 
+.modalDetallesDonador-izquierda img{
+    position: absolute;
+    margin-top: 2em;
+    margin-left: -3.5em;
+    width: 18em;
+}
+
+.modalDetallesUnidad-izquierda img{
+    position: absolute;
+    margin-top: 2em;
+    margin-left: -4em;
+    width: 25em;
+}
+
+
+
 .modalDetallesUsuario-derecha{
     width: 45%;
     display: flex;

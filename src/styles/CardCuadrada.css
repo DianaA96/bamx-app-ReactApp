@@ -11,8 +11,7 @@
     position: absolute;
     left: 9vw;
     top: 10vw;
-    width: 6vw;
-    height: 6vw;
+    width: 6em;
 }
 
 .cardCuadrada:hover{

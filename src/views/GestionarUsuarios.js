@@ -63,7 +63,7 @@ function GestionarUsuarios() {
     return (
         <body className="red-gradient">
             <aside>
-                <MenuPrincipal></MenuPrincipal>
+                <MenuPrincipal idRolLogin={2}></MenuPrincipal>
             </aside>
             <main>
                 <header>
@@ -76,9 +76,8 @@ function GestionarUsuarios() {
                         )}
                     </div>
                 </section>
-                {modalVisibility ? <ModalDetallesUsuario userId={userId} setModalVisibility={setModalVisibility}  setModaConfirmacionVisibility={setModalConfirmacionVisibility}></ModalDetallesUsuario>  : null}
+                {modalVisibility ? <ModalDetallesUsuario userId={userId} setModalVisibility={setModalVisibility}  setModalConfirmacionVisibility={setModalConfirmacionVisibility}></ModalDetallesUsuario>  : null}
                 {modalConfirmacionVisibility ? <ModalConfirmacion  setModalConfirmacionVisibility={setModalConfirmacionVisibility} titulo1="eliminación" titulo2="usuario" accion="eliminar" entidadObjetivo=" el usuario" idEntidad={userId}></ModalConfirmacion>:null}
-                
             </main>
         </body>
     )
