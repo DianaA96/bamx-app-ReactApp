@@ -1,0 +1,26 @@
+.fondoTomates{
+    background-image: url(https://images.unsplash.com/photo-1592924357228-91a4daadcfea?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1408&q=80);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+    
+}
+
+.pantallaLogin{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: stretch;
+    height: 70vh;
+    padding-bottom: 20vh;
+    margin-left: 0px;
+    margin-top: 10vh;
+}
+
+.cardLogin{
+    height: 70vh;
+    width: 30vw;
+    position: relative;
+}

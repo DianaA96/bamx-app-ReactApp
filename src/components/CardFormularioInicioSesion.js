@@ -1,10 +1,9 @@
 import React from 'react';
+import '../styles/CardFormularioInicioSesion.css';
 import '../styles/general.css';
 import '../styles/glass.css';
 import '../styles/botones.css';
 import '../styles/inputs.css';
-import '../styles/CardLogoInicioSesion.css';
-import '../styles/CardFormularioInicioSesion.css';
 
 function CardFormularioInicioSesion(){
     return(

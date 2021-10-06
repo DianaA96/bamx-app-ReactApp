@@ -1,6 +1,6 @@
 .cardPrincipal{
-    width: 40%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -8,5 +8,5 @@
 
 .cardPrincipal img{
     display: flex;
-    height: 30%;
+    height: 30vh;
 }

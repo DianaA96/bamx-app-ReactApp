@@ -10,13 +10,13 @@ import '../styles/FormularioAsignarBodega.css';
 function FormularioAsignarBodega() {
 
     const options = [
-        { value: 'Bodega BAMX Cuernavaca', label: 'Bodega BAMX Cuernavaca' },
-        { value: 'Bodega BAMX Temixco', label: 'Bodega BAMX Temixco' },
-        { value: 'Bodega BAMX Jiutepec', label: 'Bodega BAMX Jiutepec' },
-        { value: 'Bodega BAMX Zapata', label: 'Bodega BAMX Zapata' },
-        { value: 'Bodega BAMX Tlahuapan', label: 'Bodega BAMX Tlahuapan' },
-        { value: 'Bodega BAMX Refrigerados', label: 'Bodega BAMX Refrigerados' }
-      ]
+        { value: '1', label: 'Banco de Alimentos de Cuernavaca' },
+        { value: '2', label: 'Banco de Alimentos de Temixco' },
+        { value: '3', label: 'Banco de Alimentos de Jiutepec' },
+        { value: '4', label: 'Banco de Alimentos Zapata' },
+        { value: '5', label: 'Bodega Tlahuapan' },
+        { value: '6', label: 'Bodega Refrigerados' },
+    ]
 
     const customSelectStyles = {
         control: (base, state) => ({
@@ -40,7 +40,7 @@ function FormularioAsignarBodega() {
         menu: base => ({
             ...base,
             borderRadius: "25px",
-            background: "rgba(205, 205, 205, 0.41)",
+            background: "#F7F7F7",
             boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
             backdropFilter: "blur( 80px )",
             color: "#F7F7F7",
@@ -59,7 +59,7 @@ function FormularioAsignarBodega() {
         }),
         option: (base,{data, isDisabled, isFocused,isSelected}) => ({
             ...base,
-            color: "#F7F7F7",
+            color: "#1A1A1A",
             backgroundColor: isDisabled ? undefined: isSelected,
             "&:hover ": {
                 background: "rgba(49, 48, 48, 0.46)",
@@ -80,7 +80,7 @@ function FormularioAsignarBodega() {
             <form action="" className="formulario">
                 <div className="item-formulario">
                 <label htmlFor="bodegaDestino" className="input-label bebas4">Bodega de destino*</label>
-                    <Select name="tipoDonador" id="select-tipoDonador" placeholder = "Seleccione el tipo de donador*" options={options} styles={customSelectStyles} required/>
+                    <Select name="tipoDonador" id="select-tipoDonador" placeholder = "Seleccione la bodega*" options={options} styles={customSelectStyles} required/>
                 </div>
                 <div className="tituloFormulario">
                     <h3 className="bebas2">Categorías</h3>

@@ -97,6 +97,7 @@
     display:table-cell;
     vertical-align:middle;
 }
+
 .main-menu:hover .nav-text{
     opacity: 1;
     transition: ease 0.8s;
