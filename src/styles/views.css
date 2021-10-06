@@ -50,6 +50,10 @@ header{
     justify-content: space-around;
 }
 
+.contenidoFormulario-container .Formulario-container{
+    margin-left: 2em;
+}
+
 .cardsCuadradas-container{
     width: 100%;
     display: flex;

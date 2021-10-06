@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Select from 'react-select'
 import '../styles/formularios.css';
 import '../styles/general.css';
@@ -6,7 +6,13 @@ import '../styles/glass.css';
 import '../styles/inputs.css';
 import '../styles/botones.css';
 
-function FormularioUnidad() {
+function FormularioEditarUnidad(props) {
+
+
+    function showModal(){
+        props.setPlacaUnidad("CCV-31212-431")
+        props.setModalConfirmacionVisibility(true)
+    }
     return (
         <div className="Formulario-container lightGlass">
             <form action="" className="formulario">
@@ -27,10 +33,10 @@ function FormularioUnidad() {
                     <input type="date" className="inputDarkGlass manrope5" required name="fechaVenicmiento" placeholder="Número a 10 dígitos"/>
                 </div>
                 
-                <button className="btnNaranja bebas2 blanco btn-formulario">Guardar</button>
+                <button className="btnNaranja bebas2 blanco btn-formulario" onClick={showModal}>Guardar</button>
             </form>
         </div>
     )
 }
 
-export default FormularioUnidad
+export default FormularioEditarUnidad
