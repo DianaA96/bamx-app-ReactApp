@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/general.css';
 import '../styles/ModalDetallesRuta.css';
 import '../styles/ModalDetallesUsuario.css';
-import iconoDonador from '../assets/icons/iconoDonador.png'
+import iconoDonador from '../assets/icons/iconoDonadorDetalle.png'
 import '../styles/glass.css';
 import '../styles/botones.css';
 import styled, { keyframes } from "styled-components";
@@ -39,14 +39,14 @@ function ModalDetallesDonador(props) {
         <div className="modal-overlay">
             <BounceInDiv>
                 <div className="modalDetallesUsuario-container darkGlass">
-                    <section className="modalDetallesUsuario-izquierda">
+                    <section className="modalDetallesDonador-izquierda">
                         <h1 className="bebas1 blanco">Detalle del donador</h1>
                         <img src={iconoDonador} alt="" />
                     </section>
                     <section className="modalDetallesUsuario-derecha">
                         <section className="modalDetallesUsuario-header">
                             <div className="modalTitulo">
-                                <p className="manrope5">ID</p>
+                                <p className="manrope5"><span className="bold">ID del Donador</span></p>
                                 <p className="manrope5">{props.donorId}</p>
                             </div>
                             <button className="btn-cerrar" onClick={hideModal}><i class="fas fa-times-circle colorG100"></i></button>
@@ -60,8 +60,8 @@ function ModalDetallesDonador(props) {
                         <section className="modalDetallesUsuario-body">
                             <div className="modalUsuarioIndividual">
                                 <div className="infoUsuarioIndividual">
-                                    <p className="manrope5">{donador.correoDonador}</p>
-                                    <p className="manrope5">{donador.numeroTelfDonador}</p>
+                                    <p className="manrope5"><span className="bold">Correo electrónico: </span>{donador.correoDonador}</p>
+                                    <p className="manrope5"><span className="bold">Teléfono de contacto: </span>{donador.numeroTelfDonador}</p>
                                 </div>
                             </div>
                         </section>

@@ -4,14 +4,15 @@ import '../styles/glass.css';
 import '../styles/botones.css';
 import '../styles/inputs.css';
 import '../styles/CardCuadrada.css';
-import iconoUnidad from '../assets/icons/iconoUnidad.png'
+import iconoUnidad from '../assets/icons/iconoUnidadDetalle.png'
 import Operador from '../assets/icons/iconoOperador.png'
 import Receptor from '../assets/icons/iconoReceptor.png'
 import Trafico from '../assets/icons/iconoTrafico.png'
+import iconoRuta from '../assets/icons/iconoRuta.png'
 import iconoDonador from '../assets/icons/iconoDonador.png'
 
 function CardCuadrada(props) {
-    const iconos = [Operador, Receptor, Trafico, iconoDonador]
+    const iconos = [Operador, Receptor, Trafico, iconoDonador, iconoUnidad, iconoRuta]
     let detalles={}
 
     switch(props.cardType){
@@ -31,6 +32,22 @@ function CardCuadrada(props) {
             };
             break;
         }
+        case "unidad":{
+            detalles = {
+                cardHeader: props.data.placas,
+                cardDescription: props.data.descripcionUnidad,
+                cardIcon: "iconoUnidad"
+            };
+            break;
+        }
+        case "ruta":{
+            detalles = {
+                cardHeader: props.data.nombreRuta,
+                cardDescription: `${props.data.numPuntosRecoleccion} puntos de recolección`,
+                cardIcon: "iconoRuta"
+            };
+            break;
+        }
             
         default:
             console.log('No hay detalles para mostrar')
@@ -44,6 +61,12 @@ function CardCuadrada(props) {
                 break;
             case "donador":
                 props.setDonorId(props.data.idDonor);
+                break;
+            case "unidad":
+                props.setVehicleId(props.data.idVehicle);
+                break;
+            case "ruta":
+                props.setRouteId(props.data.idRoute);
                 break;
             default:
                 console.log('No hay id por asignar')
@@ -66,7 +89,10 @@ function CardCuadrada(props) {
                 break;
             case "donador":
                 return 3
-                break;
+            case "unidad":
+                return 4
+            case "ruta":
+                return 5
     }
     }
     
