@@ -6,10 +6,10 @@ import '../styles/glass.css';
 import '../styles/inputs.css';
 import '../styles/botones.css';
 
-function FormularioAgregarUsuario() {
+function FormularioAgregarUsuario(props) {
 
     const [selectValue, setSelectValue] = useState('')
-
+    
    
     const options = [
         { value: 'Operador', label: 'Operador' },
@@ -23,7 +23,7 @@ function FormularioAgregarUsuario() {
         { value: '3', label: 'Banco de Alimentos de Jiutepec' },
         { value: '4', label: 'Banco de Alimentos Zapata' },
         { value: '5', label: 'Bodega Tlahuapan' },
-        { value: '6', label: 'Bodega refrifgerados' },
+        { value: '6', label: 'Bodega refrigerados' },
       ]
 
     const customSelectStyles = {
@@ -61,6 +61,14 @@ function FormularioAgregarUsuario() {
             ...base,
             borderRadius: "25px",
         }),
+        singleValue: base => ({
+            ...base,
+            color: "#F7F7F7",
+        }),
+        input: base => ({
+            ...base,
+            color: "#F7F7F7",
+        }),
         dropdownIndicator: base => ({
             ...base,
             color: "#F7F7F7"
@@ -88,6 +96,12 @@ function FormularioAgregarUsuario() {
         let { label, value } = selectedOption
         setSelectValue(value);
         console.log(selectValue)
+    }
+
+
+    function showModal(){
+        props.setNombreUsuario("BAMXH2302")
+        props.setModalConfirmacionVisibility(true)
     }
 
     return (
@@ -122,7 +136,6 @@ function FormularioAgregarUsuario() {
                     <Select name="rolUsuario" id="select-rol" placeholder = "Selecciona una opción" options={options} styles={customSelectStyles} required  onChange = {handleSelectChange}/>
                 </div>
 
-                
 
                 {selectValue ==='Operador' ? <div className="item-formulario">
                     <label htmlFor="numLicencia" className="input-label bebas4">Número de licencia de conducir*</label>
@@ -140,7 +153,7 @@ function FormularioAgregarUsuario() {
                 </div> : null }
 
 
-                <button className="btnVerde bebas2 blanco btn-formulario">Guardar</button>
+                <button className="btnVerde bebas2 blanco btn-formulario" onClick={showModal}>Guardar</button>
             </form>
         </div>
     )
