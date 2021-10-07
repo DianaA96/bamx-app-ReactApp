@@ -1,10 +1,11 @@
 .cardOperadorEntrega{
     display: flex;
     flex-direction: row;
-    width: 70%;
+    width: 90%;
     height: 13%;
     align-items: center;
     justify-content: space-around;
+    margin-bottom: 2em;
 }
 
 .cardRecoleccionOperador {
@@ -13,6 +14,7 @@
     padding: 1vw;
     width: 16%;
     align-self: center;
+    text-align: center;
 }
 
 .cardRecoleccionOperador img {
@@ -44,4 +46,5 @@
 .botonAsignarRutaOperador button {
     padding-left: 1em;
     padding-right: 1em;
+    margin-left: 0.5em;
 }
