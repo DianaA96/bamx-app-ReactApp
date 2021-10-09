@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Select from 'react-select'
 import '../styles/formularios.css';
 import '../styles/general.css';
@@ -8,6 +8,8 @@ import '../styles/botones.css';
 import '../styles/FormularioAsignarBodega.css';
 
 function FormularioAsignarBodega() {
+
+    var [bodegaVisibility, setBodegaVisibility] = useState("visible")
 
     const options = [
         { value: '1', label: 'Banco de Alimentos de Cuernavaca' },
@@ -57,6 +59,14 @@ function FormularioAsignarBodega() {
             ...base,
             color: "#F7F7F7"
         }),
+        singleValue: base => ({
+            ...base,
+            color: "#F7F7F7",
+        }),
+        input: base => ({
+            ...base,
+            color: "#F7F7F7",
+        }),
         option: (base,{data, isDisabled, isFocused,isSelected}) => ({
             ...base,
             color: "#1A1A1A",
@@ -75,8 +85,16 @@ function FormularioAsignarBodega() {
         })
     }
 
+    function hideBodega(){
+        setBodegaVisibility("hidden");
+    }
+
+    if (bodegaVisibility === "visible") {
     return (
         <div className="Formulario-containerBodega lightGlass">
+            <div className="container-eliminar">
+                <button className="btnMenosGlass" type="button" onClick={hideBodega}><i class="fas fa-minus"></i></button>
+            </div>
             <form action="" className="formulario">
                 <div className="item-formulario">
                 <label htmlFor="bodegaDestino" className="input-label bebas4">Bodega de destino*</label>
@@ -117,7 +135,10 @@ function FormularioAsignarBodega() {
                 <button className="btnVerde bebas2 blanco btn-formularioBodega">Editar</button>
             </form>
         </div>
-    )
+    )} 
+    else {
+        return (null)
+    }
 }
 
 export default FormularioAsignarBodega

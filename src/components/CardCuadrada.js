@@ -20,19 +20,16 @@ function CardCuadrada(props) {
             let descripcion;
             if(props.data.idDriver!=null){ 
                  descripcion = "Operador" 
-                 props.setCargo("Operador")
+                 
             }
             else if(props.data.idReceiver!=null){ 
                 descripcion = "Receptor" 
-                props.setCargo("Receptor")
            }
            else if(props.data.idTrafficCoordinator!=null){ 
                 descripcion = "Trafico" 
-                props.setCargo("Trafico")
             }
            else { 
-                descripcion = "Sin Cargo"
-                props.setCargo("Sin Cargo") 
+                descripcion = "Sin Cargo" 
            }
             detalles = {
                 cardHeader: `${props.data.nombre} ${props.data.apellidoP} ${props.data.apellidoM}`,
@@ -75,6 +72,7 @@ function CardCuadrada(props) {
         switch(props.cardType){
             case "usuario":
                 props.setUserId(props.data.idUser)
+                props.setCargo(detalles.cardDescription)
                 break;
             case "donador":
                 props.setDonorId(props.data.idDonor);

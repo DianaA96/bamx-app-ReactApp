@@ -4,13 +4,120 @@ import FormularioAgregarUsuario from '../components/FormularioAgregarUsuario'
 import MenuPrincipal from '../components/MenuPrincipal'
 import ModalConfirmacion from '../components/ModalConfirmacion'
 import ImagenFormulario from '../components/ImagenFormulario'
+import axios from 'axios'
 
 import '../styles/views.css'
 
 function AgregarUsuario() {
-
     const [modalConfirmacionVisibility, setModalConfirmacionVisibility] = useState(false)
     const [ nombreUsuario, setNombreUsuario ] = useState('');
+    const [user, setUser] = useState({})
+    const [cargo, setCargo] = useState('')
+
+    function handleSave(){
+        const {nombre, apellidoP, apellidoM, nombreUsuario, telefono, email, contrasena, licencia, vencimientoLic, bodega} = user;
+
+        if(cargo ==='Operador'){
+            let operadorBack = {
+                user: {
+                    nombre,
+                    apellidoP,
+                    apellidoM,
+                    nombreUsuario,
+                    telefono,
+                    email,
+                    contrasena
+                },
+                driver: {
+                    licencia,
+                    vencimientoLic
+                }
+            }
+            axios({
+                method: 'post',
+                url: 'http://localhost:5000/users/drivers',
+                data: operadorBack,
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                }
+            })
+            .then((result)=>{
+                // props.onSave(result.data);
+                alert('Operador registrado correctamente');
+                setModalConfirmacionVisibility(false);
+
+            })
+            .catch(error =>{
+                console.log(operadorBack)
+                alert('No se pudo registrar el operador:', error);
+            })
+        }
+
+        else if(cargo ==='Receptor'){
+            let receptorBack = {
+                user: {
+                    nombreUsuario,
+                    nombre,
+                    apellidoP,
+                    apellidoM,
+                    telefono,
+                    email,
+                    contrasena
+                },
+                receiver: {
+                }
+            }
+
+            axios({
+                method: 'post',
+                url: 'http://localhost:5000/users/receivers',
+                data: receptorBack,
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                }
+            })
+            .then((result)=>{
+                alert('Receptor registrado correctamente');
+            })
+            .catch(error =>{
+                console.log(receptorBack)
+                alert('No se pudo registrar el receptor:', error);
+            })
+        }
+        else if(cargo ==='Coordinador de tráfico'){
+            let coordinadorBack = {
+                user: {
+                    nombreUsuario,
+                    contrasena,
+                    nombre,
+                    telefono,
+                    email,
+                    apellidoP,
+                    apellidoM,
+                },
+                coordinator: {
+                }
+            }
+
+            axios({
+                method: 'post',
+                url: 'http://localhost:5000/users/trafficCoordinators',
+                data: coordinadorBack,
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                }
+            })
+            .then((result)=>{
+                alert('Receptor registrado correctamente');
+            })
+            .catch(error =>{
+                console.log(coordinadorBack)
+                alert('No se pudo registrar el receptor:', error);
+            })
+        }
+    }
+
+    
 
     return (
         <body className="red-gradient">
@@ -24,10 +131,10 @@ function AgregarUsuario() {
                 <section className="contenido">
                     <div className="contenidoFormulario-container">
                         <ImagenFormulario></ImagenFormulario>
-                        <FormularioAgregarUsuario setModalConfirmacionVisibility={setModalConfirmacionVisibility} setNombreUsuario={setNombreUsuario}></FormularioAgregarUsuario>
+                        <FormularioAgregarUsuario setModalConfirmacionVisibility={setModalConfirmacionVisibility} setUser={setUser}  user={user} setCargo={setCargo} handleSave={handleSave}></FormularioAgregarUsuario>
                     </div>
                 </section>
-                {modalConfirmacionVisibility ? <ModalConfirmacion  setModalConfirmacionVisibility={setModalConfirmacionVisibility} titulo1="registro" titulo2="usuario" accion="agregar" entidadObjetivo=" el usuario" idEntidad={nombreUsuario}></ModalConfirmacion>:null}
+                {modalConfirmacionVisibility ? <ModalConfirmacion  handleConfirmation ={handleSave} setModalConfirmacionVisibility={setModalConfirmacionVisibility} titulo1="registro" titulo2="usuario" accion="agregar" entidadObjetivo=" el usuario" idEntidad={user.nombreUsuario}></ModalConfirmacion>:null}
             </main>
         </body>
     )

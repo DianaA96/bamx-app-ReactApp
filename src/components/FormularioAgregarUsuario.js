@@ -92,44 +92,55 @@ function FormularioAgregarUsuario(props) {
     }
 
 
+    function handleChange(event){
+        let newUser = {
+            ...props.user,
+            [event.target.name]: event.target.value,
+        };
+
+        props.setUser(newUser)
+    }
+
+
     const handleSelectChange = selectedOption => {
         let { label, value } = selectedOption
         setSelectValue(value);
+        props.setCargo(value);
         console.log(selectValue)
     }
 
 
-    function showModal(){
-        props.setNombreUsuario("BAMXH2302")
+    function showModal(event){
+        event.preventDefault();
         props.setModalConfirmacionVisibility(true)
     }
 
     return (
         <div className="Formulario-container lightGlass">
-            <form action="" className="formulario">
+            <form action="" className="formulario" onSubmit={showModal}>
                 <div className="item-formulario">
                     <label htmlFor="nombre" className="input-label bebas4">Nombre Completo*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="nombreUsuario" placeholder="Nombre(s)"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="nombre" placeholder="Nombre(s)" onChange={handleChange}/>
                 </div>
                 <div className="formulario-col-2">
-                    <input type="text" className="inputDarkGlass manrope5" required name="apellidoPaterno" placeholder="Apellido Paterno"/>
-                    <input type="text" className="inputDarkGlass manrope5" required name="apellidoMaterno" placeholder="Apellido Materno"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="apellidoP" placeholder="Apellido Paterno" onChange={handleChange}/>
+                    <input type="text" className="inputDarkGlass manrope5" name="apellidoM" placeholder="Apellido Materno" onChange={handleChange}/>
                 </div>
                 <div className="item-formulario">
                     <label htmlFor="nombreUsuario" className="input-label bebas4">Nombre de usuario*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="nombreUsuario" placeholder="Ej. SJHD782731"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="nombreUsuario" placeholder="Ej. SJHD782731" onChange={handleChange}/>
                 </div>
                 <div className="item-formulario">
-                    <label htmlFor="numTelefono" className="input-label bebas4">Número de teléfono*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="numTelefono" placeholder="Número a 10 dígitos"/>
+                    <label htmlFor="telefono" className="input-label bebas4">Número de teléfono*</label>
+                    <input type="text" className="inputDarkGlass manrope5" required name="telefono" placeholder="Número a 10 dígitos" onChange={handleChange}/>
                 </div>
                 <div className="item-formulario">
-                    <label htmlFor="correoElectronico" className="input-label bebas4">Correo electrónico*</label>
-                    <input type="email" className="inputDarkGlass manrope5" required name="correoElectronico" placeholder="ejemplo@correo.com"/>
+                    <label htmlFor="email" className="input-label bebas4">Correo electrónico*</label>
+                    <input type="email" className="inputDarkGlass manrope5" required name="email" placeholder="ejemplo@correo.com" onChange={handleChange}/>
                 </div>
                 <div className="item-formulario">
-                    <label htmlFor="contraseña" className="input-label bebas4">Contraseña*</label>
-                    <input type="password" className="inputDarkGlass manrope5" required name="contraseña" placeholder="Mínimo 7 caracteres. Números y letras."/>
+                    <label htmlFor="contrasena" className="input-label bebas4">Contraseña*</label>
+                    <input type="password" className="inputDarkGlass manrope5" required name="contrasena" placeholder="Mínimo 7 caracteres. Números y letras." onChange={handleChange}/>
                 </div>
                 <div className="item-formulario espacio-extra">
                     <label htmlFor="rolUsuario" className="input-label bebas4">Cargo en la organización*</label>
@@ -139,21 +150,21 @@ function FormularioAgregarUsuario(props) {
 
                 {selectValue ==='Operador' ? <div className="item-formulario">
                     <label htmlFor="numLicencia" className="input-label bebas4">Número de licencia de conducir*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="numLicencia" placeholder="No. de licencia a n caracteres"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="licencia" placeholder="No. de licencia a n caracteres" onChange={handleChange}/>
                 </div>: null}
 
                 {selectValue ==='Operador' ? <div className="item-formulario espacio-extra">
                     <label htmlFor="vencimientoLicencia" className="input-label bebas4">Fecha de vencimiento de la licencia*</label>
-                    <input type="date" className="inputDarkGlass manrope5" required name="vencimientoLicencia" placeholder="Seleccione la fecha"/>
+                    <input type="date" className="inputDarkGlass manrope5" required name="vencimientoLic" placeholder="Seleccione la fecha" onChange={handleChange}/>
                 </div>:null}
 
                 {selectValue === 'Receptor'? <div className="item-formulario espacio-extra">
                     <label htmlFor="bodega" className="input-label bebas4">Bodega*</label>
-                    <Select name="bodega" id="select-bodega" placeholder = "Selecciona una bodega" options={optionsBodega} styles={customSelectStyles} required/>
+                    <Select name="bodega" id="select-bodega" placeholder = "Selecciona una bodega" options={optionsBodega} styles={customSelectStyles} required />
                 </div> : null }
 
 
-                <button className="btnVerde bebas2 blanco btn-formulario" onClick={showModal}>Guardar</button>
+                <button className="btnVerde bebas2 blanco btn-formulario" type="submit">Guardar</button>
             </form>
         </div>
     )
