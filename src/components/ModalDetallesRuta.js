@@ -79,7 +79,6 @@ function ModalDetallesRuta(props) {
                 </div>
             </BounceInDiv>
         </div>
-        
     )
 }
 

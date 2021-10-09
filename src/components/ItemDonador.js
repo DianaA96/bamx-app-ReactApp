@@ -4,9 +4,11 @@ import '../styles/general.css';
 import '../styles/botones.css';
 import '../styles/formularios.css';
 
-function ItemDonador() {
+function ItemDonador(props) {
+    
     
     var [donadorVisibility, setDonadorVisibility] = useState("visible")
+    
 
     const options = [
         { value: '321', label: 'Walmart' },
@@ -72,13 +74,22 @@ function ItemDonador() {
     function hideDonador(){
         setDonadorVisibility("hidden");
     }
+
+    const handleSelectChange = selectedOption => {
+        let { label, value } = selectedOption
+        if(props.donadorValues.indexOf(value) == -1){
+            props.donadorValues.push(value);
+        }
+
+        console.log(props.donadorValues)
+    }
     
     if (donadorVisibility === "visible") {
     return (
         <div className="item-formulario">
             <label htmlFor="donador" className="input-label bebas4">Punto de recolección / Donador*</label> 
             <div className="item-donador"> 
-                <Select name="donador" id="select-donador" placeholder ="Seleccione un donador*" options={options} styles={customSelectStyles} required/> 
+                <Select name="donador" id="select-donador" placeholder ="Seleccione un donador*" options={options} styles={customSelectStyles} required onChange={handleSelectChange}/> 
                 <button className="btnMasGlass" type="button" onClick={hideDonador}><i class="fas fa-minus"></i></button> 
             </div>
         </div>

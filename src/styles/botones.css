@@ -94,6 +94,7 @@ button:focus {
 }
 
 .btnMasGlass{
+    
     height: 2em;
     width: 2em;
     border-style: none;
@@ -104,6 +105,23 @@ button:focus {
     border: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 1.6em;
     color: white;
+}
+
+.btnMenosGlass{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2em;
+    width: 2em;
+    border-style: none;
+    background: rgba(202, 10, 10, 0.46);
+    backdrop-filter: blur( 30px );
+    -webkit-backdrop-filter: blur( 30px );
+    border-radius: 2em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1.6em;
+    color: white;
+    font-size: 1em;
 }
 
 .btn-filtros{
