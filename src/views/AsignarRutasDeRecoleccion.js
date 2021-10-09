@@ -1,47 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
 import HeaderBusquedaRutasRecoleccion from '../components/HeaderBusquedaRutasRecoleccion'
 import MenuPrincipal from '../components/MenuPrincipal'
 import CardOperadorPendiente from '../components/CardOperadorPendiente'
+import ModalAsignacionRuta from '../components/ModalAsignacionRuta'
 import '../styles/views.css'
 
 function AsignarRutasDeRecoleccion() {
 
+    const [modalVisibility, setModalVisibility] = useState(false)
+
+    const [operadorId, setOperadorId ] = useState()
+
     const users = [
         {
+            idUser: 1,
             nombre:'Daniel',
             apellidoP:'Sanchez',
             apellidoM:'Cornejo',
             puesto:'Operador',
         },
         {
-            nombre:'Daniel',
+            idUser: 2,
+            nombre:'Ernesto',
             apellidoP:'Sanchez',
-            apellidoM:'Cornejo',
+            apellidoM:'Trejo',
             puesto:'Operador',
         },
         {
-            nombre:'Daniel',
-            apellidoP:'Sanchez',
-            apellidoM:'Cornejo',
-            puesto:'Receptor',
-        },
-        {
-            nombre:'Daniel',
-            apellidoP:'Sanchez',
-            apellidoM:'Cornejo',
+            idUser: 3,
+            nombre:'Roberto',
+            apellidoP:'Bravo',
+            apellidoM:'Rodriguez',
             puesto:'Operador',
         },
         {
-            nombre:'Daniel',
-            apellidoP:'Sanchez',
-            apellidoM:'Cornejo',
-            puesto:'Receptor',
-        },
-        {
-            nombre:'Daniel',
-            apellidoP:'Sanchez',
-            apellidoM:'Cornejo',
-            puesto:'Coordinador de tráfico',
+            idUser: 4,
+            nombre:'Ramiro',
+            apellidoP:'Manzo',
+            apellidoM:'Ramírez',
+            puesto:'Operador',
         }
     ]
 
@@ -57,10 +54,11 @@ function AsignarRutasDeRecoleccion() {
                 <section className="contenido">
                     <div className="cardsOperadorPendiente-container">
                         {users.map((user,i)=>
-                            <CardOperadorPendiente user = {user}></CardOperadorPendiente>
+                            <CardOperadorPendiente user = {user} setOperadorId = {setOperadorId} setModalVisibility={setModalVisibility}></CardOperadorPendiente>
                         )}
                     </div>
                 </section>
+                {modalVisibility ? <ModalAsignacionRuta operadorId={operadorId} setModalVisibility={setModalVisibility}  ></ModalAsignacionRuta>  : null}
             </main>
         </body>
     )

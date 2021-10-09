@@ -17,10 +17,27 @@ function CardCuadrada(props) {
 
     switch(props.cardType){
         case "usuario":{
+            let descripcion;
+            if(props.data.idDriver!=null){ 
+                 descripcion = "Operador" 
+                 props.setCargo("Operador")
+            }
+            else if(props.data.idReceiver!=null){ 
+                descripcion = "Receptor" 
+                props.setCargo("Receptor")
+           }
+           else if(props.data.idTrafficCoordinator!=null){ 
+                descripcion = "Trafico" 
+                props.setCargo("Trafico")
+            }
+           else { 
+                descripcion = "Sin Cargo"
+                props.setCargo("Sin Cargo") 
+           }
             detalles = {
                 cardHeader: `${props.data.nombre} ${props.data.apellidoP} ${props.data.apellidoM}`,
-                cardDescription: props.data.puesto,
-                cardIcon: props.data.puesto
+                cardDescription: descripcion,
+                cardIcon: descripcion
             };
             break;
         }
@@ -83,7 +100,7 @@ function CardCuadrada(props) {
                 if(detalles.cardDescription=='Receptor'){
                     return 1
                 }
-                if(detalles.cardDescription=='Coordinador de tráfico'){
+                if(detalles.cardDescription=='Trafico'){
                     return 2
                 }
                 break;
@@ -100,7 +117,10 @@ function CardCuadrada(props) {
         <div className="cardCuadrada lightGlass" onClick={mostrarDetalles}>
             <p className="manrope4 bold">{detalles.cardHeader}</p>
             <p className="manrope5">{detalles.cardDescription}</p>
-            <img src={iconos[checkIcon()]} alt="icon"/>
+            <div className="cardCuadrada-cont-img">
+                <img src={iconos[checkIcon()]} alt="icon"/>
+            </div>
+            
         </div>
     )
 }

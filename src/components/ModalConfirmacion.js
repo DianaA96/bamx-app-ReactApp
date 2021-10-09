@@ -33,7 +33,7 @@ function ModalConfirmacion(props) {
                         <p className="manrope4">¿Está seguro que desea {props.accion} {props.entidadObjetivo} <b>{props.idEntidad}</b> ?</p>    
                     </section>
                     <section className="modalConfirmacion-acciones">
-                        <button className="btnVerde bebas3 blanco">Confirmar</button>
+                        <button className="btnVerde bebas3 blanco" onClick={props.handleConfirmation}>Confirmar</button>
                         <button className="btnRojo bebas3 blanco">Cancelar</button>
                     </section>
                 </div>

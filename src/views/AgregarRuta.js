@@ -8,9 +8,8 @@ import ImagenFormulario from '../components/ImagenFormulario'
 import '../styles/views.css'
 
 function AgregarRuta() {
-
     const [modalConfirmacionVisibility, setModalConfirmacionVisibility] = useState(false)
-    const [ placaRuta, setPlacaRuta ] = useState('');
+    const [ nombreRuta, setNombreRuta ] = useState('');
 
     return (
         <body className="orange-gradient">
@@ -24,10 +23,10 @@ function AgregarRuta() {
                 <section className="contenido">
                     <div className="contenidoFormulario-container">
                         <ImagenFormulario></ImagenFormulario>
-                        <FormularioAgregarRuta setModalConfirmacionVisibility={setModalConfirmacionVisibility} setPlacaRuta={setPlacaRuta}></FormularioAgregarRuta>
+                        <FormularioAgregarRuta setModalConfirmacionVisibility={setModalConfirmacionVisibility} setNombreRuta={setNombreRuta}></FormularioAgregarRuta>
                     </div>
                 </section>
-                {modalConfirmacionVisibility ? <ModalConfirmacion  setModalConfirmacionVisibility={setModalConfirmacionVisibility} titulo1="registro" titulo2="unidad" accion="agregar" entidadObjetivo=" la unidad" idEntidad={placaRuta}></ModalConfirmacion>:null}
+                {modalConfirmacionVisibility ? <ModalConfirmacion  setModalConfirmacionVisibility={setModalConfirmacionVisibility} titulo1="registro" titulo2="unidad" accion="agregar" entidadObjetivo=" la unidad" idEntidad={nombreRuta}></ModalConfirmacion>:null}
             </main>
         </body>
     )
