@@ -17,6 +17,7 @@ function EditarUsuario() {
     useEffect(()=>{
         setStatus('loading')
         axios.get(`http://localhost:5000/users/3`)
+        // buscar por props.match.params.[ATRIBUTO]
           .then((result)=>{
             setUserOriginal(result.data.datosUsuario[0])
             console.log(userOriginal)

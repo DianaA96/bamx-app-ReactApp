@@ -8,6 +8,7 @@ import '../styles/botones.css';
 import axios from 'axios'
 import styled, { keyframes } from "styled-components";
 import { fadeInDownBig } from 'react-animations'
+import CustomLink from './CustomLink';
 
 const BounceInAnimation = keyframes`${fadeInDownBig}`;
 const BounceInDiv = styled.div`
@@ -90,7 +91,7 @@ function ModalDetallesUsuario(props) {
                             </section>
                             <section className="modalDetallesUsuario-acciones">
                                 <button className="btnRosa bebas4" onClick={showModalConfirmacion}>Eliminar usuario</button>
-                                <button className="btnAmarillo bebas4">Editar datos del usuario</button>
+                                <CustomLink tag='button' to={`/editarUsuario/${user.nombreUsuario}`} className="btnAmarillo bebas4">Editar datos del usuario</CustomLink>
                             </section>
                         </section>
                     </div>
