@@ -1,17 +1,21 @@
 .cardCuadrada {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 13vw;
     height: 13vw;
     text-align: start;
     padding: 2vw;
 }
 
+.cardCuadrada-cont-img{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .cardCuadrada img {
-    position: absolute;
-    left: 9vw;
-    top: 10vw;
-    width: 6em;
+    width: 4em;
 }
 
 .cardCuadrada:hover{

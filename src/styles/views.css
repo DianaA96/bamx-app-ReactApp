@@ -43,6 +43,24 @@ header{
     width: 80%;
     z-index: 1;
     margin-bottom: 3em;
+
+}
+
+.agregar-bodega{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 3em;
+}
+
+.agregar-bodega h3{
+    margin-left: 0.5em;
+}
+
+.guardar-bodegas{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 .contenidoFormulario-container{
     display: flex;
@@ -62,7 +80,7 @@ header{
     justify-content: space-around;
     height: 71vh;
     position: relative;
-    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .cardsOperadorPendiente-container .cardCuadrada{
