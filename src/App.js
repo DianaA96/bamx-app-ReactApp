@@ -29,6 +29,7 @@ import AgregarRuta from './views/AgregarRuta.js';
 //import EditarRuta from './views/EditarRuta.js';
 import AsignarRutasDeRecoleccion from './views/AsignarRutasDeRecoleccion.js';
 import DetalleOperadoresRuta from './views/DetalleOperadoresRuta.js';
+import GestionarOperadoresRuta from './views/GestionarOperadoresRuta.js';
 import AsignarRutasEntrega from './views/AsignarRutasEntrega.js';
 import AsignarEntregaOperador from './views/AsignarEntregaOperador.js';
 
@@ -48,9 +49,11 @@ function App() {
         <Route path='/agregarUsuario' exact={true} >
           <AgregarUsuario/>
         </Route>
-        <Route path='/editarUsuario' exact={true} >
-          <EditarUsuario/>
-        </Route>
+        <Route path='/editarUsuario/:idUsuario'
+          exact={true}
+          render={(props) => 
+          <EditarUsuario {...props}/>
+        }/>
         <Route path='/gestionarDonadores' exact={true} >
           <GestionarDonadores/>
         </Route>
@@ -72,19 +75,22 @@ function App() {
         <Route path='/gestionarRutas' exact={true} >
           <GestionarRutas/>
         </Route>
+        <Route path='/gestionDeOperadoresEnRuta' exact={true} >
+          <GestionarOperadoresRuta/>
+        </Route>
         <Route path='/agregarRuta' exact={true} >
           <AgregarRuta/>
         </Route>
-        <Route path='/asignarRuta' exact={true} >
+        <Route path='/asignarRutasDeRecoleccion' exact={true} >
           <AsignarRutasDeRecoleccion/>
         </Route>
-        <Route path='/detalleOperador' exact={true} >
+        <Route path='/detalleOperadoresRuta' exact={true} >
           <DetalleOperadoresRuta/>
         </Route>
-        <Route path='/asignarRutaEntrega' exact={true} >
+        <Route path='/asignarRutaDeEntrega' exact={true} >
           <AsignarRutasEntrega/>
         </Route>
-        <Route path='/asignarEntrega' exact={true} >
+        <Route path='/asignarEntregaOperador' exact={true} >
           <AsignarEntregaOperador/>
         </Route>
         <Route>
