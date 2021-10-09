@@ -45,7 +45,7 @@ function AsignarRutasDeRecoleccion() {
     return (
         <body className="orange-gradient">
             <aside>
-                <MenuPrincipal></MenuPrincipal>
+                <MenuPrincipal idRolLogin={1}></MenuPrincipal>
             </aside>
             <main>
                 <header>

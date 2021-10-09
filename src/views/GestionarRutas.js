@@ -68,7 +68,7 @@ function GestionarRutas() {
     return (
         <body className="orange-gradient">
             <aside>
-                <MenuPrincipal idRolLogin={2}></MenuPrincipal>
+                <MenuPrincipal idRolLogin={1}></MenuPrincipal>
             </aside>
             <main>
                 <header>
