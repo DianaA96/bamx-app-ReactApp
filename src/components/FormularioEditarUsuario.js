@@ -107,24 +107,24 @@ function FormularioEditarUsuario(props) {
         <div className="Formulario-container lightGlass">
             <form action="" className="formulario">
                 <div className="item-formulario">
-                    <label htmlFor="nombreUsuario" className="input-label bebas4">Nombre Completo*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="nombreUsuario" placeholder="Nombre(s)"/>
+                    <label htmlFor="nombre" className="input-label bebas4">Nombre Completo*</label>
+                    <input type="text" className="inputDarkGlass manrope5" required name="nombre" placeholder="Nombre(s)" value ={props.userOriginal.nombre}/>
                 </div>
                 <div className="formulario-col-2">
-                    <input type="text" className="inputDarkGlass manrope5" required name="apellidoPaterno" placeholder="Apellido Paterno"/>
-                    <input type="text" className="inputDarkGlass manrope5" required name="apellidoMaterno" placeholder="Apellido Materno"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="apellidoP" placeholder="Apellido Paterno" value ={props.userOriginal.apellidoP}/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="apellidoM" placeholder="Apellido Materno" value ={props.userOriginal.apellidoM}/>
                 </div>
                 <div className="item-formulario">
-                    <label htmlFor="numTelefono" className="input-label bebas4">Número de teléfono*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="numTelefono" placeholder="Número a 10 dígitos"/>
+                    <label htmlFor="telefono" className="input-label bebas4">Número de teléfono*</label>
+                    <input type="text" className="inputDarkGlass manrope5" required name="numTelefono" placeholder="Número a 10 dígitos" value ={props.userOriginal.telefono}/>
                 </div>
                 <div className="item-formulario">
-                    <label htmlFor="correoElectronico" className="input-label bebas4">Correo electrónico*</label>
-                    <input type="email" className="inputDarkGlass manrope5" required name="correoElectronico" placeholder="ejemplo@correo.com"/>
+                    <label htmlFor="email" className="input-label bebas4">Correo electrónico*</label>
+                    <input type="email" className="inputDarkGlass manrope5" required name="email" placeholder="ejemplo@correo.com" value ={props.userOriginal.email}/>
                 </div>
                 <div className="item-formulario">
-                    <label htmlFor="idUsuario" className="input-label bebas4">Contraseña*</label>
-                    <input type="password" className="inputDarkGlass manrope5" required name="idUsuario" placeholder="Mínimo 7 caracteres. Números y letras."/>
+                    <label htmlFor="contrasena" className="input-label bebas4">Contraseña*</label>
+                    <input type="password" className="inputDarkGlass manrope5" required name="contrasena" placeholder="Mínimo 7 caracteres. Números y letras." />
                 </div>
                 <div className="item-formulario espacio-extra">
                     <label htmlFor="rolUsuario" className="input-label bebas4">Cargo en la organización*</label>
