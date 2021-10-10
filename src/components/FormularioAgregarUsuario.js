@@ -109,6 +109,11 @@ function FormularioAgregarUsuario(props) {
         console.log(selectValue)
     }
 
+    const handleSelectBodegaChange = selectedOption => {
+        let { label, value } = selectedOption
+        props.setBodega(value);
+    }
+
 
     function showModal(event){
         event.preventDefault();
@@ -155,12 +160,12 @@ function FormularioAgregarUsuario(props) {
 
                 {selectValue ==='Operador' ? <div className="item-formulario espacio-extra">
                     <label htmlFor="vencimientoLicencia" className="input-label bebas4">Fecha de vencimiento de la licencia*</label>
-                    <input type="date" className="inputDarkGlass manrope5" required name="vencimientoLic" placeholder="Seleccione la fecha" onChange={handleChange}/>
+                    <input type="date" className="inputDarkGlass manrope5" required name="vencimientoLicencia" placeholder="Seleccione la fecha" onChange={handleChange}/>
                 </div>:null}
 
                 {selectValue === 'Receptor'? <div className="item-formulario espacio-extra">
                     <label htmlFor="bodega" className="input-label bebas4">Bodega*</label>
-                    <Select name="bodega" id="select-bodega" placeholder = "Selecciona una bodega" options={optionsBodega} styles={customSelectStyles} required />
+                    <Select name="bodega" id="select-bodega" placeholder = "Selecciona una bodega" options={optionsBodega} styles={customSelectStyles} required onChange={handleSelectBodegaChange}/>
                 </div> : null }
 
 
