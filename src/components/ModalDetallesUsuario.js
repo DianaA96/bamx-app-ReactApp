@@ -91,7 +91,7 @@ function ModalDetallesUsuario(props) {
                             </section>
                             <section className="modalDetallesUsuario-acciones">
                                 <button className="btnRosa bebas4" onClick={showModalConfirmacion}>Eliminar usuario</button>
-                                <CustomLink tag='button' to={`/editarUsuario/${user.nombreUsuario}`} className="btnAmarillo bebas4">Editar datos del usuario</CustomLink>
+                                <CustomLink tag='button' to={`/editarUsuario/${props.userId}`} className="btnAmarillo bebas4">Editar datos del usuario</CustomLink>
                             </section>
                         </section>
                     </div>
