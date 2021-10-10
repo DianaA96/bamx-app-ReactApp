@@ -9,7 +9,7 @@ import ErrorVersion1 from '../components/ErrorVersion1'
 import '../styles/views.css'
 import axios from 'axios'
 
-function EditarUsuario() {
+function EditarUsuario(props) {
     const [status, setStatus ] = useState('idle');
     const [error, setError] = useState(null);
     const [userOriginal, setUserOriginal] = useState({})
@@ -18,7 +18,7 @@ function EditarUsuario() {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/users/3`)
+        axios.get(`http://localhost:5000/users/${props.match.params.idUsuario}`)
         // buscar por props.match.params.[ATRIBUTO]
           .then((result)=>{
             setUserOriginal(result.data.datosUsuario[0])
