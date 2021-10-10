@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import '../styles/general.css';
 import '../styles/ModalDetallesRuta.css';
 import '../styles/ModalDetallesUsuario.css';
@@ -7,6 +7,7 @@ import '../styles/glass.css';
 import '../styles/botones.css';
 import styled, { keyframes } from "styled-components";
 import { fadeInDownBig } from 'react-animations'
+import axios from 'axios' 
 
 const BounceInAnimation = keyframes`${fadeInDownBig}`; 
 const BounceInDiv = styled.div`
@@ -17,15 +18,9 @@ const BounceInDiv = styled.div`
 `;
 
 function ModalDetallesDonador(props) {
-
-    let donador = {
-        idDonador: 'DON2456-B',
-        nombreDonador: 'Superama Gobernadores',
-        direccionDonador: 'Av Vicente Guerrero 760, Lomas de la Selva, 62270',
-        correoDonador: 'sucursalmor@walmart.com',
-        numeroTelfDonador: '55 1234 5678' 
-    }
-
+    const [status, setStatus ] = useState('idle');
+    const [error, setError] = useState(null);
+    const [donor, setDonor] = useState({})
     function hideModal(){
         props.setModalVisibility(false)
     }
@@ -34,6 +29,32 @@ function ModalDetallesDonador(props) {
         props.setModalConfirmacionVisibility(true)
         props.setModalVisibility(false)
     }
+
+    useEffect(()=>{
+        setStatus('loading')
+        axios.get(`http://localhost:5000/donors/${props.donorId}`)
+          .then((result)=>{
+            setDonor(result.data.donador[0])
+            setStatus('resolved')
+          })
+          .catch((error)=>{
+            setError(error)
+            setStatus('error')
+          })
+    },[])
+
+    if(status === 'idle' || status === 'loading'){
+        return <p>Cargando</p>
+    }
+    
+    
+    if(status === 'error'){
+        return (
+            <p>{`${error.message} ${error.name}`}</p>
+        )
+    }
+    
+    if(status === 'resolved'){
 
     return (
         <div className="modal-overlay">
@@ -46,22 +67,22 @@ function ModalDetallesDonador(props) {
                     <section className="modalDetallesUsuario-derecha">
                         <section className="modalDetallesUsuario-header">
                             <div className="modalTitulo">
-                                <p className="manrope5"><span className="bold">ID del Donador</span></p>
-                                <p className="manrope5">{props.donorId}</p>
+                                <p className="manrope5"><span className="bold">Determinante</span></p>
+                                <p className="manrope5">{donor.determinante}</p>
                             </div>
                             <button className="btn-cerrar" onClick={hideModal}><i class="fas fa-times-circle colorG100"></i></button>
                         </section>
                         <section className="modalDetallesUsuario-body">
                             <div className="modalTitulo">
-                                <p className="manrope4 dosLineasTxt">{donador.nombreDonador}</p>
-                                <p className="manrope5">{donador.direccionDonador}</p>
+                                <p className="manrope4 dosLineasTxt">{donor.nombre}</p>
+                                <p className="manrope5">{`${donor.calle}, ${donor.numExterior}, ${donor.colonia}, ${donor.municipio}`}</p>
                             </div>
                         </section>
                         <section className="modalDetallesUsuario-body">
                             <div className="modalUsuarioIndividual">
                                 <div className="infoUsuarioIndividual">
-                                    <p className="manrope5"><span className="bold">Correo electrónico: </span>{donador.correoDonador}</p>
-                                    <p className="manrope5"><span className="bold">Teléfono de contacto: </span>{donador.numeroTelfDonador}</p>
+                                    <p className="manrope5"><span className="bold">Correo electrónico: </span>{donor.correo}</p>
+                                    <p className="manrope5"><span className="bold">Teléfono de contacto: </span>{donor.telefono}</p>
                                 </div>
                             </div>
                         </section>
@@ -75,6 +96,7 @@ function ModalDetallesDonador(props) {
         </div>
         
     )
+    }
 }
 
 export default ModalDetallesDonador

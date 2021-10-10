@@ -84,8 +84,8 @@ function ModalDetallesUsuario(props) {
                             <section className="modalDetallesUsuario-body">
                                 <div className="modalUsuarioIndividual">
                                     <div className="infoUsuarioIndividual">
-                                        <p className="manrope5">{user.email}</p>
-                                        <p className="manrope5">{user.telefono}</p>
+                                        <p className="manrope5"><span className="bold">Correo electrónico: </span> {user.email}</p>
+                                        <p className="manrope5"><span className="bold">Número de teléfono: </span>{user.telefono}</p>
                                     </div>
                                 </div>
                             </section>

@@ -41,7 +41,8 @@ function CardCuadrada(props) {
         case "donador":{
             detalles = {
                 cardHeader: props.data.nombre,
-                cardDescription: props.data.ubicacion,
+                cardDescription: `${props.data.colonia != null ? props.data.colonia : ''}`,
+                cardDescription1: `${props.data.municipio != null ? props.data.municipio: ''}`,
                 cardIcon: "Donador"
             };
             break;
@@ -114,7 +115,7 @@ function CardCuadrada(props) {
     return(
         <div className="cardCuadrada lightGlass" onClick={mostrarDetalles}>
             <p className="manrope4 bold">{detalles.cardHeader}</p>
-            <p className="manrope5">{detalles.cardDescription}</p>
+            <p className="manrope5">{detalles.cardDescription}<br/>{detalles.cardDescription1}</p>
             <div className="cardCuadrada-cont-img">
                 <img src={iconos[checkIcon()]} alt="icon"/>
             </div>
