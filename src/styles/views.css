@@ -155,29 +155,34 @@ body::-webkit-scrollbar-thumb
 }
 
 .aguacateError {
-    margin-top: 18vh;
+    /* margin-top: 18vh; */
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .sandiaError {
-    margin-top: 18vh;
+    margin-top: 0vh;
 }
 
 .zanahoriaVacia {
-    margin-top: 18vh;
+    margin-top: 0vh;
+    align-self: center;
 }
 
 .limonCorredor{
-    margin-top: 18vh;
+    margin-top: 0vh;
 }
 
 .apioCorredor{
-    margin-top: 18vh;
+    margin-top: 0vh;
 }
 
 .brocoliVacio{
-    margin-top: 18vh;
+    margin-top: 0vh;
 }
 
 .textoError {
     margin-top: 1vh;
+    text-align: center;
 }
