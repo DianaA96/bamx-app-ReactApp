@@ -4,6 +4,8 @@ import MenuPrincipal from '../components/MenuPrincipal'
 import CardCuadrada from '../components/CardCuadrada'
 import ModalDetallesUsuario from '../components/ModalDetallesUsuario'
 import ModalConfirmacion from '../components/ModalConfirmacion'
+import ErrorVersion1 from '../components/ErrorVersion1'
+import Loader from '../components/Loader'
 import '../styles/views.css'
 import axios from 'axios'
 
@@ -49,13 +51,13 @@ function GestionarUsuarios() {
     }
 
     if(status === 'idle' || status === 'loading'){
-        return <p>Cargando</p>
+        return <Loader/>
     }
     
     
     if(status === 'error'){
         return (
-            <p>{`${error.message} ${error.name}`}</p>
+            <ErrorVersion1 nombreError={error.message}></ErrorVersion1>
         )
     }
     

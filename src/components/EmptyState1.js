@@ -5,9 +5,11 @@ import '../styles/views.css'
 function EmptyState1() {
     return(
         <>
-            <img className="zanahoriaVacia" src={Zanahorias} alt="¡Error!"/>
-            <p className="manrope4 blanco textoError">Ups.</p>
-            <p className="manrope4 blanco textoError">Aún no hay nada por aquí.</p>
+            <div className="aguacateError">
+                <img className="zanahoriaVacia" src={Zanahorias} alt="¡Error!"/>
+                <p className="manrope4 blanco textoError">Ups.</p>
+                <p className="manrope4 blanco textoError">Aún no hay nada por aquí.</p>
+            </div>
         </>
     )
 }

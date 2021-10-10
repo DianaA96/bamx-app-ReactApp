@@ -4,6 +4,8 @@ import FormularioEditarUsuario from '../components/FormularioEditarUsuario'
 import MenuPrincipal from '../components/MenuPrincipal'
 import ModalConfirmacion from '../components/ModalConfirmacion'
 import ImagenFormulario from '../components/ImagenFormulario'
+import Loader from '../components/Loader'
+import ErrorVersion1 from '../components/ErrorVersion1'
 import '../styles/views.css'
 import axios from 'axios'
 
@@ -30,7 +32,7 @@ function EditarUsuario() {
     },[])
 
     if(status === 'idle' || status === 'loading'){
-        return <p>Cargando</p>
+        return <Loader/>
     }
     
     

@@ -148,52 +148,36 @@ body::-webkit-scrollbar-thumb
     -webkit-backdrop-filter: blur( 20px );
 }
 
+.divAguacateError {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .aguacateError {
-    align-self: center;
-    position: absolute;
-    left: 25%;
-    top: 20vh;
+    margin-top: 18vh;
 }
 
 .sandiaError {
-    align-self: center;
-    position: absolute;
-    left: 25%;
-    top: 20vh;
+    margin-top: 18vh;
 }
 
 .zanahoriaVacia {
-    align-self: center;
-    position: absolute;
-    left: 31%;
-    top: 10vh;
+    margin-top: 18vh;
 }
 
 .limonCorredor{
-    align-self: center;
-    position: absolute;
-    left: 24%;
-    top: 13vh;
+    margin-top: 18vh;
 }
 
 .apioCorredor{
-    align-self: center;
-    position: absolute;
-    left: 25%;
-    top: 17vh;
+    margin-top: 18vh;
 }
 
 .brocoliVacio{
-    align-self: center;
-    position: absolute;
-    left: 23.5%;
-    top: 13vh;
-    height: 80vh;
+    margin-top: 18vh;
 }
 
 .textoError {
-    align-self: center;
-    text-align: center;
-    position: relative;
-    top: 60vh
+    margin-top: 1vh;
 }
