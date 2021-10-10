@@ -8,7 +8,7 @@ import '../styles/botones.css';
 
 function FormularioAgregarDonador(props) {
 
-    const [selectValue, setSelectValue] = useState('')
+    
 
     const options = [
         { value: 'Recurrente', label: 'Recurrente' },
@@ -84,13 +84,21 @@ function FormularioAgregarDonador(props) {
 
     const handleSelectChange = selectedOption => {
         let { label, value } = selectedOption
-        setSelectValue(value);
-        console.log(selectValue)
+        props.setTipoDonador(label);
+    }
+
+    function handleChange(event){
+        let newDonor = {
+            ...props.donor,
+            [event.target.name]: event.target.value,
+        };
+
+        props.setDonor(newDonor)
     }
 
 
-    function showModal(){
-        props.setNombreDonador("Walmart Gobernadores")
+    function showModal(event){
+        event.preventDefault();
         props.setModalConfirmacionVisibility(true)
     }
 
@@ -99,40 +107,44 @@ function FormularioAgregarDonador(props) {
         <div className="Formulario-container lightGlass">
             <form action="" className="formulario">
                 <div className="item-formulario">
-                    <label htmlFor="nombreDonador" className="input-label bebas4">Denominación del establecimiento*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="nombreDonador" placeholder="Nombre"/>
+                    <label htmlFor="nombre" className="input-label bebas4">Denominación del establecimiento*</label>
+                    <input type="text" className="inputDarkGlass manrope5" required name="nombre" placeholder="Nombre" onChange={handleChange}/>
                 </div>
                 <div className="item-formulario">
                     <label htmlFor="determinante" className="input-label bebas4">Determinante*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="determinante" placeholder="Ej.7827"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="determinante" placeholder="Ej.7827" onChange={handleChange}/>
                 </div>
                
                 <div className="item-formulario">
                     <label htmlFor="calle" className="input-label bebas4">Dirección*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="calle" placeholder="Calle"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="calle" placeholder="Calle" onChange={handleChange}/>
                 </div>
 
                 <div className="formulario-col-2">
-                    <input type="text" className="inputDarkGlass manrope5" required name="numExterior" placeholder="Num. Exterior"/>
-                    <input type="text" className="inputDarkGlass manrope5" required name="colonia" placeholder="Colonia"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="numExterior" placeholder="Num. Exterior" onChange={handleChange}/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="colonia" placeholder="Colonia" onChange={handleChange}/>
                 </div>
 
                 <div className="formulario-col-2">
-                    <input type="text" className="inputDarkGlass manrope5" required name="municipio" placeholder="Municipio"/>
-                    <input type="text" className="inputDarkGlass manrope5" required name="codigoPostal" placeholder="Código Postal"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="municipio" placeholder="Municipio" onChange={handleChange}/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="cp" placeholder="Código Postal" onChange={handleChange}/>
                 </div>
 
                 <div className="item-formulario">
-                    <input type="text" className="inputDarkGlass manrope5" required name="estado" placeholder="Estado"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="estado" placeholder="Estado" onChange={handleChange}/>
                 </div>
 
                 <div className="item-formulario">
-                    <label htmlFor="numTelefono" className="input-label bebas4">Teléfono de contacto*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="numTelefono" placeholder="Número a 10 dígitos"/>
+                    <label htmlFor="telefono" className="input-label bebas4">Teléfono de contacto*</label>
+                    <input type="text" className="inputDarkGlass manrope5" required name="telefono" placeholder="Número a 10 dígitos" onChange={handleChange}/>
+                </div>
+                <div className="item-formulario">
+                    <label htmlFor="correo" className="input-label bebas4">Correo electrónico*</label>
+                    <input type="text" className="inputDarkGlass manrope5" required name="correo" placeholder="Ingrese el correo electrónico" onChange={handleChange}/>
                 </div>
                 <div className="item-formulario espacio-extra">
-                    <label htmlFor="tipoDonador" className="input-label bebas4">Tipo*</label>
-                    <Select name="tipoDonador" id="select-tipoDonador" placeholder = "Seleccione el tipo de donador*" options={options} styles={customSelectStyles} required onChange={handleSelectChange}/>
+                    <label htmlFor="tipo" className="input-label bebas4">Tipo*</label>
+                    <Select name="tipo" id="select-tipoDonador" placeholder = "Seleccione el tipo de donador*" options={options} styles={customSelectStyles} required onChange={handleSelectChange}/>
                 </div>
                 <button className="btnNaranja bebas2 blanco btn-formulario" onClick={showModal}>Guardar</button>
             </form>

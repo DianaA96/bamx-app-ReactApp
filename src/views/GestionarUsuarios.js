@@ -48,7 +48,7 @@ function GestionarUsuarios() {
         })
     }
 
-    if(status === 'idle' || status === 'loading'){
+    if(status === 'idle' || status === 'loading'){ 
         return <p>Cargando</p>
     }
     
@@ -56,7 +56,7 @@ function GestionarUsuarios() {
     if(status === 'error'){
         return (
             <p>{`${error.message} ${error.name}`}</p>
-        )
+        ) 
     }
     
     if(status === 'resolved'){
