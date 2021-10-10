@@ -5,8 +5,10 @@ import '../styles/views.css'
 function Espera1() {
     return(
         <>
-            <img className="limonCorredor" src={Limon} alt="¡Error!"/>
-            <p className="manrope4 blanco textoError">Espera un momento...</p>
+            <div className="divAguacateError">
+                <img className="limonCorredor" src={Limon} alt="¡Error!"/>
+                <p className="manrope4 blanco textoError">Espera un momento...</p>
+            </div>
         </>
     )
 }
