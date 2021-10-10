@@ -36,7 +36,7 @@ function GestionarDonadores() {
         axios.delete(`http://localhost:5000/donors/${donorId}`)
         .then((result)=>{
             setStatus('resolved')
-            alert("Donador " + result.data.usuarioEliminado.nombreUsuario + " deshabilitado")
+            alert("Donador " + result.data.donadorEliminado.nombre + " deshabilitado")
             setModalConfirmacionVisibility(false);
         })
         .catch((error)=>{
@@ -74,7 +74,7 @@ function GestionarDonadores() {
                         </div>
                     </section>
                     {modalVisibility ? <ModalDetallesDonador donorId={donorId} setModalConfirmacionVisibility={setModalConfirmacionVisibility} setModalVisibility={setModalVisibility}></ModalDetallesDonador>  : null}
-                    {modalConfirmacionVisibility ? <ModalConfirmacion  setModalConfirmacionVisibility={setModalConfirmacionVisibility} titulo1="eliminación" titulo2="donador" accion="eliminar" entidadObjetivo=" el donador" idEntidad={donorId}></ModalConfirmacion>:null}
+                    {modalConfirmacionVisibility ? <ModalConfirmacion  handleConfirmation={handleDelete} setModalConfirmacionVisibility={setModalConfirmacionVisibility} titulo1="eliminación" titulo2="donador" accion="eliminar" entidadObjetivo=" el donador" idEntidad={donorId}></ModalConfirmacion>:null}
                 </main>
             </body>
         )
