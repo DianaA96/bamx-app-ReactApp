@@ -9,18 +9,17 @@ import Loader from '../components/Loader'
 import ErrorVersion1 from '../components/ErrorVersion1'
 import axios from 'axios'
 
-function EditarDonador() {
+function EditarDonador(props) {
     const [status, setStatus ] = useState('idle');
     const [error, setError] = useState(null);
     const [tipoDonador, setTipoDonador] = useState('')
     const [donor, setDonor] = useState({})
     const [modalConfirmacionVisibility, setModalConfirmacionVisibility] = useState(false)
     const [ nombreDonador, setNombreDonador ] = useState('');
-    let idDonor=1;
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/donors/${idDonor}`)
+        axios.get(`http://localhost:5000/donors/${props.match.params.idDonador}`)
           .then((result)=>{
             setDonor(result.data.donador[0])
             setStatus('resolved')
@@ -53,7 +52,7 @@ function EditarDonador() {
         
         axios({
             method: 'patch',
-            url: `http://localhost:5000/donors/${idDonor}`,
+            url: `http://localhost:5000/donors/${props.match.params.idDonador}`,
             data: donadorBack,
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
@@ -78,7 +77,7 @@ function EditarDonador() {
     
     if(status === 'error'){
         return (
-            <p>{`${error.message} ${error.name}`}</p>
+            <ErrorVersion1 nombreError={error.message}></ErrorVersion1>
         )
     }
     

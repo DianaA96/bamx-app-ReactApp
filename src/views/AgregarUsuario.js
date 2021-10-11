@@ -81,6 +81,7 @@ function AgregarUsuario() {
             })
             .then((result)=>{
                 alert('Receptor registrado correctamente');
+                setModalConfirmacionVisibility(false);
             })
             .catch(error =>{
                 console.log(receptorBack)
@@ -112,6 +113,7 @@ function AgregarUsuario() {
             })
             .then((result)=>{
                 alert('Coordinador de tráfico registrado correctamente');
+                setModalConfirmacionVisibility(false);
             })
             .catch(error =>{
                 console.log(coordinadorBack)
