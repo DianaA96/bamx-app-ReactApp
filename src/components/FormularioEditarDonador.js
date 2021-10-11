@@ -8,8 +8,6 @@ import '../styles/botones.css';
 
 function FormularioEditarDonador(props) {
 
-    const [selectValue, setSelectValue] = useState('')
-
     const options = [
         { value: 'Recurrente', label: 'Recurrente' },
         { value: 'Extraordinario', label: 'Extraordinario' },
@@ -82,59 +80,72 @@ function FormularioEditarDonador(props) {
     }
 
 
-    const handleSelectChange = selectedOption => {
-        let { label, value } = selectedOption
-        setSelectValue(value);
-        console.log(selectValue)
+    function handleChange(event){
+        let newDonor = {
+            ...props.donor,
+            [event.target.name]: event.target.value,
+        };
+
+        props.setDonor(newDonor)
     }
 
 
-    function showModal(){
-        props.setNombreDonador("Walmart Gobernadores")
+    const handleSelectChange = selectedOption => {
+        let { label, value } = selectedOption
+        props.setTipoDonador(value);
+    }
+
+
+    function showModal(event){
+        event.preventDefault();
         props.setModalConfirmacionVisibility(true)
     }
 
 
     return (
         <div className="Formulario-container lightGlass">
-            <form action="" className="formulario">
+            <form action="" className="formulario" onSubmit={showModal}>
                 <div className="item-formulario">
-                    <label htmlFor="nombreDonador" className="input-label bebas4">Denominación del establecimiento*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="nombreDonador" placeholder="Nombre"/>
+                    <label htmlFor="nombre" className="input-label bebas4">Denominación del establecimiento*</label>
+                    <input type="text" className="inputDarkGlass manrope5" required name="nombre" defaultValue={props.donor.nombre} placeholder="Nombre" onChange={handleChange}/>
                 </div>
                 <div className="item-formulario">
                     <label htmlFor="determinante" className="input-label bebas4">Determinante*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="determinante" placeholder="Ej.7827"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="determinante" defaultValue={props.donor.determinante} placeholder="Ej.7827" onChange={handleChange}/>
                 </div>
                
                 <div className="item-formulario">
                     <label htmlFor="calle" className="input-label bebas4">Dirección*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="calle" placeholder="Calle"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="calle" defaultValue={props.donor.calle} placeholder="Calle" onChange={handleChange}/>
                 </div>
 
                 <div className="formulario-col-2">
-                    <input type="text" className="inputDarkGlass manrope5" required name="numExterior" placeholder="Num. Exterior"/>
-                    <input type="text" className="inputDarkGlass manrope5" required name="colonia" placeholder="Colonia"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="numExterior"  defaultValue={props.donor.numExterior} placeholder="Num. Exterior" onChange={handleChange}/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="colonia" defaultValue={props.donor.colonia} placeholder="Colonia" onChange={handleChange}/>
                 </div>
 
                 <div className="formulario-col-2">
-                    <input type="text" className="inputDarkGlass manrope5" required name="municipio" placeholder="Municipio"/>
-                    <input type="text" className="inputDarkGlass manrope5" required name="codigoPostal" placeholder="Código Postal"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="municipio"  defaultValue={props.donor.municipio} placeholder="Municipio" onChange={handleChange}/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="cp" defaultValue={props.donor.cp} placeholder="Código Postal" onChange={handleChange}/>
                 </div>
 
                 <div className="item-formulario">
-                    <input type="text" className="inputDarkGlass manrope5" required name="estado" placeholder="Estado"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="estado" defaultValue={props.donor.estado} placeholder="Estado" onChange={handleChange}/>
                 </div>
 
                 <div className="item-formulario">
-                    <label htmlFor="numTelefono" className="input-label bebas4">Teléfono de contacto*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="numTelefono" placeholder="Número a 10 dígitos"/>
+                    <label htmlFor="telefono" className="input-label bebas4">Teléfono de contacto*</label>
+                    <input type="text" className="inputDarkGlass manrope5" required name="telefono" defaultValue={props.donor.telefono} placeholder="Número a 10 dígitos" onChange={handleChange}/>
+                </div>
+                <div className="item-formulario">
+                    <label htmlFor="correo" className="input-label bebas4">Correo electrónico*</label>
+                    <input type="text" className="inputDarkGlass manrope5" required name="correo"  defaultValue={props.donor.correo} placeholder="Ingrese el correo electrónico" onChange={handleChange}/>
                 </div>
                 <div className="item-formulario espacio-extra">
                     <label htmlFor="tipoDonador" className="input-label bebas4">Tipo*</label>
-                    <Select name="tipoDonador" id="select-tipoDonador" placeholder = "Seleccione el tipo de donador*" options={options} styles={customSelectStyles} required onChange={handleSelectChange}/>
+                    <Select name="tipoDonador" id="select-tipoDonador" placeholder="Seleccione una opción" defaultInputValue={props.donor.tipo} options={options} styles={customSelectStyles} required onChange={handleSelectChange}/>
                 </div>
-                <button className="btnNaranja bebas2 blanco btn-formulario" onClick={showModal}>Guardar</button>
+                <button className="btnNaranja bebas2 blanco btn-formulario" type='submit' >Guardar</button>
             </form>
         </div>
     )
