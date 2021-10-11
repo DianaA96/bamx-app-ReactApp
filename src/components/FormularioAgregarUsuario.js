@@ -168,7 +168,6 @@ function FormularioAgregarUsuario(props) {
                     <Select name="bodega" id="select-bodega" placeholder = "Selecciona una bodega" options={optionsBodega} styles={customSelectStyles} required onChange={handleSelectBodegaChange}/>
                 </div> : null }
 
-
                 <button className="btnVerde bebas2 blanco btn-formulario" type="submit">Guardar</button>
             </form>
         </div>

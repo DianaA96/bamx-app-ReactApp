@@ -135,11 +135,11 @@ function FormularioEditarDonador(props) {
 
                 <div className="item-formulario">
                     <label htmlFor="telefono" className="input-label bebas4">Teléfono de contacto*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="telefono" defaultValue={props.donor.telefono} placeholder="Número a 10 dígitos" onChange={handleChange}/>
+                    <input type="text" className="inputDarkGlass manrope5" name="telefono" defaultValue={props.donor.telefono} placeholder="Número a 10 dígitos" onChange={handleChange}/>
                 </div>
                 <div className="item-formulario">
                     <label htmlFor="correo" className="input-label bebas4">Correo electrónico*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="correo"  defaultValue={props.donor.correo} placeholder="Ingrese el correo electrónico" onChange={handleChange}/>
+                    <input type="text" className="inputDarkGlass manrope5" name="correo"  defaultValue={props.donor.correo} placeholder="Ingrese el correo electrónico" onChange={handleChange}/>
                 </div>
                 <div className="item-formulario espacio-extra">
                     <label htmlFor="tipoDonador" className="input-label bebas4">Tipo*</label>

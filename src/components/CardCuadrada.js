@@ -57,8 +57,8 @@ function CardCuadrada(props) {
         }
         case "ruta":{
             detalles = {
-                cardHeader: props.data.nombreRuta,
-                cardDescription: `${props.data.numPuntosRecoleccion} puntos de recolección`,
+                cardHeader: props.data.nombre,
+                cardDescription: `${props.data.puntosRecoleccion} puntos de recolección`,
                 cardIcon: "iconoRuta"
             };
             break;
