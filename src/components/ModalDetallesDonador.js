@@ -5,6 +5,7 @@ import '../styles/ModalDetallesUsuario.css';
 import iconoDonador from '../assets/icons/iconoDonadorDetalle.png'
 import '../styles/glass.css';
 import '../styles/botones.css';
+import CustomLink from './CustomLink';
 import styled, { keyframes } from "styled-components";
 import { fadeInDownBig } from 'react-animations'
 import axios from 'axios' 
@@ -75,7 +76,7 @@ function ModalDetallesDonador(props) {
                         <section className="modalDetallesUsuario-body">
                             <div className="modalTitulo">
                                 <p className="manrope4 dosLineasTxt">{donor.nombre}</p>
-                                <p className="manrope5">{`${donor.calle}, ${donor.numExterior}, ${donor.colonia}, ${donor.municipio}`}</p>
+                                <p className="manrope5">{`${donor.calle}, ${donor.numExterior}, ${donor.colonia}, ${donor.municipio}, ${donor.estado !=null ? donor.estado : ''}`}</p>
                             </div>
                         </section>
                         <section className="modalDetallesUsuario-body">
@@ -88,7 +89,7 @@ function ModalDetallesDonador(props) {
                         </section>
                         <section className="modalDetallesUsuario-acciones">
                             <button className="btnRosa bebas4" onClick={showModalConfirmacion}>Eliminar donador</button>
-                            <button className="btnAmarillo bebas4">Editar datos del donador</button>
+                            <CustomLink tag='button' to={`/editarDonador/${donor.idDonor}`} className="btnAmarillo bebas4">Editar datos del donador</CustomLink>
                         </section>
                     </section>
                 </div>
