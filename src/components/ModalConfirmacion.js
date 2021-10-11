@@ -34,7 +34,7 @@ function ModalConfirmacion(props) {
                     </section>
                     <section className="modalConfirmacion-acciones">
                         <button className="btnVerde bebas3 blanco" onClick={props.handleConfirmation}>Confirmar</button>
-                        <button className="btnRojo bebas3 blanco">Cancelar</button>
+                        <button className="btnRojo bebas3 blanco"onClick={hideModal}>Cancelar</button>
                     </section>
                 </div>
             </ShakeDiv>

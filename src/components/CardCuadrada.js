@@ -49,8 +49,8 @@ function CardCuadrada(props) {
         }
         case "unidad":{
             detalles = {
-                cardHeader: props.data.placas,
-                cardDescription: props.data.descripcionUnidad,
+                cardHeader: props.data.modelo,
+                cardDescription: props.data.placa,
                 cardIcon: "iconoUnidad"
             };
             break;

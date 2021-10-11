@@ -111,11 +111,11 @@ function AgregarUsuario() {
                 }
             })
             .then((result)=>{
-                alert('Receptor registrado correctamente');
+                alert('Coordinador de tráfico registrado correctamente');
             })
             .catch(error =>{
                 console.log(coordinadorBack)
-                alert('No se pudo registrar el receptor:', error);
+                alert('No se pudo registrar el coordinador de tráfico:', error);
             })
         }
     }

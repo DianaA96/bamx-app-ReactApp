@@ -18,7 +18,7 @@ function FormularioEditarUnidad(props) {
             <form action="" className="formulario">
                 <div className="item-formulario">
                     <label htmlFor="descripcionUnidad" className="input-label bebas4">Descripcion de la unidad*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="descripcionUnidad" placeholder="Ej. Camioneta 500 Kg. Ford F312"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="descripcionUnidad" defaultValue={props.vehicle.modelo} placeholder="Ej. Camioneta 500 Kg. Ford F312"/>
                 </div>
                 <div className="item-formulario">
                     <label htmlFor="placas" className="input-label bebas4">Placas*</label>
