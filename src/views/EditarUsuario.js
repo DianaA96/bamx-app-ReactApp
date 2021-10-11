@@ -50,8 +50,10 @@ function EditarUsuario(props) {
                     vencimientoLicencia
                 }
             }
-            axios.patch(`http://localhost:5000/users/${props.match.params.idUsuario}/operators`, {
-                body: operadorBack,
+            axios({
+                method: 'patch',
+                url: `http://localhost:5000/users/${props.match.params.idUsuario}/operators`,
+                data: operadorBack,
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
                 }
@@ -84,15 +86,18 @@ function EditarUsuario(props) {
                     idWarehouse
                 }
             }
-
-            axios.patch(`http://localhost:5000/users/${props.match.params.idUsuario}/receivers`, {
-                body: receptorBack,
+            
+            axios({
+                method: 'patch',
+                url: `http://localhost:5000/users/${props.match.params.idUsuario}/receivers`,
+                data: receptorBack,
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
                 }
             })
             .then((result)=>{
                 alert('Receptor actualizado correctamente');
+                setModalConfirmacionVisibility(false);
             })
             .catch(error =>{
                 console.log(receptorBack)
@@ -113,15 +118,18 @@ function EditarUsuario(props) {
                 coordinator: {
                 }
             }
-
-            axios.patch(`http://localhost:5000/users/${props.match.params.idUsuario}/trafficCoordinators`, {
-                body: coordinadorBack,
+            
+            axios({
+                method: 'patch',
+                url: `http://localhost:5000/users/${props.match.params.idUsuario}/trafficCoordinators`,
+                data: coordinadorBack,
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
                 }
             })
             .then((result)=>{
                 alert('Coordinador actualizado correctamente');
+                setModalConfirmacionVisibility(false);
             })
             .catch(error =>{
                 console.log(coordinadorBack)
@@ -137,7 +145,7 @@ function EditarUsuario(props) {
     
     if(status === 'error'){
         return (
-            <p>{`${error.message} ${error.name}`}</p>
+            <ErrorVersion1 nombreError={error.message}></ErrorVersion1>
         )
     }
     
