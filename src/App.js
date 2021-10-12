@@ -60,17 +60,22 @@ function App() {
         <Route path='/agregarDonador' exact={true} >
           <AgregarDonador/>
         </Route>
-        <Route path='/editarDonador' exact={true} >
-          <EditarDonador/>
-        </Route>
+        <Route path='/editarDonador/:idDonador'
+          exact={true}
+          render={(props) =>
+          <EditarDonador {...props}/>
+          }/>
         <Route path='/gestionarUnidades' exact={true} >
           <GestionarUnidades/>
         </Route>
         <Route path='/agregarUnidad' exact={true} >
           <AgregarUnidad/>
         </Route>
-        <Route path='/editarUnidad' exact={true} >
-          <EditarUnidad/>
+        <Route path='/editarUnidad/:idUnidad' 
+          exact={true} 
+          render={(props) =>
+          <EditarUnidad {...props}/>
+          }>
         </Route>
         <Route path='/gestionarRutas' exact={true} >
           <GestionarRutas/>

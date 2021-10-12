@@ -9,31 +9,41 @@ import '../styles/botones.css';
 function FormularioEditarUnidad(props) {
 
 
-    function showModal(){
-        props.setPlacaUnidad("CCV-31212-431")
+    function showModal(event){
+        event.preventDefault()
         props.setModalConfirmacionVisibility(true)
     }
+
+    function handleChange(event){
+        let newVehicle = {
+            ...props.vehicle,
+            [event.target.name]: event.target.value,
+        };
+
+        props.setVehicle(newVehicle)
+    }
+
     return (
         <div className="Formulario-container lightGlass">
-            <form action="" className="formulario">
+            <form action="" className="formulario" onSubmit={showModal}>
                 <div className="item-formulario">
-                    <label htmlFor="descripcionUnidad" className="input-label bebas4">Descripcion de la unidad*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="descripcionUnidad" placeholder="Ej. Camioneta 500 Kg. Ford F312"/>
+                    <label htmlFor="modelo" className="input-label bebas4">Descripcion de la unidad*</label>
+                    <input type="text" className="inputDarkGlass manrope5" required name="modelo" defaultValue={props.vehicle.modelo} placeholder="Ej. Camioneta 500 Kg. Ford F312" onChange={handleChange}/>
                 </div>
                 <div className="item-formulario">
-                    <label htmlFor="placas" className="input-label bebas4">Placas*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="placas" placeholder="Ej. PYS-752-A"/>
+                    <label htmlFor="placa" className="input-label bebas4">Placas*</label>
+                    <input type="text" className="inputDarkGlass manrope5" required name="placa" defaultValue={props.vehicle.placa} placeholder="Ej. PYS-752-A" onChange={handleChange}/>
                 </div>
                 <div className="item-formulario">
-                    <label htmlFor="numPoliza" className="input-label bebas4">Número de póliza*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="numPoliza" placeholder="Escriba el número de póliza"/>
+                    <label htmlFor="poliza" className="input-label bebas4">Número de póliza*</label>
+                    <input type="text" className="inputDarkGlass manrope5" required name="poliza" defaultValue={props.vehicle.poliza} placeholder="Escriba el número de póliza" onChange={handleChange}/>
                 </div>
                 <div className="item-formulario espacio-extra">
-                    <label htmlFor="fechaVencimiento" className="input-label bebas4">Fecha de vencimiento de póliza*</label>
-                    <input type="date" className="inputDarkGlass manrope5" required name="fechaVenicmiento" placeholder="Número a 10 dígitos"/>
+                    <label htmlFor="vencimientoPoliza" className="input-label bebas4">Fecha de vencimiento de póliza*</label>
+                    <input type="date" className="inputDarkGlass manrope5" required name="vencimientoPoliza" defaultValue={props.vehicle.vencimientoPoliza} placeholder="Número a 10 dígitos" onChange={handleChange}/>
                 </div>
                 
-                <button className="btnNaranja bebas2 blanco btn-formulario" onClick={showModal}>Guardar</button>
+                <button className="btnNaranja bebas2 blanco btn-formulario" type="submit">Guardar</button>
             </form>
         </div>
     )

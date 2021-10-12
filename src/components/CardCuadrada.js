@@ -49,16 +49,16 @@ function CardCuadrada(props) {
         }
         case "unidad":{
             detalles = {
-                cardHeader: props.data.placas,
-                cardDescription: props.data.descripcionUnidad,
+                cardHeader: props.data.modelo,
+                cardDescription: props.data.placa,
                 cardIcon: "iconoUnidad"
             };
             break;
         }
         case "ruta":{
             detalles = {
-                cardHeader: props.data.nombreRuta,
-                cardDescription: `${props.data.numPuntosRecoleccion} puntos de recolección`,
+                cardHeader: props.data.nombre,
+                cardDescription: `${props.data.puntosRecoleccion} puntos de recolección`,
                 cardIcon: "iconoRuta"
             };
             break;

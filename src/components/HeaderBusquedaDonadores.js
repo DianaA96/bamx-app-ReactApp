@@ -5,6 +5,7 @@ import '../styles/general.css';
 import '../styles/glass.css';
 import '../styles/inputs.css';
 import '../styles/botones.css';
+import CustomLink from './CustomLink';
 import InputBusqueda from './InputBusqueda';
 
 function HeaderBusquedaDonadores() {
@@ -27,7 +28,7 @@ function HeaderBusquedaDonadores() {
                 <h1 className="titulo-header bebas1 blanco">Gestionar donadores</h1>
                 <div className="agregar-container">
                     <h3 className="bebas3 blanco">Agregar donador</h3>
-                    <button className='btnMasGlass'><i class="fas fa-plus"></i></button>
+                    <CustomLink tag='button' className='btnMasGlass' to='/agregarDonador'><i class="fas fa-plus"></i></CustomLink>
                 </div>
            </div>
            <div className="headerBusqueda-bottom">
