@@ -70,6 +70,10 @@ function CardCuadrada(props) {
 
 
     function mostrarDetalles(){
+        props.setIdRuta(props.data.idRoute)
+        props.setNombreRuta(props.data.nombre)
+        props.setPtosRecolec(props.data.puntosRecoleccion)
+        /* props.setArrPtosRecolec(props.data.) */
         switch(props.cardType){
             case "usuario":
                 props.setUserId(props.data.idUser)

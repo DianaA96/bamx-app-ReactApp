@@ -1,11 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Select from 'react-select'
 import '../styles/general.css';
 import '../styles/glass.css';
 import '../styles/filtros.css';
 import '../styles/FiltroAsignarRutas.css';
 
-function FiltroRutas() {
+function FiltroRutas(props) {
+
+    const [ ptosRecolec, setPtosRecolec ] = useState('')
+    const [ orden, setOrden ] = useState('asc')
+
+    function manageFiltroPtos(event) {
+        setPtosRecolec(event.value)
+    }
+
+    function manageFiltroOrden(event) {
+        if(event.target.id === "opcion-1"){
+            setOrden('')
+        }
+        else if (event.target.id === "opcion-2"){
+            setOrden('desc')
+        }
+        else if (event.target.id === "opcion-3"){
+            setOrden('Donasc')
+        }
+        else if (event.target.id === "opcion-4"){
+            setOrden('Dondesc')
+        }
+    }
+
+    props.setFiPtosRecolec(ptosRecolec)
+    props.setOrden(orden)
 
     const options = [
         { value: '1', label: '1' },
@@ -78,15 +103,15 @@ function FiltroRutas() {
             <form action="" className="formFiltro">
                 <div className="filtros-item">
                     <p className="bebas3 blanco">Número de puntos de recolección</p>
-                    <Select name="numPuntosRecoleccion" id="select-puntosRecoleccion" placeholder = "Seleccione una opción*" options={options} styles={customSelectStyles}/>
+                    <Select name="numPuntosRecoleccion" id="select-puntosRecoleccion" placeholder = "Seleccione una opción*" options={options} onChange={manageFiltroPtos} styles={customSelectStyles}/>
                 </div>
                 <div className="opcionesFiltro manrope5 blanco">
                     <p className="bebas3 blanco">Orden</p>
                     <div class="contenedorRadioButtons">
-                        <input type="radio" name="select" id="opcion-1" checked/>
-                        <input type="radio" name="select" id="opcion-2"/>
-                        <input type="radio" name="select" id="opcion-3"/>
-                        <input type="radio" name="select" id="opcion-4"/>
+                        <input type="radio" name="select" id="opcion-1" onChange={manageFiltroOrden} defaultChecked/>
+                        <input type="radio" name="select" id="opcion-2" onChange={manageFiltroOrden}/>
+                        <input type="radio" name="select" id="opcion-3" onChange={manageFiltroOrden}/>
+                        <input type="radio" name="select" id="opcion-4" onChange={manageFiltroOrden}/>
                         <label for="opcion-1" class="opcion opcion-1">
                             <div class="dot"></div>
                             <div className="espacioFiltros"></div>

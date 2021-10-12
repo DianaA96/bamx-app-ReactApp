@@ -7,7 +7,7 @@ import '../styles/inputs.css';
 import '../styles/botones.css';
 import InputBusqueda from './InputBusqueda';
 
-function HeaderBusquedaRutas() {
+function HeaderBusquedaRutas(props) {
     const [ filtrosVisibility, setFiltrosVisibility] = useState('hidden');
     const [ queryInput, setQueryInput ] = useState('')
 
@@ -20,6 +20,8 @@ function HeaderBusquedaRutas() {
         )
        
     }
+
+    props.setQueryInput(queryInput)
 
     return (
        <div className="headerBusqueda-container darkGlass">
@@ -34,7 +36,11 @@ function HeaderBusquedaRutas() {
                 <InputBusqueda setQueryInput={setQueryInput}></InputBusqueda>
                 <div className="headerBusqueda-filtros">
                     <button className="btn-filtros bebas3 blanco" onClick={toggleFiltrosVisibility}>Agregar filtro<i class="fas fa-filter"></i></button>
-                    {filtrosVisibility === 'visible' ? <FiltroRutas filtrosVisibility = {filtrosVisibility} setFiltrosVisibility={setFiltrosVisibility}></FiltroRutas> : null}
+                    {filtrosVisibility === 'visible' ? <FiltroRutas 
+                                                        filtrosVisibility = {filtrosVisibility} 
+                                                        setFiltrosVisibility={setFiltrosVisibility}
+                                                        setFiPtosRecolec={props.setFiPtosRecolec}
+                                                        setOrden={props.setOrden}/> : null}
                 </div>
            </div>
        </div>
