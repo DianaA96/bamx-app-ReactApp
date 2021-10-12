@@ -1,47 +1,43 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import HeaderBusquedaRutasRecoleccion from '../components/HeaderBusquedaRutasRecoleccion'
 import MenuPrincipal from '../components/MenuPrincipal'
-import CardOperadorPendiente from '../components/CardOperadorPendiente'
-import ModalAsignacionRuta from '../components/ModalAsignacionRuta'
+import GridCardsAsignarRutasDeRecoleccion from '../components/GridCardsAsignarRutasDeRecoleccion'
 import '../styles/views.css'
+import axios from 'axios'
+
+let rutas = []
+let donadoresExtraordinarios = []
+let unidades = []
 
 function AsignarRutasDeRecoleccion() {
 
-    const [modalVisibility, setModalVisibility] = useState(false)
+    const [ queryInput, setQueryInput ] = useState('')
+    const [ manageFiltroOrden, setmanageFiltroOrden ] = useState('asc')
 
-    const [operadorId, setOperadorId ] = useState()
+    const [ modalVisibility, setModalVisibility] = useState(false)
 
-    const users = [
-        {
-            idUser: 1,
-            nombre:'Daniel',
-            apellidoP:'Sanchez',
-            apellidoM:'Cornejo',
-            puesto:'Operador',
-        },
-        {
-            idUser: 2,
-            nombre:'Ernesto',
-            apellidoP:'Sanchez',
-            apellidoM:'Trejo',
-            puesto:'Operador',
-        },
-        {
-            idUser: 3,
-            nombre:'Roberto',
-            apellidoP:'Bravo',
-            apellidoM:'Rodriguez',
-            puesto:'Operador',
-        },
-        {
-            idUser: 4,
-            nombre:'Ramiro',
-            apellidoP:'Manzo',
-            apellidoM:'Ramírez',
-            puesto:'Operador',
-        }
-    ]
+    const [ operadorId, setOperadorId ] = useState()
 
+    const [ status, setStatus ] = useState('')
+    const [ error, setError ] = useState('')
+    
+    useEffect(()=>{
+        setStatus('loading')
+        axios.get(`http://localhost:5000/routes/extradonors/vehicles`)
+          .then((result)=>{
+            console.log(result)
+            rutas = result.data.rutas;
+            donadoresExtraordinarios = result.data.extraDonors;
+            unidades = result.data.unidades;
+            setStatus('resolved')
+          })
+          .catch((error)=>{
+            setError(error)
+            setStatus('error')
+          })
+    }, [modalVisibility])
+
+    
     return (
         <body className="orange-gradient">
             <aside>
@@ -49,16 +45,17 @@ function AsignarRutasDeRecoleccion() {
             </aside>
             <main>
                 <header>
-                    <HeaderBusquedaRutasRecoleccion></HeaderBusquedaRutasRecoleccion>
+                    <HeaderBusquedaRutasRecoleccion setQueryInput={setQueryInput} setmanageFiltroOrden={setmanageFiltroOrden}></HeaderBusquedaRutasRecoleccion>
                 </header>
-                <section className="contenido">
-                    <div className="cardsOperadorPendiente-container">
-                        {users.map((user,i)=>
-                            <CardOperadorPendiente user = {user} setOperadorId = {setOperadorId} setModalVisibility={setModalVisibility}></CardOperadorPendiente>
-                        )}
-                    </div>
-                </section>
-                {modalVisibility ? <ModalAsignacionRuta operadorId={operadorId} setModalVisibility={setModalVisibility}  ></ModalAsignacionRuta>  : null}
+                <GridCardsAsignarRutasDeRecoleccion 
+                queryInput={queryInput}
+                order={manageFiltroOrden} 
+                rutas={rutas} 
+                setOperadorId = {setOperadorId} 
+                unidades={unidades} 
+                donadoresExtraordinarios={donadoresExtraordinarios}
+                operadorId = {operadorId}
+                queryInput={queryInput}/>
             </main>
         </body>
     )
