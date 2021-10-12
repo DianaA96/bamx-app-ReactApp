@@ -8,7 +8,9 @@ import '../styles/glass.css';
 function CardOperadorPendiente(props) {
     function showModal(){
         props.setModalVisibility(true)
-        props.setOperadorId(props.user.idUser)
+        props.setOperadorId(props.user.idDriver)
+        props.setOperadorNombre(`${props.user.nombre} ${props.user.apellidoP} ${props.user.apellidoM}`)
+        props.setOperadorNUsuario(props.user.nombreUsuario)
     }
 
     return (
@@ -16,7 +18,7 @@ function CardOperadorPendiente(props) {
             <img src={iconoEspera} alt="" className="icono-cardOperadorPendiente" />
             <div className="detalles-OperadorPendiente">
                 <p className="manrope4">{`${props.user.nombre} ${props.user.apellidoP} ${props.user.apellidoM}`}</p>
-                <p className="manrope5">Operador {props.user.idUser}</p>
+                <p className="manrope5">{props.user.nombreUsuario}</p>
             </div>
             <button className="btn-asignarRutaRecoleccion btnVerde bebas3 blanco" onClick={showModal}>Asignar</button>
         </div>
