@@ -26,8 +26,8 @@ button:focus {
     border-radius: 25em;
     text-align: center;
     border: 2px solid #009439;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    padding-left: 5%;
+    padding-right: 5%;
     padding-top: 0.2em;
     padding-bottom: 0.2em;
 }
@@ -38,8 +38,8 @@ button:focus {
     border-radius: 25em;
     text-align: center;
     border: 2px solid #EA2040;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    padding-left: 5%;
+    padding-right: 5%;
     padding-top: 0.2em;
     padding-bottom: 0.2em;
 }
@@ -50,8 +50,8 @@ button:focus {
     border-radius: 25em;
     text-align: center;
     border: 2px solid #F86F2D;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    padding-left: 5%;
+    padding-right: 5%;
     padding-top: 0.2em;
     padding-bottom: 0.2em;
 }
@@ -62,8 +62,8 @@ button:focus {
     border-radius: 25em;
     text-align: center;
     border: 2px solid #F6A2AF;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    padding-left: 5%;
+    padding-right: 5%;
     padding-top: 0.2em;
     padding-bottom: 0.2em;
 }
@@ -74,8 +74,8 @@ button:focus {
     border-radius: 25em;
     text-align: center;
     border: 2px solid #FFDF99;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    padding-left: 5%;
+    padding-right: 5%;
     padding-top: 0.2em;
     padding-bottom: 0.2em;
 }
