@@ -12,10 +12,11 @@ function AgregarUsuario() {
     const [modalConfirmacionVisibility, setModalConfirmacionVisibility] = useState(false)
     const [ nombreUsuario, setNombreUsuario ] = useState('');
     const [user, setUser] = useState({})
+    const [bodega, setBodega] = useState('')
     const [cargo, setCargo] = useState('')
 
     function handleSave(){
-        const {nombre, apellidoP, apellidoM, nombreUsuario, telefono, email, contrasena, licencia, vencimientoLic, bodega} = user;
+        const {nombre, apellidoP, apellidoM, nombreUsuario, telefono, email, contrasena, licencia, vencimientoLicencia} = user;
 
         if(cargo ==='Operador'){
             let operadorBack = {
@@ -30,7 +31,7 @@ function AgregarUsuario() {
                 },
                 driver: {
                     licencia,
-                    vencimientoLic
+                    vencimientoLicencia
                 }
             }
             axios({
@@ -54,6 +55,7 @@ function AgregarUsuario() {
         }
 
         else if(cargo ==='Receptor'){
+            let idWarehouse = bodega;
             let receptorBack = {
                 user: {
                     nombreUsuario,
@@ -65,6 +67,7 @@ function AgregarUsuario() {
                     contrasena
                 },
                 receiver: {
+                    idWarehouse
                 }
             }
 
@@ -78,6 +81,7 @@ function AgregarUsuario() {
             })
             .then((result)=>{
                 alert('Receptor registrado correctamente');
+                setModalConfirmacionVisibility(false);
             })
             .catch(error =>{
                 console.log(receptorBack)
@@ -108,11 +112,12 @@ function AgregarUsuario() {
                 }
             })
             .then((result)=>{
-                alert('Receptor registrado correctamente');
+                alert('Coordinador de tráfico registrado correctamente');
+                setModalConfirmacionVisibility(false);
             })
             .catch(error =>{
                 console.log(coordinadorBack)
-                alert('No se pudo registrar el receptor:', error);
+                alert('No se pudo registrar el coordinador de tráfico:', error);
             })
         }
     }
@@ -131,7 +136,7 @@ function AgregarUsuario() {
                 <section className="contenido">
                     <div className="contenidoFormulario-container">
                         <ImagenFormulario></ImagenFormulario>
-                        <FormularioAgregarUsuario setModalConfirmacionVisibility={setModalConfirmacionVisibility} setUser={setUser}  user={user} setCargo={setCargo} handleSave={handleSave}></FormularioAgregarUsuario>
+                        <FormularioAgregarUsuario setModalConfirmacionVisibility={setModalConfirmacionVisibility} setUser={setUser}  user={user} setCargo={setCargo} setBodega={setBodega} handleSave={handleSave}></FormularioAgregarUsuario>
                     </div>
                 </section>
                 {modalConfirmacionVisibility ? <ModalConfirmacion  handleConfirmation ={handleSave} setModalConfirmacionVisibility={setModalConfirmacionVisibility} titulo1="registro" titulo2="usuario" accion="agregar" entidadObjetivo=" el usuario" idEntidad={user.nombreUsuario}></ModalConfirmacion>:null}

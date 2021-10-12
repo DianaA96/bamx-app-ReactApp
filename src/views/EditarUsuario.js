@@ -12,17 +12,16 @@ import axios from 'axios'
 function EditarUsuario(props) {
     const [status, setStatus ] = useState('idle');
     const [error, setError] = useState(null);
-    const [userOriginal, setUserOriginal] = useState({})
+    const [user, setUser] = useState({})
+    const [bodega, setBodega] = useState('')
     const [modalConfirmacionVisibility, setModalConfirmacionVisibility] = useState(false)
     const [ nombreUsuario, setNombreUsuario ] = useState('');
 
     useEffect(()=>{
         setStatus('loading')
         axios.get(`http://localhost:5000/users/${props.match.params.idUsuario}`)
-        // buscar por props.match.params.[ATRIBUTO]
           .then((result)=>{
-            setUserOriginal(result.data.datosUsuario[0])
-            console.log(userOriginal)
+            setUser(result.data.datosUsuario[0])
             setStatus('resolved')
           })
           .catch((error)=>{
@@ -31,6 +30,114 @@ function EditarUsuario(props) {
           })
     },[])
 
+
+    function handleSave(){
+        const {nombre, apellidoP, apellidoM, nombreUsuario, telefono, email, contrasena, licencia, vencimientoLicencia} = user;
+
+        if(user.idDriver != null){
+            let operadorBack = {
+                user: {
+                    nombre,
+                    apellidoP,
+                    apellidoM,
+                    nombreUsuario,
+                    telefono,
+                    email,
+                    contrasena
+                },
+                driver: {
+                    licencia,
+                    vencimientoLicencia
+                }
+            }
+            axios({
+                method: 'patch',
+                url: `http://localhost:5000/users/${props.match.params.idUsuario}/operators`,
+                data: operadorBack,
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                }
+            })
+            .then((result)=>{
+                alert('Operador actualizado correctamente');
+                console.log(operadorBack)
+                setModalConfirmacionVisibility(false);
+
+            })
+            .catch(error =>{
+                console.log(operadorBack)
+                alert('No se pudo actualizar el operador:', error);
+            })
+        }
+
+        else if(user.idReceiver != null){
+            let idWarehouse = bodega;
+            let receptorBack = {
+                user: {
+                    nombreUsuario,
+                    nombre,
+                    apellidoP,
+                    apellidoM,
+                    telefono,
+                    email,
+                    contrasena
+                },
+                receiver: {
+                    idWarehouse
+                }
+            }
+            
+            axios({
+                method: 'patch',
+                url: `http://localhost:5000/users/${props.match.params.idUsuario}/receivers`,
+                data: receptorBack,
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                }
+            })
+            .then((result)=>{
+                alert('Receptor actualizado correctamente');
+                setModalConfirmacionVisibility(false);
+            })
+            .catch(error =>{
+                console.log(receptorBack)
+                alert('No se pudo actualizar el receptor:', error);
+            })
+        }
+        else if(user.idTrafficCoordinator != null){
+            let coordinadorBack = {
+                user: {
+                    nombreUsuario,
+                    contrasena,
+                    nombre,
+                    telefono,
+                    email,
+                    apellidoP,
+                    apellidoM,
+                },
+                coordinator: {
+                }
+            }
+            
+            axios({
+                method: 'patch',
+                url: `http://localhost:5000/users/${props.match.params.idUsuario}/trafficCoordinators`,
+                data: coordinadorBack,
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                }
+            })
+            .then((result)=>{
+                alert('Coordinador actualizado correctamente');
+                setModalConfirmacionVisibility(false);
+            })
+            .catch(error =>{
+                console.log(coordinadorBack)
+                alert('No se pudo actualizar el receptor:', error);
+            })
+        }
+    }
+
     if(status === 'idle' || status === 'loading'){
         return <Loader/>
     }
@@ -38,7 +145,7 @@ function EditarUsuario(props) {
     
     if(status === 'error'){
         return (
-            <p>{`${error.message} ${error.name}`}</p>
+            <ErrorVersion1 nombreError={error.message}></ErrorVersion1>
         )
     }
     
@@ -56,10 +163,10 @@ function EditarUsuario(props) {
                 <section className="contenido">
                     <div className="contenidoFormulario-container">
                         <ImagenFormulario></ImagenFormulario>
-                        <FormularioEditarUsuario setModalConfirmacionVisibility={setModalConfirmacionVisibility} setNombreUsuario={setNombreUsuario} userOriginal={userOriginal}></FormularioEditarUsuario>
+                        <FormularioEditarUsuario setBodega={setBodega}  setModalConfirmacionVisibility={setModalConfirmacionVisibility} setNombreUsuario={setNombreUsuario} user={user}  setUser={setUser} handleSave={handleSave}></FormularioEditarUsuario>
                     </div>
                 </section>
-                {modalConfirmacionVisibility ? <ModalConfirmacion  setModalConfirmacionVisibility={setModalConfirmacionVisibility} titulo1="edición" titulo2="usuario" accion="editar" entidadObjetivo=" el usuario" idEntidad={nombreUsuario}></ModalConfirmacion>:null}
+                {modalConfirmacionVisibility ? <ModalConfirmacion  handleConfirmation={handleSave} setModalConfirmacionVisibility={setModalConfirmacionVisibility} titulo1="edición" titulo2="usuario" accion="editar" entidadObjetivo=" el usuario" idEntidad={nombreUsuario}></ModalConfirmacion>:null}
             </main>
         </body>
     )

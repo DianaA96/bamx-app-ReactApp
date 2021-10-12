@@ -11,12 +11,6 @@ function FormularioEditarUsuario(props) {
     const [selectValue, setSelectValue] = useState('')
     
 
-    const options = [
-        { value: 'Operador', label: 'Operador' },
-        { value: 'Coordinador de tráfico', label: 'Coordinador de tráfico' },
-        { value: 'Receptor', label: 'Receptor' }
-      ]
-
     const optionsBodega = [
         { value: '1', label: 'Banco de Alimentos de Cuernavaca' },
         { value: '2', label: 'Banco de Alimentos de Temixco' },
@@ -92,57 +86,63 @@ function FormularioEditarUsuario(props) {
     }
 
 
-    const handleSelectChange = selectedOption => {
+    const handleSelectBodegaChange = selectedOption => {
         let { label, value } = selectedOption
-        setSelectValue(value);
-        console.log(selectValue)
+        props.setBodega(value);
+    }
+
+    function handleChange(event){
+        let newUser = {
+            ...props.user,
+            [event.target.name]: event.target.value,
+        };
+
+        props.setUser(newUser)
     }
 
 
-    function showModal(){
-        props.setNombreUsuario("BAMXH2302")
+    function showModal(event){
+        event.preventDefault()
         props.setModalConfirmacionVisibility(true)
     }
+
     return (
         <div className="Formulario-container lightGlass">
-            <form action="" className="formulario">
+            <form action="" className="formulario" onSubmit={showModal}>
                 <div className="item-formulario">
                     <label htmlFor="nombre" className="input-label bebas4">Nombre Completo*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="nombre" placeholder="Nombre(s)" value ={props.userOriginal.nombre}/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="nombre" placeholder="Nombre(s)" defaultValue ={props.user.nombre} onChange={handleChange}/>
                 </div>
                 <div className="formulario-col-2">
-                    <input type="text" className="inputDarkGlass manrope5" required name="apellidoP" placeholder="Apellido Paterno" value ={props.userOriginal.apellidoP}/>
-                    <input type="text" className="inputDarkGlass manrope5" required name="apellidoM" placeholder="Apellido Materno" value ={props.userOriginal.apellidoM}/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="apellidoP" placeholder="Apellido Paterno" defaultValue ={props.user.apellidoP} onChange={handleChange}/>
+                    <input type="text" className="inputDarkGlass manrope5" name="apellidoM" placeholder="Apellido Materno" defaultValue ={props.user.apellidoM} onChange={handleChange}/>
                 </div>
                 <div className="item-formulario">
                     <label htmlFor="telefono" className="input-label bebas4">Número de teléfono*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="numTelefono" placeholder="Número a 10 dígitos" value ={props.userOriginal.telefono}/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="numTelefono" placeholder="Número a 10 dígitos" defaultValue ={props.user.telefono} onChange={handleChange}/>
                 </div>
                 <div className="item-formulario">
                     <label htmlFor="email" className="input-label bebas4">Correo electrónico*</label>
-                    <input type="email" className="inputDarkGlass manrope5" required name="email" placeholder="ejemplo@correo.com" value ={props.userOriginal.email}/>
+                    <input type="email" className="inputDarkGlass manrope5" required name="email" placeholder="ejemplo@correo.com" defaultValue ={props.user.email} onChange={handleChange}/>
                 </div>
                 <div className="item-formulario">
                     <label htmlFor="contrasena" className="input-label bebas4">Contraseña*</label>
-                    <input type="password" className="inputDarkGlass manrope5" required name="contrasena" placeholder="Mínimo 7 caracteres. Números y letras." />
+                    <input type="password" className="inputDarkGlass manrope5" required name="contrasena" placeholder="Mínimo 7 caracteres. Números y letras."  onChange={handleChange}/>
                 </div>
-                <div className="item-formulario espacio-extra">
-                    <label htmlFor="rolUsuario" className="input-label bebas4">Cargo en la organización*</label>
-                    <Select name="rolUsuario" id="select-rol" placeholder = "Seleccione una opción*" options={options} styles={customSelectStyles} required onChange={handleSelectChange}/>
-                </div>
-                {selectValue ==='Operador' ? <div className="item-formulario">
+               
+                {props.user.idDriver != null ? <div className="item-formulario">
                     <label htmlFor="numLicencia" className="input-label bebas4">Número de licencia de conducir*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="numLicencia" placeholder="No. de licencia a n caracteres"/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="numLicencia" placeholder="No. de licencia a n caracteres" defaultValue ={props.user.licencia} onChange={handleChange}/>
                 </div>: null}
 
-                {selectValue ==='Operador' ? <div className="item-formulario espacio-extra">
+                {props.user.idDriver != null ? <div className="item-formulario espacio-extra">
                     <label htmlFor="vencimientoLicencia" className="input-label bebas4">Fecha de vencimiento de la licencia*</label>
-                    <input type="date" className="inputDarkGlass manrope5" required name="vencimientoLicencia" placeholder="Seleccione la fecha"/>
+                    <input type="date" className="inputDarkGlass manrope5" required name="vencimientoLicencia" placeholder="Seleccione la fecha" defaultValue={props.user.vencimientoLicencia} onChange={handleChange}/>
                 </div>:null}
 
-                {selectValue === 'Receptor'? <div className="item-formulario espacio-extra">
+                {props.user.idReceiver != null? <div className="item-formulario espacio-extra">
                     <label htmlFor="bodega" className="input-label bebas4">Bodega*</label>
-                    <Select name="bodega" id="select-bodega" placeholder = "Selecciona una bodega" options={optionsBodega} styles={customSelectStyles} required/>
+                    <Select name="bodega" id="select-bodega" placeholder = "Selecciona una bodega" options={optionsBodega} styles={customSelectStyles} required onChange={handleSelectBodegaChange}/>
                 </div> : null }
 
 
