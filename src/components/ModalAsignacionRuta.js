@@ -10,6 +10,7 @@ import '../styles/ModalDetallesRuta.css';
 import ItemDonador from './ItemDonador';
 import styled, { keyframes } from "styled-components";
 import { fadeInDownBig } from 'react-animations'
+import axios from 'axios';
 
 const BounceInAnimation = keyframes`${fadeInDownBig}`;
 const BounceInDiv = styled.div`
@@ -19,35 +20,50 @@ const BounceInDiv = styled.div`
     animation: 1 0.5s ${BounceInAnimation};
 `;
 
-function ModalAsignacionRuta(props) {
+    //Variable que almacena los valores de los inputs seleccionados mediante item donador
+    let donadoresExtraSeleccion = []
+
+    function ModalAsignacionRuta(props) {
 
     const [donorValues, setDonorValues] = useState([1])
 
-    const [selectRutaValue, setSelectRutaValue] = useState()
-    const [selectUnidadValue, setSelectUnidadValue] = useState()
+    const [selectRutaValue, setSelectRutaValue] = useState('')
+    const [selectUnidadValue, setSelectUnidadValue] = useState('')
+
+    function enviarDatosAsignacion(event) {
+        event.preventDefault()
+        /* setStatus('loading') */
+        let idDriver = props.operadorId
+        let idRoute = selectRutaValue
+        let idVehicle = selectUnidadValue
+        let donors = /* props.donadoresExtraSeleccion */ [31, 32, 33]
+        axios({
+            method: 'post',
+            url: 'http://localhost:5000/routes/assignroute/',
+            data: {
+                body: {idDriver, idRoute, idVehicle, donors},
+                headers: {
+                    'Content-Type': 'application/json; charset=UTF-8',
+                    }
+                }
+            }
+        )
+    }
 
     const optionsRutas = [
-        { value: '1', label: 'Ruta 1' },
-        { value: '2', label: 'Ruta 2' },
-        { value: '3', label: 'Ruta 3' }
-      ]
+        ...props.rutas 
+    ]
 
     const optionsUnidades = [
-        { value: '1', label: 'CCV-1324-1423' },
-        { value: '2', label: 'CCV-2445-943' },
-        { value: '3', label: 'CCV-128-12532' }
-      ]
-
+        ...props.unidades
+    ]
 
     const donadorValues = [];
+    
     var [donadores, setDonadores] = useState(1);
 
     function addInput(){
         setDonadores(donadores=donadores+1);
-    }
-
-    function handleSubmit(){
-        props.setNombreRuta()
     }
 
     function hideModal(){
@@ -131,15 +147,14 @@ function ModalAsignacionRuta(props) {
     }
 
     return (
-
         <div className="modal-overlay">
             <BounceInDiv>
                 <div className="Formulario-container  darkGlass">
                     <button className="btn-cerrar" onClick={hideModal}><i class="fas fa-times-circle colorG100"></i></button>
                     <div className="modal-asig-header">
                         <h1 className="bebas3">Asignar ruta de recolección</h1>
-                        <p className="manrope4 bold blanco">Rodrigo Hernández B.</p>
-                        <p className="manrope4 blanco">ID BAMX237848</p>
+                        <p className="manrope4 bold blanco">{props.operadorNombre}</p>
+                        <p className="manrope4 blanco">{props.operadorNUsuario}</p>
                     </div>
             
                     <form action="" className="formulario">
@@ -148,8 +163,14 @@ function ModalAsignacionRuta(props) {
                             <Select name="ruta" id="select-ruta" placeholder = "Seleccione una opción*" options={optionsRutas} styles={customSelectStyles} onChange={handleSelectRutaChange}/>
                         </div>
                         <h3 className="bebas3 blanco">Recolecciones extraordinarias</h3>
-                        {[...Array(donadores)].map(() => 
-                            <ItemDonador setDonorValues={setDonorValues} donadorValues={donadorValues}></ItemDonador>
+                        {[...Array(donadores)].map((donador, idx) => 
+                            <ItemDonador 
+                            setDonorValues={setDonorValues} 
+                            donadorValues={donadorValues} 
+                            opcionesSelect={props.donadoresExtraordinarios} 
+                            donadoresExtraSeleccion ={donadoresExtraSeleccion} 
+                            indiceSelect ={idx}
+                            ></ItemDonador>
                         )}
                         <div className="agregar-inputDonador espacio-extra">
                             <button className="btnMasGlass" type="button" onClick={addInput}><i class="fas fa-plus"></i></button>
@@ -160,7 +181,7 @@ function ModalAsignacionRuta(props) {
                             <Select name="unidad" id="select-unidad" placeholder = "Unidades" options={optionsUnidades} styles={customSelectStyles} onChange={handleSelectUnidadChange}/>
                         </div>
                         
-                        <button className="btnVerde bebas2 blanco btn-formulario" onClick={handleSubmit}>Guardar</button>
+                        <button className="btnVerde bebas2 blanco btn-formulario" onClick={enviarDatosAsignacion}>Guardar</button>
                     </form>
                 </div>
             </BounceInDiv>
