@@ -9,49 +9,65 @@ import iconoPan from '../assets/icons/iconoPan.png'
 import iconoAbarrote from '../assets/icons/iconoAbarrote.png'
 import iconoNoComestible from '../assets/icons/iconoNoComestible.png'
 
+function CardOperadorEntrega(props) {
+    
+    let fruta
+    let pan 
+    let abarrote
+    let noComestible
+    let ultimaHora = props.user.recolecciones[0].hora === null ? new Date() : props.user.recolecciones[0].hora
 
-let operador = {
-    nombre: "Rodrigo",
-    apellidos: "Hernández B.",
-    numeroOperador: 21231,
-    ultimaRecoleccion: "14:32"
-}
+    console.log(ultimaHora)
 
-let recoleccion = {
-    frutaYVerdura: 23,
-    pan: 8,
-    abarrote: 14,
-    noComestible: 0
-}
+    for(let b = 0; b < props.user.recolecciones.length; b++) {
+        if(props.user.recolecciones[b].categoria === 'Pan') {
+            pan = props.user.recolecciones[b].cantidadRecolectada
+            console.log(props.user.recolecciones[b].cantidadRecolectada) 
+        }
 
-function CardOperadorEntrega() {
+        else if(props.user.recolecciones[b].categoria === 'Abarrote') {
+            abarrote = props.user.recolecciones[b].cantidadRecolectada
+            console.log(props.user.recolecciones[b].cantidadRecolectada) 
+        }
+
+        else if(props.user.recolecciones[b].categoria === 'Frutas y verduras') {
+            fruta = props.user.recolecciones[b].cantidadRecolectada
+            console.log(props.user.recolecciones[b].cantidadRecolectada) 
+        }
+
+        else if(props.user.recolecciones[b].categoria === 'No comestible') {
+            noComestible = props.user.recolecciones[b].cantidadRecolectada
+            console.log(props.user.recolecciones[b].cantidadRecolectada) 
+        }
+    }
+
     return(
         <div className="cardOperadorEntrega lightGlass">
             <div className="infoOperadorEntrega">
                 <div className="nombreOperadorEntrega">
-                    <p className="manrope4 bold">{operador.nombre} {operador.apellidos}</p>
-                    <p className="manrope5">Operador #{operador.numeroOperador}</p>
+                    <p className="manrope4 bold">{props.user.operador} {props.user.apellidoP} {props.user.apellidoM}</p>
+                    <p className="manrope5">Operador {props.user.nombreUsuario}</p>
                 </div>
                 <div>
-                    <p className="manrope5 gris">Última recolección: {operador.ultimaRecoleccion}</p>
+                    <p className="manrope5 gris">Última recolección: {props.user.hora}</p>
                 </div>
             </div>
             <div className="infoRecoleccionOperador">
                 <div className="cardRecoleccionOperador">
                     <img src={iconoFrutaVerdura} alt="Frutas y verduras" />
-                    <p className="manrope4 bold">{recoleccion.frutaYVerdura} kg</p>
+                    <p className="manrope4 bold">{fruta} kg</p>
                 </div>
                 <div className="cardRecoleccionOperador">
                     <img src={iconoPan} alt="Frutas y verduras" />
-                    <p className="manrope4 bold">{recoleccion.pan} kg</p>
+                    <p className="manrope4 bold">{pan} kg</p>
                 </div>
                 <div className="cardRecoleccionOperador">
                     <img src={iconoAbarrote} alt="Frutas y verduras" />
-                    <p className="manrope4 bold">{recoleccion.abarrote} kg</p>
+                    <p className="manrope4 bold">{abarrote} kg</p>
                 </div>
                 <div className="cardRecoleccionOperador">
                     <img src={iconoNoComestible} alt="Frutas y verduras" />
-                    <p className="manrope4 bold">{recoleccion.noComestible} kg</p>
+                    <p className="manrope4 bold">{noComestible} kg</p>
                 </div>
             </div>
             <div className="botonAsignarRutaOperador">

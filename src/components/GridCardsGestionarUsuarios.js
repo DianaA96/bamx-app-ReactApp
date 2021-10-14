@@ -14,6 +14,9 @@ function GridCardsGestionarUsuarios(props) {
     const [modalConfirmacionVisibility, setModalConfirmacionVisibility] = useState(false)
     const [ userId, setUserId ] = useState('1');
     const cardType = "usuario";
+    const [ nombreRuta, setNombreRuta] = useState()
+    const [ idRuta, setIdRuta] = useState()
+    const [ ptosRecolect, setPtosRecolec ] = useState()
 
     const [status, setStatus ] = useState('idle');
     const [error, setError] = useState(null);
@@ -90,7 +93,7 @@ function GridCardsGestionarUsuarios(props) {
                 <section className="contenido">
                     <div className="cardsCuadradas-container">
                         {users.length !== 0 ? users.map((data,i)=> 
-                            <CardCuadrada cargo={cargo}  setCargo={setCargo} data = {data} cardType={cardType} setModalVisibility={setModalVisibility} setUserId={setUserId}></CardCuadrada>) 
+                            <CardCuadrada cargo={cargo}  setIdRuta={setIdRuta} setPtosRecolec={setPtosRecolec} setCargo={setCargo} data = {data} setNombreRuta={setNombreRuta} cardType={cardType} setModalVisibility={setModalVisibility} setUserId={setUserId}></CardCuadrada>) 
                             : 
                             <EmptyState1 message="Tu búsqueda no arrojó resultados... :("/>}
                     </div>

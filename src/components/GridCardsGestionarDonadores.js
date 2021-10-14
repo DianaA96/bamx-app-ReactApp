@@ -3,6 +3,7 @@ import CardCuadrada from '../components/CardCuadrada'
 import '../styles/views.css'
 import axios from 'axios'
 import ModalConfirmacion from './ModalConfirmacion'
+import Loader from './Loader'
 import ModalDetallesDonador from './ModalDetallesDonador'
 
 function GridCardsGestionarDonadores() {
@@ -13,6 +14,9 @@ function GridCardsGestionarDonadores() {
     const [status, setStatus ] = useState('idle');
     const [error, setError] = useState(null);
     const [donors, setDonors] = useState([]);
+    const [ nombreRuta, setNombreRuta] = useState()
+    const [ idRuta, setIdRuta] = useState()
+    const [ ptosRecolect, setPtosRecolec ] = useState()
 
     useEffect(()=>{
         setStatus('loading')
@@ -43,7 +47,7 @@ function GridCardsGestionarDonadores() {
     }
 
     if(status === 'idle' || status === 'loading'){
-        return <p>Cargando</p>
+        return <Loader/>
     }
     
     
@@ -59,7 +63,7 @@ function GridCardsGestionarDonadores() {
                 <section className="contenido">
                     <div className="cardsCuadradas-container">
                         {donors.map((data,i)=>
-                            <CardCuadrada cardType={cardType} data = {data} setModalVisibility={setModalVisibility} setModalConfirmacionVisibility={setModalConfirmacionVisibility} setDonorId={setDonorId}></CardCuadrada>
+                            <CardCuadrada setIdRuta={setIdRuta} setPtosRecolec={setPtosRecolec} setNombreRuta={setNombreRuta} cardType={cardType} data = {data} setModalVisibility={setModalVisibility} setModalConfirmacionVisibility={setModalConfirmacionVisibility} setDonorId={setDonorId}></CardCuadrada>
                         )}
                     </div>
                 </section> 
