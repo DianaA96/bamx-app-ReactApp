@@ -14,6 +14,9 @@ function GridCardsGestionarUnidades() {
     const [modalConfirmacionVisibility, setModalConfirmacionVisibility] = useState(false)
     const [ vehicleId, setVehicleId ] = useState('');
     const cardType = "unidad";
+    const [ nombreRuta, setNombreRuta] = useState()
+    const [ idRuta, setIdRuta] = useState()
+    const [ ptosRecolect, setPtosRecolec ] = useState()
 
 
     const [status, setStatus ] = useState('idle');
@@ -65,7 +68,7 @@ function GridCardsGestionarUnidades() {
             <section className="contenido">
                 <div className="cardsCuadradas-container">
                     {vehicles.map((data,i)=>
-                        <CardCuadrada data = {data} cardType={cardType} setModalVisibility={setModalVisibility} setVehicleId={setVehicleId}></CardCuadrada>
+                        <CardCuadrada setIdRuta={setIdRuta} setPtosRecolec={setPtosRecolec} setNombreRuta={setNombreRuta}data = {data} cardType={cardType} setModalVisibility={setModalVisibility} setVehicleId={setVehicleId}></CardCuadrada>
                     )}
                 </div>
             </section>

@@ -9,9 +9,10 @@ import '../styles/inputs.css';
 import '../styles/botones.css';
 import InputBusqueda from './InputBusqueda';
 
-function HeaderBusquedaRutasRecoleccion() {
+function HeaderBusquedaRutasRecoleccion(props) {
+    
     const [ filtrosVisibility, setFiltrosVisibility] = useState('hidden');
-    const [ queryInput, setQueryInput ] = useState('')
+    const [ manageFiltroOrden, setmanageFiltroOrden ] = useState('asc')
     
     function toggleFiltrosVisibility(){
         if(filtrosVisibility=='hidden'){
@@ -23,6 +24,8 @@ function HeaderBusquedaRutasRecoleccion() {
        
     }
 
+    props.setmanageFiltroOrden(manageFiltroOrden)
+
     return (
        <div className="headerBusqueda-container darkGlass">
            <div className="headerBusqueda-top">
@@ -30,10 +33,10 @@ function HeaderBusquedaRutasRecoleccion() {
                 <p className="manrope5 blanco"><Moment format="LLL" locale="es-mx"></Moment></p>
            </div>
            <div className="headerBusqueda-bottom">
-                <InputBusqueda setQueryInput={setQueryInput}></InputBusqueda>
+                <InputBusqueda setQueryInput={props.setQueryInput}></InputBusqueda>
                 <div className="headerBusqueda-filtros">
                     <button className="btn-filtros bebas3 blanco" onClick={toggleFiltrosVisibility}>Agregar filtro<i class="fas fa-filter"></i></button>
-                    {filtrosVisibility === 'visible' ? <FiltroOperadoresPendientes filtrosVisibility = {filtrosVisibility} setFiltrosVisibility={setFiltrosVisibility}></FiltroOperadoresPendientes> : null}
+                    {filtrosVisibility === 'visible' ? <FiltroOperadoresPendientes filtrosVisibility = {filtrosVisibility} setFiltrosVisibility={setFiltrosVisibility} setmanageFiltroOrden={setmanageFiltroOrden}></FiltroOperadoresPendientes> : null}
                 </div>
            </div>
        </div>

@@ -8,21 +8,24 @@ import Loader from './Loader'
 import '../styles/views.css'
 import axios from 'axios'
 
-function GridCardsGestionarRutas() {
-    const [modalVisibility, setModalVisibility] = useState(false)
-    const [modalConfirmacionVisibility, setModalConfirmacionVisibility] = useState(false)
+let queryString = ''
+let query = ''
+
+function GridCardsGestionarRutas(props) {
+    const [ modalVisibility, setModalVisibility ] = useState(false)
+    const [ modalConfirmacionVisibility, setModalConfirmacionVisibility ] = useState(false)
     const [ routeId, setRouteId ] = useState('1');
-    const [routes, setRoutes] = useState([]);
+    const [ routes, setRoutes ] = useState([]);
     const cardType = "ruta";
 
     const [status, setStatus ] = useState('idle');
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(null); 
 
     function handleDelete(){
         axios.delete(`http://localhost:5000/vehicles/${routeId}`)
         .then((result)=>{
             setStatus('resolved')
-            alert("Usnidad " + result.data.usuarioEliminado.nombreUsuario + " deshabilitada")
+            alert("Unidad " + result.data.usuarioEliminado.nombreUsuario + " deshabilitada")
             setModalConfirmacionVisibility(false);
         })
         .catch((error)=>{
@@ -31,12 +34,60 @@ function GridCardsGestionarRutas() {
         })
     }
 
+    queryString = ''
+    query = ''
+
+    if(props.queryInput !== '' || props.fiPtosRecolec !== '' || props.orden !== ''){
+        if(props.queryInput !== ''){
+            queryString = '?name='
+            query = props.queryInput
+        }
+     
+        else if (props.queryInput === ''){
+            queryString = ''
+            query = ''
+        } 
+        
+        if (props.orden === 'Donasc') {
+            queryString = '?donors='
+            query = 'asc'
+        }
+
+        else if (props.orden === 'Dondesc') {
+            queryString = '?donors='
+            query = 'desc'
+        }
+
+        // FALTA IMPLEMENTAR LA LÓGICA DEL COMPONENTE DEL FILTRO PARA QUE FILTRE POR NOMBRE
+
+        /* else if (props.orden === 'asc') {
+            queryString = '?donors='
+            query = 'asc'
+        }
+
+        else if (props.orden === 'desc') {
+            queryString = '?donors='
+            query = 'desc'
+        } */
+
+        if (parseInt(props.fiPtosRecolec, 10) > 0) {
+            queryString = '?numberDonors='
+            query = props.fiPtosRecolec
+        }
+       
+    } else {
+        queryString = ''
+        query = ''
+    }
+
+    console.log(queryString)
+    console.log(query)
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/routes`)
+        axios.get(`http://localhost:5000/routes${queryString}${query}`)
           .then((result)=>{
-              console.log(result)
+            console.log(result)
             setRoutes(result.data.rutas)
             setStatus('resolved')
           })
@@ -44,7 +95,7 @@ function GridCardsGestionarRutas() {
             setError(error)
             setStatus('error')
           })
-    },[])
+    },[props.queryInput , props.fiPtosRecolec , props.orden])
 
     if(status === 'idle' || status === 'loading'){ 
         return <Loader/>
@@ -63,11 +114,25 @@ function GridCardsGestionarRutas() {
                 <section className="contenido">
                     <div className="cardsCuadradas-container">
                         {routes.map((data,i)=>
-                            <CardCuadrada data = {data} cardType={cardType} setModalVisibility={setModalVisibility} setRouteId={setRouteId}></CardCuadrada>
+                            <CardCuadrada 
+                            setIdRuta={props.setIdRuta}
+                            setNombreRuta={props.setNombreRuta}
+                            setPtosRecolec={props.setPtosRecolec}
+                            setArrPtosRecolec={props.setArrPtosRecolec}
+                            data = {data} 
+                            cardType={cardType} 
+                            setModalVisibility={setModalVisibility} 
+                            setRouteId={setRouteId}/>
                         )}
                     </div>
                 </section>
-                {modalVisibility ? <ModalDetallesRuta routeId={routeId} setModalVisibility={setModalVisibility}  setModalConfirmacionVisibility={setModalConfirmacionVisibility}></ModalDetallesRuta>  : null}
+                {modalVisibility ? <ModalDetallesRuta 
+                                    idRuta={props.idRuta} 
+                                    setModalVisibility={setModalVisibility}  
+                                    setModalConfirmacionVisibility={setModalConfirmacionVisibility}
+                                    nombreRuta={props.nombreRuta}
+                                    ptosRecolec={props.ptosRecolec}
+                                    arrPtosRecolec={props.arrPtosRecolec}></ModalDetallesRuta>  : null}
                 {modalConfirmacionVisibility ? <ModalConfirmacion  setModalConfirmacionVisibility={setModalConfirmacionVisibility} titulo1="eliminación" titulo2="ruta" accion="eliminar" entidadObjetivo=" la ruta" idEntidad={routeId}></ModalConfirmacion>:null}
             </>
         )

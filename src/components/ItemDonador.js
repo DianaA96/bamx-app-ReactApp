@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Select from 'react-select'
 import '../styles/general.css';
 import '../styles/botones.css';
@@ -6,15 +6,21 @@ import '../styles/formularios.css';
 
 function ItemDonador(props) {
     
-    
     var [donadorVisibility, setDonadorVisibility] = useState("visible")
+    const [selectValue, setSelectValue] = useState('')
+    const indiceSelect = props.indiceSelect //Este useState almacena el índice del valor que se almacenará
+    let indiceInmutable = indiceSelect
+    const [ arrIndices, setArrIndices ] = useState(props.donadoresExtraSeleccion)
+    const [ indiceItem, setIndiceItem ] = useState(indiceInmutable)
     
-
     const options = [
-        { value: '321', label: 'Walmart' },
-        { value: '3412', label: 'Superama' },
-        { value: '9482', label: 'Soriana' }
+        ...props.opcionesSelect
     ]
+
+    useEffect(() => {
+        setArrIndices(donadores => [indiceSelect])
+        props.donadoresExtraSeleccion.push([indiceSelect])
+    }, [])
 
     const customSelectStyles = {
         control: (base, state) => ({
@@ -73,6 +79,7 @@ function ItemDonador(props) {
 
     function hideDonador(){
         setDonadorVisibility("hidden");
+        // Falta implementar la función que permita eliminar los índices que el usuario no quiere enviar   
     }
 
     const handleSelectChange = selectedOption => {
@@ -80,8 +87,12 @@ function ItemDonador(props) {
         if(props.donadorValues.indexOf(value) == -1){
             props.donadorValues.push(value);
         }
-
-        console.log(props.donadorValues)
+        setSelectValue(value);
+        for(let a = 0; a < props.donadoresExtraSeleccion.length; a++){
+            if(props.donadoresExtraSeleccion[a][0] === indiceSelect) {
+                props.donadoresExtraSeleccion[a].push(value)
+            } 
+        }
     }
     
     if (donadorVisibility === "visible") {

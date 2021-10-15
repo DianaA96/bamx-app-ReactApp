@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import '../styles/general.css';
 import '../styles/ModalDetallesRuta.css';
 import iconoRuta from '../assets/icons/iconoCRUDRuta.png'
@@ -6,6 +6,8 @@ import '../styles/glass.css';
 import '../styles/botones.css';
 import styled, { keyframes } from "styled-components";
 import { fadeInDownBig } from 'react-animations'
+import axios from 'axios';
+import CustomLink from './CustomLink';
 
 const BounceInAnimation = keyframes`${fadeInDownBig}`;
 const BounceInDiv = styled.div`
@@ -15,22 +17,29 @@ const BounceInDiv = styled.div`
     animation: 1 0.5s ${BounceInAnimation};
 `;
 
+let donadores = []
+
 function ModalDetallesRuta(props) {
 
-    let donadores = [
-        {
-            nombreDonador:'Superama Gobernadores',
-            ubicacionDonador:'Av Vicente Guerrero 760, Lomas de la Selva, 62270'
-        },
-        {
-            nombreDonador:'Fresko La Comer',
-            ubicacionDonador:'Río Balsas 102, Vista Hermosa 62270'
-        },
-        {
-            nombreDonador:'Woolworth Arista',
-            ubicacionDonador:'Río Yaqui 28, Vista Hermosa, 62290'
-        }
-    ]
+    const [ status, setStatus ] = useState();
+    const [ error, setError ] = useState();
+    
+
+    useEffect(()=>{
+        setStatus('loading')
+        axios.get(`http://localhost:5000/donors?route=${props.idRuta}`)
+          .then((result)=>{
+            donadores = result.data.listaDonadores
+            donadores.map((donador)=>{
+                console.log(donador.nombre)
+            })
+            setStatus('resolved')
+          })
+          .catch((error)=>{
+            setError(error)
+            setStatus('error')
+          })
+    },[])
 
     function hideModal(){
         props.setModalVisibility(false)
@@ -40,9 +49,6 @@ function ModalDetallesRuta(props) {
         props.setModalConfirmacionVisibility(true)
         props.setModalVisibility(false)
     }
-
-    let nombreRuta = "GOBERNADORES-ARISTA"
-    let numPuntosRecoleccion = donadores.length
 
     return (
         <div className="modal-overlay">
@@ -55,25 +61,26 @@ function ModalDetallesRuta(props) {
                     <section className="modalDetallesRuta-derecha">
                         <section className="modalDetallesRuta-header">
                             <div className="modalTitulo">
-                                <p className="manrope4">{nombreRuta}</p>
-                                <p className="manrope5">{numPuntosRecoleccion} puntos de recolección</p>
+                                <p className="manrope4">{props.nombreRuta}</p>
+                                <p className="manrope5">{props.ptosRecolec} puntos de recolección</p>
                             </div>
                             <button className="btn-cerrar" onClick={hideModal}><i class="fas fa-times-circle colorG100"></i></button>
                         </section>
                         <section className="modalDetallesRuta-body">
-                            {donadores.map((donador, index) =>
+                            {donadores.map((donador, idx) => 
                                 <div className="modalRutaIndividual">
                                     <i class="fas fa-map-marker-alt"></i>
                                     <div className="infoRutaIndividual">
-                                        <p className="manrope4">{donador.nombreDonador}</p>
-                                        <p className="manrope5">{donador.ubicacionDonador}</p>
+                                        <p className="manrope4">{donador.nombre}</p>
+                                        <p className="manrope5">{donador.calle} {donador.numExterior}</p>
+                                        <p className="manrope5">{donador.colonia} {donador.municipio}</p>
                                     </div>
                                 </div>
                             )}
                         </section>
                         <section className="modalDetallesRuta-acciones">
                             <button className="btnRosa bebas4" onClick={showModalConfirmacion}>Eliminar Ruta</button>
-                            <button className="btnAmarillo bebas4">Editar datos de la ruta</button>
+                            <CustomLink tag='button' to={`/editarRuta/${props.idRuta}`} className="btnAmarillo bebas4">Editar datos de la ruta</CustomLink>
                         </section>
                     </section>
                 </div>
