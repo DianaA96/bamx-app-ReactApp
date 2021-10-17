@@ -5,8 +5,6 @@ import '../styles/botones.css';
 import '../styles/glass.css';
 import iconoOperadorRuta from '../assets/icons/iconoOperadorRuta.png'
 import CustomLink from './CustomLink';
-// props.match.params
-
 
 function CardOperadorActual(props) {
 
@@ -29,7 +27,7 @@ function CardOperadorActual(props) {
                     <p className="manrope5">{`Operador ${props.user.nombreUsuario}`}</p>
                     <p className="manrope5 nombreRuta">{props.user.ruta}</p>
                 </div>
-                <CustomLink tag='button' to={`/editarUsuario/${props.user.numOperador}`} className="btnConfirmar bebas3 blanco btnVerde">Ver detalle</CustomLink>
+                <CustomLink tag='button' to={`/detalleOperadoresRuta/${props.user.idDriver}`} className="btnConfirmar bebas3 blanco btnVerde">Ver detalle</CustomLink>
             </div>
             <div className="cardOperadorActual-bottom">
                 <p className="manrope5">{`${props.user.recolectadas}/${totalesRecolectadas} recolecciones completas`}</p>
