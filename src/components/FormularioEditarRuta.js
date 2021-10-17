@@ -11,28 +11,32 @@ import CustomLink from './CustomLink';
 function FormularioEditarRuta(props) {
 
     const [ status, setStatus ] = useState('idle');
+    const [ formStatus, setFormStatus ] = useState('pristine')
     const [ error, setError ] = useState(null);
     const [ donorValues, setDonorValues ] = useState({})
     const [ ruta, setRuta ] = useState()
     const donadorValues = [];
-    var [donadores, setDonadores] = useState(props.ruta.puntosRecoleccion.length);
+    var [ donadores, setDonadores ] = useState(props.ruta.puntosRecoleccion.length);
     const [ seleccionDonadoresPost, setSeleccionDonadoresPost ] = useState([])
     const [ seleccionDonadoresEliminar, setSeleccionDonadoresEliminar ] = useState([])
     const [ nuevaRuta, setNuevaRuta ] = useState({})
     const [ arrIndices, setArrIndices ] = useState([])
+    const [ inputValue, setInputValue ] = useState(props.ruta.nombreRuta)
 
     function addInput(){
         setDonadores(donadores = donadores + 1);
         props.ruta.puntosRecoleccion.push({})
+        setFormStatus('dirty')
     }
 
     function handleChange(event) {
+        setInputValue(event.target.value)
         let route = {
             [event.target.name]: event.target.value,
         }
-        // Hacer que el valor del input cambie aquí
         // Checar endpoint
         setNuevaRuta(route)
+        setFormStatus('dirty')
     }
 
     function handleSubmit(event){
@@ -64,6 +68,12 @@ function FormularioEditarRuta(props) {
 
     useEffect(()=>{
         setStatus('loading')
+        setNuevaRuta({nombre: props.ruta.nombreRuta})
+        let arrDonadoresPorDefecto = []
+        for (let m = 0; m < props.ruta.puntosRecoleccion.length; m++) {
+            arrDonadoresPorDefecto.push(props.ruta.puntosRecoleccion[m].idDonor)
+        }
+        setSeleccionDonadoresPost(arrDonadoresPorDefecto)
         axios.get(`http://localhost:5000/donors/donorsselect`)
           .then((result)=>{
             setDonorValues(result.data.donadores)
@@ -88,18 +98,19 @@ function FormularioEditarRuta(props) {
                         name="nombre" 
                         placeholder='' 
                         onChange={handleChange} 
-                        value={props.ruta.nombreRuta}/>
+                        value={inputValue}/>
                 </div>
                 {props.ruta.puntosRecoleccion.map((item, idx) => 
                     <ItemDonador 
                     setDonorValues={setDonorValues} 
                     opcionesSelect={donorValues} 
                     donadorValues={donadorValues}
-                    defaultValue={{value: item.nombre, label: item.nombre}}
+                    defaultValue={{value: item.idDonor, label: item.nombre}}
                     seleccionDonadoresPost={seleccionDonadoresPost}
                     seleccionDonadoresEliminar={seleccionDonadoresEliminar}
                     arrIndices={arrIndices} 
                     setArrIndices={setArrIndices}
+                    setFormStatus={setFormStatus}
                     donadoresExtraSeleccion={[]}></ItemDonador>
                 )}
                 <div className="agregar-inputDonador espacio-extra">
@@ -107,10 +118,10 @@ function FormularioEditarRuta(props) {
                     <p className="bebas4">Nuevo Donador</p>
                 </div>
                 <CustomLink 
-                            onClick={handleSubmit} 
+                            onClick={handleSubmit}
+                            disabled={formStatus === 'pristine'? true:false} 
                             type="submit" 
                             tag='button' 
-                            to={`/gestionarRutas`} 
                             className="btnVerde bebas2 blanco btn-formulario">
                             Guardar
                 </CustomLink>
