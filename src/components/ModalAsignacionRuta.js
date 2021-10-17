@@ -11,6 +11,7 @@ import ItemDonador from './ItemDonador';
 import styled, { keyframes } from "styled-components";
 import { fadeInDownBig } from 'react-animations'
 import axios from 'axios';
+import CustomLink from './CustomLink';
 
 const BounceInAnimation = keyframes`${fadeInDownBig}`;
 const BounceInDiv = styled.div`
@@ -27,27 +28,44 @@ const BounceInDiv = styled.div`
 
     const [donorValues, setDonorValues] = useState([1])
 
-    const [selectRutaValue, setSelectRutaValue] = useState('')
-    const [selectUnidadValue, setSelectUnidadValue] = useState('')
+    const [ status, setStatus ] = useState('idle')
+    const [ selectRutaValue, setSelectRutaValue ] = useState('')
+    const [ selectUnidadValue, setSelectUnidadValue ] = useState('')
+    const [ seleccionDonadoresPost, setSeleccionDonadoresPost ] = useState([])
+    const [ seleccionDonadoresEliminar, setSeleccionDonadoresEliminar ] = useState([])
 
     function enviarDatosAsignacion(event) {
+        
         event.preventDefault()
-        /* setStatus('loading') */
+        setStatus('loading')
+
+        let pr = seleccionDonadoresPost
+        event.preventDefault()
+        for(let b = 0; b < seleccionDonadoresEliminar.length; b++) {
+            if(pr.indexOf(seleccionDonadoresEliminar[b]) === -1) {
+                pr.splice(pr.indexOf(seleccionDonadoresEliminar[b]), 0)
+            } else {
+                pr.splice(pr.indexOf(seleccionDonadoresEliminar[b]), 1)
+            }
+        }
         let idDriver = props.operadorId
         let idRoute = selectRutaValue
         let idVehicle = selectUnidadValue
-        let donors = /* props.donadoresExtraSeleccion */ [31, 32, 33]
+        let donors = pr
         axios({
             method: 'post',
-            url: 'http://localhost:5000/routes/assignroute/',
-            data: {
-                body: {idDriver, idRoute, idVehicle, donors},
-                headers: {
-                    'Content-Type': 'application/json; charset=UTF-8',
-                    }
-                }
+            url: 'http://localhost:5000/routes/assignroute',
+            data: {body:{idDriver, idRoute, idVehicle, donors}},
+            headers: {'Content-Type': 'application/json'}
             }
         )
+        .then((result)=>{
+            alert('Ruta registrada correctamente');
+            props.setModalVisibility(false)
+        })
+        .catch((err) => {
+            alert(err)
+        })
     }
 
     const optionsRutas = [
@@ -170,6 +188,8 @@ const BounceInDiv = styled.div`
                             opcionesSelect={props.donadoresExtraordinarios} 
                             donadoresExtraSeleccion ={donadoresExtraSeleccion} 
                             indiceSelect ={idx}
+                            seleccionDonadoresPost={seleccionDonadoresPost}
+                            seleccionDonadoresEliminar={seleccionDonadoresEliminar}
                             ></ItemDonador>
                         )}
                         <div className="agregar-inputDonador espacio-extra">
@@ -180,8 +200,12 @@ const BounceInDiv = styled.div`
                             <label htmlFor="unidad" className="input-label bebas4">Unidad</label>
                             <Select name="unidad" id="select-unidad" placeholder = "Unidades" options={optionsUnidades} styles={customSelectStyles} onChange={handleSelectUnidadChange}/>
                         </div>
-                        
-                        <button className="btnVerde bebas2 blanco btn-formulario" onClick={enviarDatosAsignacion}>Guardar</button>
+                        <CustomLink 
+                            onClick={enviarDatosAsignacion} 
+                            tag='button' 
+                            className="btnVerde bebas2 blanco btn-formulario">
+                            Guardar
+                        </CustomLink>
                     </form>
                 </div>
             </BounceInDiv>
