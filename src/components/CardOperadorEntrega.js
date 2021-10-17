@@ -8,6 +8,7 @@ import iconoFrutaVerdura from '../assets/icons/iconoFrutaVerdura.png'
 import iconoPan from '../assets/icons/iconoPan.png'
 import iconoAbarrote from '../assets/icons/iconoAbarrote.png'
 import iconoNoComestible from '../assets/icons/iconoNoComestible.png'
+import CustomLink from './CustomLink';
 
 function CardOperadorEntrega(props) {
     
@@ -15,29 +16,25 @@ function CardOperadorEntrega(props) {
     let pan 
     let abarrote
     let noComestible
-    let ultimaHora = props.user.recolecciones[0].hora === null ? new Date() : props.user.recolecciones[0].hora
+    let ultimaHora = '12:00'/* props.user.recolecciones[0].hora === null ? new Date() : props.user.recolecciones[0].hora */
 
     console.log(ultimaHora)
 
     for(let b = 0; b < props.user.recolecciones.length; b++) {
         if(props.user.recolecciones[b].categoria === 'Pan') {
             pan = props.user.recolecciones[b].cantidadRecolectada
-            console.log(props.user.recolecciones[b].cantidadRecolectada) 
         }
 
         else if(props.user.recolecciones[b].categoria === 'Abarrote') {
             abarrote = props.user.recolecciones[b].cantidadRecolectada
-            console.log(props.user.recolecciones[b].cantidadRecolectada) 
         }
 
         else if(props.user.recolecciones[b].categoria === 'Frutas y verduras') {
             fruta = props.user.recolecciones[b].cantidadRecolectada
-            console.log(props.user.recolecciones[b].cantidadRecolectada) 
         }
 
         else if(props.user.recolecciones[b].categoria === 'No comestible') {
             noComestible = props.user.recolecciones[b].cantidadRecolectada
-            console.log(props.user.recolecciones[b].cantidadRecolectada) 
         }
     }
 
@@ -71,7 +68,7 @@ function CardOperadorEntrega(props) {
                 </div>
             </div>
             <div className="botonAsignarRutaOperador">
-                <button className="btnVerde bebas2 blanco">Asignar ruta</button>
+                <CustomLink tag='button' to={`/asignarEntregaOperador/${props.user.idDriver}`} className="btnVerde bebas2 blanco">Asignar ruta</CustomLink>
             </div>
         </div>
     )
