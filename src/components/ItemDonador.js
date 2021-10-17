@@ -19,6 +19,7 @@ function ItemDonador(props) {
     useEffect(() => {
         setArrIndices(donadores => [indiceSelect])
         props.donadoresExtraSeleccion.push([indiceSelect])
+        setThisItemValue(props.defaultValue.value)
     }, [])
 
     const customSelectStyles = {
@@ -80,6 +81,7 @@ function ItemDonador(props) {
         setDonadorVisibility("hidden");
         props.seleccionDonadoresEliminar.push(thisItemValue)
         console.log(props.seleccionDonadoresEliminar)
+        props.setFormStatus('dirty')
     }
 
     const handleSelectChange = selectedOption => {
@@ -100,6 +102,7 @@ function ItemDonador(props) {
                 props.donadoresExtraSeleccion[a].push(value)
             } 
         }
+        props.setFormStatus('dirty')
     }
     
     if (donadorVisibility === "visible") {
