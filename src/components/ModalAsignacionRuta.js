@@ -1,5 +1,10 @@
-import React , {useState, useEffect} from 'react'
+import React , { useState } from 'react'
 import Select from 'react-select'
+import ItemDonador from './ItemDonador';
+import styled, { keyframes } from "styled-components";
+import { fadeInDownBig } from 'react-animations'
+import axios from 'axios';
+import CustomLink from './CustomLink';
 import '../styles/formularios.css';
 import '../styles/general.css';
 import '../styles/glass.css';
@@ -7,19 +12,14 @@ import '../styles/inputs.css';
 import '../styles/botones.css';
 import '../styles/ModalAsignacionRuta.css';
 import '../styles/ModalDetallesRuta.css';
-import ItemDonador from './ItemDonador';
-import styled, { keyframes } from "styled-components";
-import { fadeInDownBig } from 'react-animations'
-import axios from 'axios';
-import CustomLink from './CustomLink';
 
-const BounceInAnimation = keyframes`${fadeInDownBig}`;
-const BounceInDiv = styled.div`
-    backdrop-filter: blur( 20px );
-    border-radius: 25px;
-    -webkit-backdrop-filter: blur( 20px );
-    animation: 1 0.5s ${BounceInAnimation};
-`;
+    const BounceInAnimation = keyframes`${fadeInDownBig}`;
+    const BounceInDiv = styled.div`
+        backdrop-filter: blur( 20px );
+        border-radius: 25px;
+        -webkit-backdrop-filter: blur( 20px );
+        animation: 1 0.5s ${BounceInAnimation};
+    `;
 
     //Variable que almacena los valores de los inputs seleccionados mediante item donador
     let donadoresExtraSeleccion = []
@@ -27,8 +27,8 @@ const BounceInDiv = styled.div`
     function ModalAsignacionRuta(props) {
 
     const [donorValues, setDonorValues] = useState([1])
-
     const [ status, setStatus ] = useState('idle')
+    const [ formStatus, setFormStatus ] = useState('pristine')
     const [ selectRutaValue, setSelectRutaValue ] = useState('')
     const [ selectUnidadValue, setSelectUnidadValue ] = useState('')
     const [ seleccionDonadoresPost, setSeleccionDonadoresPost ] = useState([])
@@ -48,10 +48,12 @@ const BounceInDiv = styled.div`
                 pr.splice(pr.indexOf(seleccionDonadoresEliminar[b]), 1)
             }
         }
+
         let idDriver = props.operadorId
         let idRoute = selectRutaValue
         let idVehicle = selectUnidadValue
         let donors = pr
+
         axios({
             method: 'post',
             url: 'http://localhost:5000/routes/assignroute',
@@ -174,7 +176,6 @@ const BounceInDiv = styled.div`
                         <p className="manrope4 bold blanco">{props.operadorNombre}</p>
                         <p className="manrope4 blanco">{props.operadorNUsuario}</p>
                     </div>
-            
                     <form action="" className="formulario">
                         <div className="item-formulario espacio-extra">
                             <label htmlFor="ruta" className="input-label bebas4">Seleccione una ruta de recolección</label>
@@ -189,6 +190,8 @@ const BounceInDiv = styled.div`
                             donadoresExtraSeleccion ={donadoresExtraSeleccion} 
                             indiceSelect ={idx}
                             seleccionDonadoresPost={seleccionDonadoresPost}
+                            defaultValue={{value: 0, label: 'Elija una opción'}}
+                            setFormStatus={setFormStatus}
                             seleccionDonadoresEliminar={seleccionDonadoresEliminar}
                             ></ItemDonador>
                         )}
@@ -210,7 +213,6 @@ const BounceInDiv = styled.div`
                 </div>
             </BounceInDiv>
         </div>
-        
     )
 }
 
