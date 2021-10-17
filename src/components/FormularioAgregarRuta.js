@@ -1,16 +1,17 @@
 import React , {useState, useEffect} from 'react'
 import CustomLink from './CustomLink';
+import ItemDonador from './ItemDonador';
+import axios from 'axios';
 import '../styles/formularios.css';
 import '../styles/general.css';
 import '../styles/glass.css';
 import '../styles/inputs.css';
 import '../styles/botones.css';
-import ItemDonador from './ItemDonador';
-import axios from 'axios';
 
 function FormularioAgregarRuta(props) {
 
     const [ status, setStatus ] = useState('idle');
+    const [ formStatus, setFormStatus ] = useState('pristine')
     const [ error, setError ] = useState(null);
     const [ donorValues, setDonorValues ] = useState([1])
     const [ selectRutaValue, setSelectRutaValue ] = useState('')
@@ -18,15 +19,15 @@ function FormularioAgregarRuta(props) {
     const [ arrIndices, setArrIndices ] = useState([])
     const [ seleccionDonadoresPost, setSeleccionDonadoresPost ] = useState([])
     const [ seleccionDonadoresEliminar, setSeleccionDonadoresEliminar ] = useState([])
-    const [ nuevaRuta, setNuevaRuta ] = useState({})
+    const [ nuevaRuta, setNuevaRuta ] = useState('vacía')
+    const [ donadores, setDonadores ] = useState(1);
 
     let donadoresExtraSeleccion =[]
     const donadorValues = [];
     
-    var [donadores, setDonadores] = useState(1);
-
     function addInput(){
         setDonadores(donadores = donadores + 1);
+        setFormStatus('dirty')
     }
 
     function handleChange(event) {
@@ -34,6 +35,7 @@ function FormularioAgregarRuta(props) {
             [event.target.name]: event.target.value,
         }
         setNuevaRuta(route)
+        setFormStatus('dirty')
     }
 
     function handleSubmit(event){
@@ -59,7 +61,10 @@ function FormularioAgregarRuta(props) {
         .catch((err) => {
             alert(err)
         })
-        //props.setNombreRuta()
+        event.preventDefault()
+        if(nuevaRuta === {}) {
+            alert("No has ingresado un nombre para esta ruta")
+        }
     }
 
     useEffect(()=>{
@@ -81,7 +86,7 @@ function FormularioAgregarRuta(props) {
             <form action="" className="formulario">
                 <div className="item-formulario">
                     <label htmlFor="nombreRuta" className="input-label bebas4">Nombre de la ruta*</label>
-                    <input onChange={handleChange} type="text" className="inputDarkGlass manrope5" required name="nombre" placeholder="Nombre"/>
+                    <input onChange={handleChange} type="text" className="inputDarkGlass manrope5" required={true} name="nombre" placeholder="Nombre"/>
                 </div>
                 {[...Array(donadores)].map(() => 
                     <ItemDonador 
@@ -90,6 +95,8 @@ function FormularioAgregarRuta(props) {
                     opcionesSelect={donorValues} 
                     donadorValues={donadorValues} 
                     arrIndices={arrIndices} 
+                    defaultValue={{value: 0, label: 'Elija una opción'}}
+                    setFormStatus={setFormStatus}
                     seleccionDonadoresPost={seleccionDonadoresPost}
                     seleccionDonadoresEliminar={seleccionDonadoresEliminar}
                     setArrIndices={setArrIndices}></ItemDonador>
@@ -104,8 +111,9 @@ function FormularioAgregarRuta(props) {
                 <CustomLink 
                             onClick={handleSubmit} 
                             type="submit" 
+                            disabled={formStatus === 'pristine' || nuevaRuta === 'vacía' ? true:false}
                             tag='button' 
-                            to={`/gestionarRutas`} 
+                            /* to={`/gestionarRutas`} */ 
                             className="btnVerde bebas2 blanco btn-formulario">
                             Guardar
                 </CustomLink>
