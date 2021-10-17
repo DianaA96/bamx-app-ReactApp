@@ -6,6 +6,7 @@ import '../styles/glass.css';
 import '../styles/inputs.css';
 import '../styles/botones.css';
 import InputBusqueda from './InputBusqueda';
+import CustomLink from './CustomLink';
 
 function HeaderBusquedaRutas(props) {
     const [ filtrosVisibility, setFiltrosVisibility] = useState('hidden');
@@ -29,7 +30,7 @@ function HeaderBusquedaRutas(props) {
                 <h1 className="titulo-header bebas1 blanco">Gestionar rutas</h1>
                 <div className="agregar-container">
                     <h3 className="bebas3 blanco">Agregar ruta</h3>
-                    <button className='btnMasGlass'><i class="fas fa-plus"></i></button>
+                    <CustomLink tag='button' className='btnMasGlass' to='/agregarRuta'><i class="fas fa-plus"></i></CustomLink>
                 </div>
            </div>
            <div className="headerBusqueda-bottom">
