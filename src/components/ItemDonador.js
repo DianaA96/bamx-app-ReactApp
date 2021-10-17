@@ -5,7 +5,8 @@ import '../styles/botones.css';
 import '../styles/formularios.css';
 
 function ItemDonador(props) {
-    
+
+    const [ thisItemValue, setThisItemValue ] = useState(0)
     var [donadorVisibility, setDonadorVisibility] = useState("visible")
     const [selectValue, setSelectValue] = useState('')
     const indiceSelect = props.indiceSelect //Este useState almacena el índice del valor que se almacenará
@@ -13,9 +14,7 @@ function ItemDonador(props) {
     const [ arrIndices, setArrIndices ] = useState(props.donadoresExtraSeleccion)
     const [ indiceItem, setIndiceItem ] = useState(indiceInmutable)
     
-    const options = [
-        ...props.opcionesSelect
-    ]
+    const options = props.opcionesSelect
 
     useEffect(() => {
         setArrIndices(donadores => [indiceSelect])
@@ -77,12 +76,20 @@ function ItemDonador(props) {
         })
     }
 
-    function hideDonador(){
+    function hideDonador(event){
         setDonadorVisibility("hidden");
-        // Falta implementar la función que permita eliminar los índices que el usuario no quiere enviar   
+        props.seleccionDonadoresEliminar.push(thisItemValue)
+        console.log(props.seleccionDonadoresEliminar)
     }
 
     const handleSelectChange = selectedOption => {
+        props.seleccionDonadoresPost.push(selectedOption.value)
+        props.seleccionDonadoresEliminar.push(thisItemValue)
+        console.log("ELIMINAR")
+        console.log(props.seleccionDonadoresEliminar)
+        setThisItemValue(selectedOption.value)
+        console.log("POST")
+        console.log(props.seleccionDonadoresPost)
         let { label, value } = selectedOption
         if(props.donadorValues.indexOf(value) == -1){
             props.donadorValues.push(value);
@@ -100,7 +107,7 @@ function ItemDonador(props) {
         <div className="item-formulario">
             <label htmlFor="donador" className="input-label bebas4">Punto de recolección / Donador*</label> 
             <div className="item-donador"> 
-                <Select name="donador" id="select-donador" placeholder ="Seleccione un donador*" options={options} styles={customSelectStyles} required onChange={handleSelectChange}/> 
+                <Select name="donador" id="select-donador" placeholder ="Seleccione un donador*" options={options} styles={customSelectStyles} defaultValue={props.defaultValue} required onChange={handleSelectChange}/> 
                 <button className="btnMasGlass" type="button" onClick={hideDonador}><i class="fas fa-minus"></i></button> 
             </div>
         </div>
