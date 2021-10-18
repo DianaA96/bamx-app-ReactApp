@@ -1,32 +1,35 @@
-import React,{useState} from 'react'
+import React,{ useState, useEffect } from 'react'
 import HeaderOperadorEntrega from '../components/HeaderOperadorEntrega'
 import MenuPrincipal from '../components/MenuPrincipal'
 import ModalConfirmacion from '../components/ModalConfirmacion'
 import FormularioAsignarBodega from '../components/FormularioAsignarBodega'
 import '../styles/views.css'
+import axios from 'axios'
 
 
-function AsignarRutasEntrega() {
+function AsignarRutasEntrega(props) {
+
+    const [ status, setStatus ] = useState('idle');
+    const [ error, setError ] = useState(null);
+    const [ ruta, setRuta ] = useState({})
 
     const [modalConfirmacionVisibility, setModalConfirmacionVisibility] = useState(false)
 
-    const users = [
-        {
-            nombre:'Daniel',
-            apellidoP:'Sanchez',
-            apellidoM:'Cornejo',
-            puesto:'Operador',
-        },
-        {
-            nombre:'Daniel',
-            apellidoP:'Sanchez',
-            apellidoM:'Cornejo',
-            puesto:'Operador',
-        }
-     
-    ]
-
     var [bodegas, setBodegas] = useState(1);
+
+    useEffect(()=>{
+        setStatus('loading')
+        axios.get(`http://localhost:5000/drivers/${props.match.params.idOperador}`)
+          .then((result)=>{
+              console.log(result.data)
+            setRuta(result.data)
+            setStatus('resolved')
+          })
+          .catch((error)=>{
+            setError(error)
+            setStatus('error')
+          })
+    },[])
 
 
     function addCard(){
@@ -40,7 +43,7 @@ function AsignarRutasEntrega() {
     return (
         <body className="orange-gradient">
             <aside>
-                <MenuPrincipal></MenuPrincipal>
+                <MenuPrincipal idRolLogin={1}></MenuPrincipal>
             </aside>
             <main>
                 <header>

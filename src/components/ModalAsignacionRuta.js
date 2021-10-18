@@ -1,5 +1,10 @@
-import React , {useState, useEffect} from 'react'
+import React , { useState } from 'react'
 import Select from 'react-select'
+import ItemDonador from './ItemDonador';
+import styled, { keyframes } from "styled-components";
+import { fadeInDownBig } from 'react-animations'
+import axios from 'axios';
+import CustomLink from './CustomLink';
 import '../styles/formularios.css';
 import '../styles/general.css';
 import '../styles/glass.css';
@@ -7,18 +12,14 @@ import '../styles/inputs.css';
 import '../styles/botones.css';
 import '../styles/ModalAsignacionRuta.css';
 import '../styles/ModalDetallesRuta.css';
-import ItemDonador from './ItemDonador';
-import styled, { keyframes } from "styled-components";
-import { fadeInDownBig } from 'react-animations'
-import axios from 'axios';
 
-const BounceInAnimation = keyframes`${fadeInDownBig}`;
-const BounceInDiv = styled.div`
-    backdrop-filter: blur( 20px );
-    border-radius: 25px;
-    -webkit-backdrop-filter: blur( 20px );
-    animation: 1 0.5s ${BounceInAnimation};
-`;
+    const BounceInAnimation = keyframes`${fadeInDownBig}`;
+    const BounceInDiv = styled.div`
+        backdrop-filter: blur( 20px );
+        border-radius: 25px;
+        -webkit-backdrop-filter: blur( 20px );
+        animation: 1 0.5s ${BounceInAnimation};
+    `;
 
     //Variable que almacena los valores de los inputs seleccionados mediante item donador
     let donadoresExtraSeleccion = []
@@ -26,28 +27,55 @@ const BounceInDiv = styled.div`
     function ModalAsignacionRuta(props) {
 
     const [donorValues, setDonorValues] = useState([1])
-
-    const [selectRutaValue, setSelectRutaValue] = useState('')
-    const [selectUnidadValue, setSelectUnidadValue] = useState('')
+    const [ status, setStatus ] = useState('idle')
+    const [ formStatus, setFormStatus ] = useState('pristine')
+    const [ selectRutaValue, setSelectRutaValue ] = useState('')
+    const [ selectUnidadValue, setSelectUnidadValue ] = useState('')
+    const [ seleccionDonadoresPost, setSeleccionDonadoresPost ] = useState([])
+    const [ seleccionDonadoresEliminar, setSeleccionDonadoresEliminar ] = useState([])
+    const [ fecha, setFecha ] = useState({})
 
     function enviarDatosAsignacion(event) {
+        
         event.preventDefault()
-        /* setStatus('loading') */
+        setStatus('loading')
+
+        let pr = seleccionDonadoresPost
+        event.preventDefault()
+        for(let b = 0; b < seleccionDonadoresEliminar.length; b++) {
+            if(pr.indexOf(seleccionDonadoresEliminar[b]) === -1) {
+                pr.splice(pr.indexOf(seleccionDonadoresEliminar[b]), 0)
+            } else {
+                pr.splice(pr.indexOf(seleccionDonadoresEliminar[b]), 1)
+            }
+        }
+
         let idDriver = props.operadorId
         let idRoute = selectRutaValue
         let idVehicle = selectUnidadValue
-        let donors = /* props.donadoresExtraSeleccion */ [31, 32, 33]
+        let donors = pr
+
         axios({
             method: 'post',
-            url: 'http://localhost:5000/routes/assignroute/',
-            data: {
-                body: {idDriver, idRoute, idVehicle, donors},
-                headers: {
-                    'Content-Type': 'application/json; charset=UTF-8',
-                    }
-                }
+            url: 'http://localhost:5000/routes/assignroute',
+            data: {body:{idDriver, idRoute, idVehicle, donors, ...fecha}},
+            headers: {'Content-Type': 'application/json'}
             }
         )
+        .then((result)=>{
+            alert('Ruta registrada correctamente');
+            props.setModalVisibility(false)
+        })
+        .catch((err) => {
+            alert(err)
+        })
+    }
+
+    function handleChange(event){
+        let fechaObj = {
+            [event.target.name]: event.target.value,
+        };
+        setFecha(fechaObj)
     }
 
     const optionsRutas = [
@@ -156,8 +184,11 @@ const BounceInDiv = styled.div`
                         <p className="manrope4 bold blanco">{props.operadorNombre}</p>
                         <p className="manrope4 blanco">{props.operadorNUsuario}</p>
                     </div>
-            
                     <form action="" className="formulario">
+                        <div className="item-formulario espacio-extra">
+                            <label htmlFor="fechaFrontend" className="input-label bebas4">Seleccione una fecha de asignación*</label>
+                            <input type="date" className="inputDarkGlass manrope5" required name="fechaFrontend" placeholder="Seleccione la fecha" onChange={handleChange}/>
+                        </div>
                         <div className="item-formulario espacio-extra">
                             <label htmlFor="ruta" className="input-label bebas4">Seleccione una ruta de recolección</label>
                             <Select name="ruta" id="select-ruta" placeholder = "Seleccione una opción*" options={optionsRutas} styles={customSelectStyles} onChange={handleSelectRutaChange}/>
@@ -170,6 +201,10 @@ const BounceInDiv = styled.div`
                             opcionesSelect={props.donadoresExtraordinarios} 
                             donadoresExtraSeleccion ={donadoresExtraSeleccion} 
                             indiceSelect ={idx}
+                            seleccionDonadoresPost={seleccionDonadoresPost}
+                            defaultValue={{value: 0, label: 'Elija una opción'}}
+                            setFormStatus={setFormStatus}
+                            seleccionDonadoresEliminar={seleccionDonadoresEliminar}
                             ></ItemDonador>
                         )}
                         <div className="agregar-inputDonador espacio-extra">
@@ -180,13 +215,16 @@ const BounceInDiv = styled.div`
                             <label htmlFor="unidad" className="input-label bebas4">Unidad</label>
                             <Select name="unidad" id="select-unidad" placeholder = "Unidades" options={optionsUnidades} styles={customSelectStyles} onChange={handleSelectUnidadChange}/>
                         </div>
-                        
-                        <button className="btnVerde bebas2 blanco btn-formulario" onClick={enviarDatosAsignacion}>Guardar</button>
+                        <CustomLink 
+                            onClick={enviarDatosAsignacion} 
+                            tag='button' 
+                            className="btnVerde bebas2 blanco btn-formulario">
+                            Guardar
+                        </CustomLink>
                     </form>
                 </div>
             </BounceInDiv>
         </div>
-        
     )
 }
 

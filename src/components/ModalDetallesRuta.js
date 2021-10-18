@@ -61,8 +61,8 @@ function ModalDetallesRuta(props) {
                     <section className="modalDetallesRuta-derecha">
                         <section className="modalDetallesRuta-header">
                             <div className="modalTitulo">
-                                <p className="manrope4">{props.nombreRuta}</p>
-                                <p className="manrope5">{props.ptosRecolec} puntos de recolección</p>
+                                <p className="manrope4">{props.nombreRuta || props.nombreRuta === 'null' || props.nombreRuta === null ? props.nombreRuta: ''}</p>
+                                <p className="manrope5">{props.ptosRecolec || props.ptosRecolec === 'null' || props.ptosRecolec === null ? props.ptosRecolec: ''} puntos de recolección</p>
                             </div>
                             <button className="btn-cerrar" onClick={hideModal}><i class="fas fa-times-circle colorG100"></i></button>
                         </section>
@@ -71,9 +71,9 @@ function ModalDetallesRuta(props) {
                                 <div className="modalRutaIndividual">
                                     <i class="fas fa-map-marker-alt"></i>
                                     <div className="infoRutaIndividual">
-                                        <p className="manrope4">{donador.nombre}</p>
-                                        <p className="manrope5">{donador.calle} {donador.numExterior}</p>
-                                        <p className="manrope5">{donador.colonia} {donador.municipio}</p>
+                                        <p className="manrope4">{donador.nombre || donador.nombre === 'null' || donador.nombre === null ? donador.nombre: ''}</p>
+                                        <p className="manrope5">{donador.calle || donador.calle === 'null' || donador.calle === null ? donador.calle: ''} {donador.numExterior || donador.numExterior === 'null' || donador.numExterior === null ? donador.numExterior : ''}</p>
+                                        <p className="manrope5">{!donador.colonia || donador.colonia === "null" || donador.colonia === null ? '': donador.colonia} {donador.municipio || donador.municipio === 'null' || donador.municipio === null ? donador.municipio: ''}</p>
                                     </div>
                                 </div>
                             )}

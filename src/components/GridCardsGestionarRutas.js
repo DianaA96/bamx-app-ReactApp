@@ -80,8 +80,18 @@ function GridCardsGestionarRutas(props) {
         query = ''
     }
 
-    console.log(queryString)
-    console.log(query)
+    function handleDelete(){
+        axios.delete(`http://localhost:5000/routes/${props.idRuta}`)
+        .then((result)=>{
+            setStatus('resolved')
+            alert("Ruta " + props.nombreRuta + " deshabilitada correctamente.")
+            setModalConfirmacionVisibility(false);
+        })
+        .catch((error)=>{
+            setError(error)
+            setStatus('error')
+        })
+    }
 
     useEffect(()=>{
         setStatus('loading')
@@ -133,7 +143,7 @@ function GridCardsGestionarRutas(props) {
                                     nombreRuta={props.nombreRuta}
                                     ptosRecolec={props.ptosRecolec}
                                     arrPtosRecolec={props.arrPtosRecolec}></ModalDetallesRuta>  : null}
-                {modalConfirmacionVisibility ? <ModalConfirmacion  setModalConfirmacionVisibility={setModalConfirmacionVisibility} titulo1="eliminación" titulo2="ruta" accion="eliminar" entidadObjetivo=" la ruta" idEntidad={routeId}></ModalConfirmacion>:null}
+                {modalConfirmacionVisibility ? <ModalConfirmacion  setModalConfirmacionVisibility={setModalConfirmacionVisibility} titulo1="eliminación" titulo2="ruta" accion="eliminar" entidadObjetivo=" la ruta" idEntidad={routeId} handleConfirmation={handleDelete}></ModalConfirmacion>:null}
             </>
         )
     }

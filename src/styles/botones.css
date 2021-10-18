@@ -20,6 +20,10 @@ button:focus {
     outline: none;
 }
 
+button:disabled {
+    cursor:not-allowed
+}
+
 .btnVerde{
     background-color: #009439;
     border: none;

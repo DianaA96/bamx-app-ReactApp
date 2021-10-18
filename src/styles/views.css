@@ -100,6 +100,7 @@ header{
 
 .cardsCuadradas-container .cardCuadrada{
     margin-bottom: 1em;
+    word-break: break-word
 }
 
 .cardsCuadradas-container::-webkit-scrollbar-track

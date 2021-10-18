@@ -26,7 +26,7 @@ import EditarUnidad from './views/EditarUnidad.js';
 // ROL COORDINADOR
 import GestionarRutas from './views/GestionarRutas.js';
 import AgregarRuta from './views/AgregarRuta.js';
-//import EditarRuta from './views/EditarRuta.js';
+import EditarRuta from './views/EditarRuta.js';
 import AsignarRutasDeRecoleccion from './views/AsignarRutasDeRecoleccion.js';
 import DetalleOperadoresRuta from './views/DetalleOperadoresRuta.js';
 import GestionarOperadoresRuta from './views/GestionarOperadoresRuta.js';
@@ -80,6 +80,11 @@ function App() {
         <Route path='/gestionarRutas' exact={true} >
           <GestionarRutas/>
         </Route>
+        <Route path='/editarRuta/:idRuta'
+          exact={true}
+          render={(props) => 
+          <EditarRuta {...props}/>
+        }/>
         <Route path='/gestionDeOperadoresEnRuta' exact={true} >
           <GestionarOperadoresRuta/>
         </Route>
@@ -89,15 +94,19 @@ function App() {
         <Route path='/asignarRutasDeRecoleccion' exact={true} >
           <AsignarRutasDeRecoleccion/>
         </Route>
-        <Route path='/detalleOperadoresRuta' exact={true} >
-          <DetalleOperadoresRuta/>
-        </Route>
+        <Route path='/detalleOperadoresRuta/:idDriver'
+          exact={true}
+          render={(props) => 
+          <DetalleOperadoresRuta {...props}/>
+        }/>
         <Route path='/asignarRutaDeEntrega' exact={true} >
           <AsignarRutasEntrega/>
         </Route>
-        <Route path='/asignarEntregaOperador' exact={true} >
-          <AsignarEntregaOperador/>
-        </Route>
+        <Route path='/asignarEntregaOperador/:idOperador'
+          exact={true}
+          render={(props) => 
+            <AsignarEntregaOperador {...props}/>
+        }/>
         <Route>
           <ErrorRutaNoDefinida/>
         </Route>

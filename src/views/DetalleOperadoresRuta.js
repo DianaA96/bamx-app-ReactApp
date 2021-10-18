@@ -1,104 +1,51 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import HeaderOperadorRuta from '../components/HeaderOperadorRuta'
 import MenuPrincipal from '../components/MenuPrincipal'
 import CardOperadorDetalles from '../components/CardOperadorDetalles'
 import '../styles/views.css'
 import '../styles/botones.css'
+import CustomLink from '../components/CustomLink'
+import axios from 'axios'
 
-function DetalleOperadoresRuta() {
+function DetalleOperadoresRuta(props) {
 
-    const users = [
-        {
-            nombre:'Rodrigo',
-            apellidoP:'Hernández',
-            apellidoM:'B.',
-            puesto:'Operador',
-            numOperador: 32123,
-            folio: 'RE2456-B',
-            personaDonador: 'Javier Almazán',
-            tiendaDonador: 'Walmart Circunvalación',
-            direccionDonador: 'Av. Circunvalación No. 4',
-            fechaRecepcionDonativo: '12 de septiembre del 2021',
-            horaRecepcionDonativo: '14:35 hrs.',
-            notaFrutaYVerdura: 15,
-            notaPan: 15,
-            notaAbarrote: 15,
-            notaNoComestible: 15,
-            notaDelOperadorRecibida: true
-        },
-        {
-            nombre:'Rodrigo',
-            apellidoP:'Hernández',
-            apellidoM:'B.',
-            puesto:'Operador',
-            numOperador: 32123,
-            folio: 'RE2456-B',
-            personaDonador: 'Javier Almazán',
-            tiendaDonador: 'Walmart Circunvalación',
-            direccionDonador: 'Av. Circunvalación No. 4',
-            fechaRecepcionDonativo: '12 de septiembre del 2021',
-            horaRecepcionDonativo: '14:35 hrs.',
-            notaFrutaYVerdura: 15,
-            notaPan: 15,
-            notaAbarrote: 15,
-            notaNoComestible: 15,
-            notaDelOperadorRecibida: false
-        },
-        {
-            nombre:'Rodrigo',
-            apellidoP:'Hernández',
-            apellidoM:'B.',
-            puesto:'Operador',
-            numOperador: 32123,
-            folio: 'RE2456-B',
-            personaDonador: 'Javier Almazán',
-            tiendaDonador: 'Walmart Circunvalación',
-            direccionDonador: 'Av. Circunvalación No. 4',
-            fechaRecepcionDonativo: '12 de septiembre del 2021',
-            horaRecepcionDonativo: '14:35 hrs.',
-            notaFrutaYVerdura: 15,
-            notaPan: 15,
-            notaAbarrote: 15,
-            notaNoComestible: 15,
-            notaDelOperadorRecibida: false
-        },
-        {
-            nombre:'Rodrigo',
-            apellidoP:'Hernández',
-            apellidoM:'B.',
-            puesto:'Operador',
-            numOperador: 32123,
-            folio: 'RE2456-B',
-            personaDonador: 'Javier Almazán',
-            tiendaDonador: 'Walmart Circunvalación',
-            direccionDonador: 'Av. Circunvalación No. 4',
-            fechaRecepcionDonativo: '12 de septiembre del 2021',
-            horaRecepcionDonativo: '14:35 hrs.',
-            notaFrutaYVerdura: 15,
-            notaPan: 15,
-            notaAbarrote: 15,
-            notaNoComestible: 15,
-            notaDelOperadorRecibida: false
-        }
-    ]
+    const [ status, setStatus ] = useState('')
+    const [ error, setError ] = useState('')
+    const [ driver, setDriver ] = useState([])
+    const [ notasRecoleccion, setNotasRecoleccion ] = useState([]) 
+
+    useEffect(()=>{
+        setStatus('loading')
+        axios.get(`http://localhost:5000/drivers/enroutedriver/${props.match.params.idDriver}`)
+        .then((result)=>{
+            console.log(result)
+            setDriver(result.data.chofer[0])
+            setNotasRecoleccion(result.data.recoleccionesRealizadas)
+            setStatus('resolved')
+        })
+        .catch((error)=>{
+            setError(error)
+            setStatus('error')
+        })
+    },[])
 
     return (
         <body className="orange-gradient">
             <aside>
-                <MenuPrincipal></MenuPrincipal>
+                <MenuPrincipal idRolLogin={1}></MenuPrincipal>
             </aside>
             <main>
                 <header>
-                    <HeaderOperadorRuta user = {users[0]}></HeaderOperadorRuta>
+                    <HeaderOperadorRuta driver={driver}></HeaderOperadorRuta>
                 </header>
                 <section className="contenido">
                     <div className="cardsOperadorPendiente-container">
-                        {users.map((user,i)=>
-                            <CardOperadorDetalles user = {user}></CardOperadorDetalles>
+                        {notasRecoleccion.map((nota,i)=>
+                            <CardOperadorDetalles nota={nota}></CardOperadorDetalles>
                         )}
                     </div>
                 </section>
-                <button className="btnVerdeCuadrado bebas2 blanco">Regresar</button>
+                <CustomLink tag='button' to={`/gestionDeOperadoresEnRuta`} className="btnVerdeCuadrado bebas2 blanco">Regresar</CustomLink>
             </main>
         </body>
     )

@@ -3,8 +3,6 @@ import CardOperadorActual from '../components/CardOperadorActual'
 import '../styles/views.css'
 import axios from 'axios'
 
-let drivers = []
-
 function GridCardsGestionarOperadoresRuta(props) {
 
     const [ status, setStatus ] = useState('')
