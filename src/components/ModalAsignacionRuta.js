@@ -33,6 +33,7 @@ import '../styles/ModalDetallesRuta.css';
     const [ selectUnidadValue, setSelectUnidadValue ] = useState('')
     const [ seleccionDonadoresPost, setSeleccionDonadoresPost ] = useState([])
     const [ seleccionDonadoresEliminar, setSeleccionDonadoresEliminar ] = useState([])
+    const [ fecha, setFecha ] = useState({})
 
     function enviarDatosAsignacion(event) {
         
@@ -57,7 +58,7 @@ import '../styles/ModalDetallesRuta.css';
         axios({
             method: 'post',
             url: 'http://localhost:5000/routes/assignroute',
-            data: {body:{idDriver, idRoute, idVehicle, donors}},
+            data: {body:{idDriver, idRoute, idVehicle, donors, ...fecha}},
             headers: {'Content-Type': 'application/json'}
             }
         )
@@ -68,6 +69,13 @@ import '../styles/ModalDetallesRuta.css';
         .catch((err) => {
             alert(err)
         })
+    }
+
+    function handleChange(event){
+        let fechaObj = {
+            [event.target.name]: event.target.value,
+        };
+        setFecha(fechaObj)
     }
 
     const optionsRutas = [
@@ -177,6 +185,10 @@ import '../styles/ModalDetallesRuta.css';
                         <p className="manrope4 blanco">{props.operadorNUsuario}</p>
                     </div>
                     <form action="" className="formulario">
+                        <div className="item-formulario espacio-extra">
+                            <label htmlFor="fechaFrontend" className="input-label bebas4">Seleccione una fecha de asignación*</label>
+                            <input type="date" className="inputDarkGlass manrope5" required name="fechaFrontend" placeholder="Seleccione la fecha" onChange={handleChange}/>
+                        </div>
                         <div className="item-formulario espacio-extra">
                             <label htmlFor="ruta" className="input-label bebas4">Seleccione una ruta de recolección</label>
                             <Select name="ruta" id="select-ruta" placeholder = "Seleccione una opción*" options={optionsRutas} styles={customSelectStyles} onChange={handleSelectRutaChange}/>
