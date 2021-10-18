@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 900px;
+    width: 1100px;
     margin-bottom: 2em;
 }
 
@@ -53,5 +53,18 @@
     margin-bottom: 1em;
 }
 
+.cardOperadorDetalles-4{
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
 
-
+.cardOperadorDetalles-4 button{
+    width: 2em;
+    height: 2em;
+    border-radius: 20px;
+    font-size: 40px;
+}

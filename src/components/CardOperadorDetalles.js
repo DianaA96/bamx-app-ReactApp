@@ -7,6 +7,8 @@ import iconoPan from '../assets/icons/iconoPan.png'
 import iconoAbarrote from '../assets/icons/iconoAbarrote.png'
 import iconoNoComestible from '../assets/icons/iconoNoComestible.png'
 import axios from 'axios';
+import CustomLink from './CustomLink';
+import Moment from 'react-moment';
 
 function CardOperadorDetalles(props) {
 
@@ -57,9 +59,13 @@ function CardOperadorDetalles(props) {
                 </div>
            </section>
            <section className="cardOperadorDetalles-3">
-               <p className="manrope5">{props.nota.fechaRecoleccion}</p>
-               <p className="manrope5 bold hora-recoleccion">{ props.nota.fechaRecoleccion }</p>
+               <p className="manrope5"><Moment date={props.nota.fechaRecoleccion} locale={"es-mx"} format={"LL"}></Moment></p>
+               <p className="manrope5 bold hora-recoleccion"><Moment date={props.nota.fechaRecoleccion} add={{ hours: 5 }} locale={"es"} format={"LTS"}></Moment></p>
                <p className="manrope5">{`${props.nota.nota? "SÍ" : "NO"} recibió nota del donador.`}</p>
+           </section>
+           <section className="cardOperadorDetalles-4">
+                <CustomLink tag='button' className='btnMasGlass' /* to='/agregarDonador' */><i class="far fa-map"></i></CustomLink>
+                <p>Ver en Maps</p>
            </section>
        </div>
     )
