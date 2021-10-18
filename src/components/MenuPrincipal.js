@@ -14,7 +14,7 @@ import LogoAsignarRutEnt from '../assets/icons/iconoBodega.png';
 import TabMenuPrincipal from "./TabMenuPrincipal";
 import styled, { keyframes } from "styled-components";
 import { fadeInDownBig } from 'react-animations'
-
+import { useAuth } from '../auth-context';
 const BounceInAnimation = keyframes`${fadeInDownBig}`;
 const BounceInDiv = styled.div`
     backdrop-filter: blur( 20px );
@@ -23,13 +23,16 @@ const BounceInDiv = styled.div`
     animation: 1 0.5s ${BounceInAnimation};
 `;
 
+
+
 function MenuPrincipal(props) {
+    const { logout } = useAuth();
 
     let tabs, iconosTabs
-    let tabs1 = ["Gestionar rutas", "Asignar rutas de recolección", "Gestión de operadores en ruta", "Asignar ruta de entrega", "Cerrar sesión"]
-    let iconosTabs1 = [LogoGestionarRutas, LogoAsignarRutasRec, LogoGestionOperEnRut, LogoAsignarRutEnt, LogoCierreSesion]
-    let tabs2 = ["Gestionar usuarios", "Gestionar donadores", "Gestionar unidades", "Cerrar sesión"]
-    let iconosTabs2 = [LogoGestionarUsuarios, LogoGestionarDonadores, LogoGestionarUnidades, LogoCierreSesion]
+    let tabs1 = ["Gestionar rutas", "Asignar rutas de recolección", "Gestión de operadores en ruta", "Asignar ruta de entrega"]
+    let iconosTabs1 = [LogoGestionarRutas, LogoAsignarRutasRec, LogoGestionOperEnRut, LogoAsignarRutEnt]
+    let tabs2 = ["Gestionar usuarios", "Gestionar donadores", "Gestionar unidades"]
+    let iconosTabs2 = [LogoGestionarUsuarios, LogoGestionarDonadores, LogoGestionarUnidades]
 
 
     if (props.idRolLogin === 1) {
@@ -59,6 +62,17 @@ function MenuPrincipal(props) {
                             <TabMenuPrincipal icono={iconosTabs[index]} logo={logo}/>
                         </li>
                     )}
+
+                    <li>
+                        <a onClick={logout}>
+                            <span className="contenedorImagen">
+                                <img src={LogoCierreSesion} alt='Icon'/>
+                            </span>
+                            <span className="nav-text menuCopy bebas3">
+                                Cerrar sesión
+                            </span>
+                        </a>
+                    </li>
                 </ul>
                 <ul className="logout">
                     <li>

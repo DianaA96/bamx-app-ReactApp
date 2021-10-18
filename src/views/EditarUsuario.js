@@ -52,7 +52,7 @@ function EditarUsuario(props) {
             }
             axios({
                 method: 'patch',
-                url: `http://localhost:5000/users/${props.match.params.idUsuario}/operators`,
+                url: `http://localhost:5000/users/${props.match.params.idUsuario}/drivers`,
                 data: operadorBack,
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
