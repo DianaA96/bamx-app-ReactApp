@@ -120,6 +120,38 @@ function AgregarUsuario() {
                 alert('No se pudo registrar el coordinador de tráfico:', error);
             })
         }
+        else if(cargo ==='Administrador'){
+            let administradorBack = {
+                user: {
+                    nombreUsuario,
+                    contrasena,
+                    nombre,
+                    telefono,
+                    email,
+                    apellidoP,
+                    apellidoM,
+                },
+                admin: {
+                }
+            }
+
+            axios({
+                method: 'post',
+                url: 'http://localhost:5000/users/admins',
+                data: administradorBack,
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                }
+            })
+            .then((result)=>{
+                alert('Administrador registrado correctamente');
+                setModalConfirmacionVisibility(false);
+            })
+            .catch(error =>{
+                console.log(administradorBack)
+                alert('No se pudo registrar el administrador:', error);
+            })
+        }
     }
 
     

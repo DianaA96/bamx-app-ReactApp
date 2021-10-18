@@ -14,7 +14,8 @@ function FormularioAgregarUsuario(props) {
     const options = [
         { value: 'Operador', label: 'Operador' },
         { value: 'Coordinador de tráfico', label: 'Coordinador de tráfico' },
-        { value: 'Receptor', label: 'Receptor' }
+        { value: 'Receptor', label: 'Receptor' },
+        { value: 'Administrador', label: 'Administrador' }
       ]
 
       const optionsBodega = [
