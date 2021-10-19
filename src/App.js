@@ -1,5 +1,6 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import './App.css'; 
+import { useAuth } from './auth-context';
 
 import {
   BrowserRouter as Router,
@@ -11,6 +12,8 @@ import {
 
 // Inicio de sesión general.
 import Login from './views/Login';
+
+import RedireccionCargo from './views/RedireccionCargo';
 
 // ROL ADMINISTRADOR
 import GestionarUsuarios from './views/GestionarUsuarios.js';
@@ -37,11 +40,22 @@ import AsignarEntregaOperador from './views/AsignarEntregaOperador.js';
 import ErrorRutaNoDefinida from './views/ErrorRutaNoDefinida';
 
 function App() {
+
+  const { user, getToken } = useAuth();
+
+  
+  useEffect(() => {
+    getToken();
+  }, [user])
+
   return(
     <Router>
       <Switch>
         <Route path='/login' exact={true} >
-          <Login/>
+          {user[0]?<Redirect to='/redirect'/>:<Login/>}
+        </Route>
+        <Route path='/redirect' exact={true} >
+          {user[0]?<RedireccionCargo/>:<Redirect to='/login'/>}
         </Route>
         <Route path='/gestionarUsuarios' exact={true} >
           <GestionarUsuarios/>
