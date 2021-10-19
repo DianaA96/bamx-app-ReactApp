@@ -26,7 +26,7 @@ function FormularioAgregarRuta(props) {
     const donadorValues = [];
     
     function addInput(){
-        setDonadores(donadores = donadores + 1);
+        setDonadores(donadores + 1);
         setFormStatus('dirty')
     }
 
