@@ -8,14 +8,16 @@ Aplicación web (cliente) desarrollada como parte del bloque de Integración de 
 
 https://github.com/DianaA96/api-bamx-expressjs.git
 
+## Enlace al repositorio complementario de app móvil (Android Studio [Kotlin])
+
+https://github.com/a01276097/aplicacion_bamx.git
+
 ## Documentación y Manual de Usuario
 
 [Documentacion BAMX Equipo 4](LIGA)
 
 ## Base de Datos
 [Script de la Base de datos](LIGA)
-
-[Registros de prueba](LIGA)
 
 ## Herramientas usadas
 
@@ -26,3 +28,5 @@ https://github.com/DianaA96/api-bamx-expressjs.git
 ### `react-select`
 
 ### `moment.js`
+
+### `Google-Map-react`
