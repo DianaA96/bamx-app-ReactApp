@@ -5,3 +5,7 @@
     justify-content: center;
     text-align: start;
 }
+
+.header-operador-ruta{
+    z-index: 1;
+}
