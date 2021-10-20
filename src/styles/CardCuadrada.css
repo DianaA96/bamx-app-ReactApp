@@ -6,6 +6,8 @@
     height: 13vw;
     text-align: start;
     padding: 2vw;
+    white-space: normal;
+    overflow: hidden;
 }
 
 .cardCuadrada-cont-img{

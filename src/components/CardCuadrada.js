@@ -20,17 +20,16 @@ function CardCuadrada(props) {
             let descripcion;
             if(props.data.idDriver!=null){ 
                  descripcion = "Operador" 
-                 
             }
             else if(props.data.idReceiver!=null){ 
                 descripcion = "Receptor" 
-           }
-           else if(props.data.idTrafficCoordinator!=null){ 
-                descripcion = "Trafico" 
             }
-           else { 
-                descripcion = "Sin Cargo" 
-           }
+            else if(props.data.idTrafficCoordinator!=null){ 
+                    descripcion = "Trafico" 
+                }
+            else { 
+                    descripcion = "Sin Cargo" 
+            }
             detalles = {
                 cardHeader: `${props.data.nombre} ${props.data.apellidoP} ${props.data.apellidoM}`,
                 cardDescription: descripcion,
@@ -63,7 +62,6 @@ function CardCuadrada(props) {
             };
             break;
         }
-            
         default:
             console.log('No hay detalles para mostrar')
     }
@@ -73,7 +71,6 @@ function CardCuadrada(props) {
         props.setIdRuta(props.data.idRoute)
         props.setNombreRuta(props.data.nombre)
         props.setPtosRecolec(props.data.puntosRecoleccion)
-        /* props.setArrPtosRecolec(props.data.) */
         switch(props.cardType){
             case "usuario":
                 props.setUserId(props.data.idUser)
@@ -107,14 +104,14 @@ function CardCuadrada(props) {
                     return 2
                 }
                 break;
-            case "donador":
-                return 3
-            case "unidad":
-                return 4
-            case "ruta":
-                return 5
-    }
-    }
+                case "donador":
+                    return 3
+                case "unidad":
+                    return 4
+                case "ruta":
+                    return 5
+                }
+            }
     
     return(
         <div className="cardCuadrada lightGlass" onClick={mostrarDetalles}>
@@ -122,8 +119,7 @@ function CardCuadrada(props) {
             <p className="manrope5">{detalles.cardDescription}<br/>{detalles.cardDescription1}</p>
             <div className="cardCuadrada-cont-img">
                 <img src={iconos[checkIcon()]} alt="icon"/>
-            </div>
-            
+            </div>   
         </div>
     )
 }
