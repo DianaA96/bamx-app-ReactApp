@@ -6,6 +6,7 @@ import '../styles/glass.css';
 import '../styles/inputs.css';
 import '../styles/botones.css';
 import '../styles/FormularioAsignarBodega.css';
+import axios from 'axios';
 
 function FormularioAsignarBodega(props) {
 
@@ -137,7 +138,9 @@ function FormularioAsignarBodega(props) {
 
     useEffect(()=>{
        if(thisIsVisible &&props.submitAttempt) {
-            props.entregas.push({
+           
+        let entrega = {
+            entrega: {
                 "idWarehouse": parseInt(thisBodega),
                 "c1": {
                     "idCategoria": 1,
@@ -155,8 +158,29 @@ function FormularioAsignarBodega(props) {
                     "idCategoria": 4,
                     "cantidad": thisNoComestible
                 }
+             }
+        }
+        console.log(entrega)
+
+        axios({
+            method: 'post',
+            url: `http://localhost:5000/routes/deliveries/assignedWarehouses/${props.id}`,
+            data: entrega,
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
             }
-        )}
+            })
+            .then((result)=>{
+                props.setCardsSubmitted(true)
+                alert('Asignación registrada correctamente.');
+                props.setModalConfirmacionVisibility(false);
+            })
+            .catch(error =>{
+                alert('No se pudo registrar la asignación.');
+                props.setCardsSubmitted(false)
+            })
+            }
+
     },[thisIsVisible && props.submitAttempt])
 
     function handleSubmitCard(event) {

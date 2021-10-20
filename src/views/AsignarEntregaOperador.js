@@ -32,27 +32,7 @@ function AsignarRutasEntrega(props) {
             alert('No ha asignado el destino de todo el cargamento. Verifique e intente de nuevo.')
         }
         else {
-            setSubmitAttempt(true)
-            if(entregas !== []) {
-                axios({
-                    method: 'post',
-                    url: `http://localhost:5000/routes/deliveries/assignedWarehouses/${props.match.params.idOperador}`,
-                    data: {entregas},
-                    headers: {
-                        'Content-type': 'application/json; charset=UTF-8',
-                    }
-                })
-                .then((result)=>{
-                    setCardsSubmitted(true)
-                    alert('Asignación registrada correctamente.');
-                    setModalConfirmacionVisibility(false);
-                    
-                })
-                .catch(error =>{
-                    alert('No se pudo registrar la asignación.');
-                })
-                alert('Asignación de bodegas a operador completa.')  
-            }       
+            setSubmitAttempt(true)      
         }
     }
 
@@ -122,6 +102,7 @@ function AsignarRutasEntrega(props) {
                             pan={pan}
                             abarrote={abarrote}
                             noComestible={noComestible}
+                            id={props.match.params.idOperador}
                             cardsSubmitted={cardsSubmitted}
                             setCardsSubmitted={setCardsSubmitted}
                             submitAttempt={submitAttempt}
@@ -132,6 +113,7 @@ function AsignarRutasEntrega(props) {
                             setEntregasPostEliminar={setEntregasPostEliminar}
                             itemsBodegasEnabled={itemsBodegasEnabled}
                             setItemsBodegasEnabled={setItemsBodegasEnabled}
+                            setModalConfirmacionVisibility={setModalConfirmacionVisibility}
                             ></FormularioAsignarBodega>
                         )}
                     </div>

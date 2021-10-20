@@ -69,9 +69,9 @@ function FormularioAgregarRuta(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/donors/donorsselect`)
+        axios.get(`http://localhost:5000/routes/extradonors/vehicles`)
           .then((result)=>{
-            setDonorValues(result.data.donadores)
+            setDonorValues(result.data.ordinaryDonors)
             console.log(donorValues)
             setStatus('resolved')
           })
