@@ -8,11 +8,12 @@ import iconoUnidad from '../assets/icons/iconoUnidadDetalle.png'
 import Operador from '../assets/icons/iconoOperador.png'
 import Receptor from '../assets/icons/iconoReceptor.png'
 import Trafico from '../assets/icons/iconoTrafico.png'
+import Admin from '../assets/icons/iconoAdmin.png'
 import iconoRuta from '../assets/icons/iconoRuta.png'
 import iconoDonador from '../assets/icons/iconoDonador.png'
 
 function CardCuadrada(props) {
-    const iconos = [Operador, Receptor, Trafico, iconoDonador, iconoUnidad, iconoRuta]
+    const iconos = [Operador, Receptor, Trafico, Admin, iconoDonador, iconoUnidad, iconoRuta]
     let detalles={}
 
     switch(props.cardType){
@@ -20,13 +21,15 @@ function CardCuadrada(props) {
             let descripcion;
             if(props.data.idDriver!=null){ 
                  descripcion = "Operador" 
-                 
             }
             else if(props.data.idReceiver!=null){ 
                 descripcion = "Receptor" 
            }
            else if(props.data.idTrafficCoordinator!=null){ 
                 descripcion = "Trafico" 
+            }
+            else if(props.data.idAdmin!=null){
+                descripcion="Admin"
             }
            else { 
                 descripcion = "Sin Cargo" 
@@ -106,13 +109,16 @@ function CardCuadrada(props) {
                 if(detalles.cardDescription=='Trafico'){
                     return 2
                 }
+                if(detalles.cardDescription=='Admin'){
+                    return 3
+                }
                 break;
             case "donador":
-                return 3
-            case "unidad":
                 return 4
-            case "ruta":
+            case "unidad":
                 return 5
+            case "ruta":
+                return 6
     }
     }
     
