@@ -8,11 +8,12 @@ import iconoUnidad from '../assets/icons/iconoUnidadDetalle.png'
 import Operador from '../assets/icons/iconoOperador.png'
 import Receptor from '../assets/icons/iconoReceptor.png'
 import Trafico from '../assets/icons/iconoTrafico.png'
+import Admin from '../assets/icons/iconoAdmin.png'
 import iconoRuta from '../assets/icons/iconoRuta.png'
 import iconoDonador from '../assets/icons/iconoDonador.png'
 
 function CardCuadrada(props) {
-    const iconos = [Operador, Receptor, Trafico, iconoDonador, iconoUnidad, iconoRuta]
+    const iconos = [Operador, Receptor, Trafico, Admin, iconoDonador, iconoUnidad, iconoRuta]
     let detalles={}
 
     switch(props.cardType){
@@ -102,6 +103,9 @@ function CardCuadrada(props) {
                 }
                 if(detalles.cardDescription=='Trafico'){
                     return 2
+                }
+                if(detalles.cardDescription=='Admin'){
+                    return 3
                 }
                 break;
                 case "donador":
