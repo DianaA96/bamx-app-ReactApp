@@ -1,5 +1,4 @@
 import React, { useState, useEffect}from 'react'
-import CardOperadorActual from '../components/CardOperadorActual'
 import '../styles/views.css'
 import CardOperadorEntrega from '../components/CardOperadorEntrega'
 import axios from 'axios'
@@ -17,7 +16,7 @@ function GridCardsAsignarRutasDeEntrega(props) {
         axios.get(`http://localhost:5000/drivers/assigndeliveries`)
         .then((result)=>{
             //console.log(result.data.chofer)
-            setDrivers(result.data.chofer)
+            setDrivers(result.data.choferes)
             console.log(drivers)
             setStatus('resolved')
         })

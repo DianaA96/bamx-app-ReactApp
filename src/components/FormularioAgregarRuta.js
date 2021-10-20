@@ -26,7 +26,7 @@ function FormularioAgregarRuta(props) {
     const donadorValues = [];
     
     function addInput(){
-        setDonadores(donadores = donadores + 1);
+        setDonadores(donadores + 1);
         setFormStatus('dirty')
     }
 
@@ -69,9 +69,9 @@ function FormularioAgregarRuta(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/donors/donorsselect`)
+        axios.get(`http://localhost:5000/routes/extradonors/vehicles`)
           .then((result)=>{
-            setDonorValues(result.data.donadores)
+            setDonorValues(result.data.ordinaryDonors)
             console.log(donorValues)
             setStatus('resolved')
           })

@@ -37,6 +37,10 @@ function ItemDonador(props) {
             fontFamily: "Manrope",
             textAlign: "start"
           }),
+        singleValue: base =>({
+            ...base,
+            color: "#F7F7F7"
+        }),
         placeholder: base =>({
             ...base,
             color: "#F7F7F7",
