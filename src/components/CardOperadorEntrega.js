@@ -11,32 +11,6 @@ import iconoNoComestible from '../assets/icons/iconoNoComestible.png'
 import CustomLink from './CustomLink';
 
 function CardOperadorEntrega(props) {
-    
-    let fruta
-    let pan 
-    let abarrote
-    let noComestible
-    let ultimaHora = '12:00'/* props.user.recolecciones[0].hora === null ? new Date() : props.user.recolecciones[0].hora */
-
-    console.log(ultimaHora)
-
-    for(let b = 0; b < props.user.recolecciones.length; b++) {
-        if(props.user.recolecciones[b].categoria === 'Pan') {
-            pan = props.user.recolecciones[b].cantidadRecolectada
-        }
-
-        else if(props.user.recolecciones[b].categoria === 'Abarrote') {
-            abarrote = props.user.recolecciones[b].cantidadRecolectada
-        }
-
-        else if(props.user.recolecciones[b].categoria === 'Frutas y verduras') {
-            fruta = props.user.recolecciones[b].cantidadRecolectada
-        }
-
-        else if(props.user.recolecciones[b].categoria === 'No comestible') {
-            noComestible = props.user.recolecciones[b].cantidadRecolectada
-        }
-    }
 
     return(
         <div className="cardOperadorEntrega lightGlass">
@@ -46,25 +20,25 @@ function CardOperadorEntrega(props) {
                     <p className="manrope5">Operador {props.user.nombreUsuario}</p>
                 </div>
                 <div>
-                    <p className="manrope5 gris">Última recolección: {props.user.hora}</p>
+                    <p className="manrope5 gris">Última recolección: {props.user.horaUltimaRecoleccion}</p>
                 </div>
             </div>
             <div className="infoRecoleccionOperador">
                 <div className="cardRecoleccionOperador">
                     <img src={iconoFrutaVerdura} alt="Frutas y verduras" />
-                    <p className="manrope4 bold">{fruta} kg</p>
+                    <p className="manrope4 bold">{props.user.recolecciones.fruta} kg</p>
                 </div>
                 <div className="cardRecoleccionOperador">
                     <img src={iconoPan} alt="Frutas y verduras" />
-                    <p className="manrope4 bold">{pan} kg</p>
+                    <p className="manrope4 bold">{props.user.recolecciones.pan} kg</p>
                 </div>
                 <div className="cardRecoleccionOperador">
                     <img src={iconoAbarrote} alt="Frutas y verduras" />
-                    <p className="manrope4 bold">{abarrote} kg</p>
+                    <p className="manrope4 bold">{props.user.recolecciones.abarrote} kg</p>
                 </div>
                 <div className="cardRecoleccionOperador">
                     <img src={iconoNoComestible} alt="Frutas y verduras" />
-                    <p className="manrope4 bold">{noComestible} kg</p>
+                    <p className="manrope4 bold">{props.user.recolecciones.noComestible} kg</p>
                 </div>
             </div>
             <div className="botonAsignarRutaOperador">
