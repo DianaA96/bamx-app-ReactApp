@@ -1,0 +1,29 @@
+.redirect-header{
+    font-family: 'Bebas Neue';
+    font-size: 90px;
+    color: #1A1A1A;
+}
+
+.orange-bg{
+    background: #F86F2D;
+}
+
+.redirect-body{
+    width: 100vw !important;
+    height: 100vh !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(34, 34, 34);
+}
+
+.redirect-main{
+    width: 100vw !important;
+    margin-left: 0 !important;
+    height: 100vh !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
