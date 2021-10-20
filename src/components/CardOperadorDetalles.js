@@ -6,15 +6,26 @@ import iconoFrutaVerdura from '../assets/icons/iconoFrutaVerdura.png'
 import iconoPan from '../assets/icons/iconoPan.png'
 import iconoAbarrote from '../assets/icons/iconoAbarrote.png'
 import iconoNoComestible from '../assets/icons/iconoNoComestible.png'
+import MapaRecoleccionOperador from './MapaRecoleccionOperador';
 import axios from 'axios';
 import CustomLink from './CustomLink';
 import Moment from 'react-moment';
 
 function CardOperadorDetalles(props) {
 
+    const [reversedGeocoding, setReversedGeocoding] = useState('')
+    
+    
+    const {latitud, longitud} = props.nota
+    
     const [ status, setStatus ] = useState('')
     const [ error, setError ] = useState('')
     const [ recolecciones, setRecolecciones ] = useState([])
+    const [mapaVisibility, setMapaVisibility] = useState(false)
+
+    function showMapa(){
+        setMapaVisibility(true)
+    }
 
     useEffect(()=>{
         setStatus('loading')
@@ -22,6 +33,17 @@ function CardOperadorDetalles(props) {
         .then((result)=>{
             console.log(result)
             setRecolecciones(result.data.notas)
+            setStatus('resolved')
+        })
+        .catch((error)=>{
+            setError(error)
+            setStatus('error')
+        })
+        
+        axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitud},${longitud}&key=AIzaSyClyBcaMD2Zv395bn61vMorT5ktmG2zQwc`)
+        .then((result)=>{
+            console.log(result)
+            setReversedGeocoding(result.data.results[4].formatted_address)
             setStatus('resolved')
         })
         .catch((error)=>{
@@ -38,7 +60,7 @@ function CardOperadorDetalles(props) {
                 <p className="manrope5">{`Operador #${props.nota.nombreUsuario}`}</p>
            </section>
            <section className="cardOperadorDetalles-2">
-                <p className="manrope5">Recibió de <span className="bold">{props.nota.responsableEntrega}</span> en <span className="bold">{props.nota.donador}</span>{`  ${props.nota.longitud} ${props.nota.latitud}`}</p>
+                <p className="manrope5">Recibió de <span className="bold">{props.nota.responsableEntrega}</span> en <span className="bold">{props.nota.donador}</span>{` ${reversedGeocoding} `}</p>
                 <div className="cantidades-lista">
                     <div className="cantidad-elemento">
                         <img src={iconoFrutaVerdura} alt="" className="icono-cantidad" />
@@ -64,9 +86,11 @@ function CardOperadorDetalles(props) {
                <p className="manrope5">{`${props.nota.nota? "SÍ" : "NO"} recibió nota del donador.`}</p>
            </section>
            <section className="cardOperadorDetalles-4">
-                <CustomLink tag='button' className='btnMasGlass' /* to='/agregarDonador' */><i class="far fa-map"></i></CustomLink>
+                <button tag='button' className='btnMasGlass' onClick={showMapa}><i class="far fa-map"></i></button>
                 <p>Ver en Maps</p>
            </section>
+           
+           {mapaVisibility ? <MapaRecoleccionOperador latitud={latitud} longitud={longitud} reversedGeocoding={reversedGeocoding} setMapaVisibility={setMapaVisibility}></MapaRecoleccionOperador> : null}
        </div>
     )
 }

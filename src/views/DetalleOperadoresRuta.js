@@ -35,7 +35,7 @@ function DetalleOperadoresRuta(props) {
                 <MenuPrincipal idRolLogin={1}></MenuPrincipal>
             </aside>
             <main>
-                <header>
+                <header className="header-operador-ruta">
                     <HeaderOperadorRuta driver={driver}></HeaderOperadorRuta>
                 </header>
                 <section className="contenido">
