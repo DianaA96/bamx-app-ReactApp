@@ -10,10 +10,10 @@ import Loader from './Loader'
 
 function GridCardsGestionarUnidades() {
 
+    const cardType = "unidad";
     const [modalVisibility, setModalVisibility] = useState(false)
     const [modalConfirmacionVisibility, setModalConfirmacionVisibility] = useState(false)
     const [ vehicleId, setVehicleId ] = useState('');
-    const cardType = "unidad";
     const [ nombreRuta, setNombreRuta] = useState()
     const [ idRuta, setIdRuta] = useState()
     const [ ptosRecolect, setPtosRecolec ] = useState()

@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import HeaderBusquedaOperadoresRuta from '../components/HeaderBusquedaOperadoresRuta'
 import MenuPrincipal from '../components/MenuPrincipal'
 import GridCardsGestionarOperadoresRuta from '../components/GridCardsGestionarOperadoresRuta'
 import '../styles/views.css'
 
-function AsignarRutasDeRecoleccion(props) {
-
-
+function AsignarRutasDeRecoleccion() {
     return (
         <body className="orange-gradient">
             <aside>

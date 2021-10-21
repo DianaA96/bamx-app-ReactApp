@@ -5,17 +5,18 @@ import axios from 'axios'
 import ModalConfirmacion from './ModalConfirmacion'
 import Loader from './Loader'
 import ModalDetallesDonador from './ModalDetallesDonador'
+import ErrorVersion1 from './ErrorVersion1'
 
 function GridCardsGestionarDonadores() {
-    const [modalVisibility, setModalVisibility] = useState(false)
-    const [modalConfirmacionVisibility, setModalConfirmacionVisibility] = useState(false)
+    const [ modalVisibility, setModalVisibility ] = useState(false)
+    const [ modalConfirmacionVisibility, setModalConfirmacionVisibility] = useState(false)
     const [ donorId, setDonorId ] = useState('');
     const cardType = "donador"
-    const [status, setStatus ] = useState('idle');
-    const [error, setError] = useState(null);
-    const [donors, setDonors] = useState([]);
-    const [ nombreRuta, setNombreRuta] = useState()
-    const [ idRuta, setIdRuta] = useState()
+    const [ status, setStatus ] = useState('idle');
+    const [ error, setError ] = useState(null);
+    const [ donors, setDonors ] = useState([]);
+    const [ nombreRuta, setNombreRuta ] = useState()
+    const [ idRuta, setIdRuta ] = useState()
     const [ ptosRecolect, setPtosRecolec ] = useState()
 
     useEffect(()=>{
@@ -53,7 +54,7 @@ function GridCardsGestionarDonadores() {
     
     if(status === 'error'){
         return (
-            <p>{`${error.message} ${error.name}`}</p>
+            <ErrorVersion1 nombreError={error.message}></ErrorVersion1>
         )
     }
     

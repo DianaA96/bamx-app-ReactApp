@@ -26,10 +26,13 @@ function CardCuadrada(props) {
                 descripcion = "Receptor" 
             }
             else if(props.data.idTrafficCoordinator!=null){ 
-                    descripcion = "Trafico" 
+                    descripcion = "Tráfico" 
                 }
+            else if(props.data.idAdmin!=null){ 
+                descripcion = "Administrador" 
+            }
             else { 
-                    descripcion = "Sin Cargo" 
+                    descripcion = "Sin cargo" 
             }
             detalles = {
                 cardHeader: `${props.data.nombre} ${props.data.apellidoP} ${props.data.apellidoM}`,
@@ -101,19 +104,19 @@ function CardCuadrada(props) {
                 if(detalles.cardDescription=='Receptor'){
                     return 1
                 }
-                if(detalles.cardDescription=='Trafico'){
+                if(detalles.cardDescription=='Tráfico'){
                     return 2
                 }
-                if(detalles.cardDescription=='Admin'){
+                if(detalles.cardDescription=='Administrador'){
                     return 3
                 }
                 break;
                 case "donador":
-                    return 3
-                case "unidad":
                     return 4
-                case "ruta":
+                case "unidad":
                     return 5
+                case "ruta":
+                    return 6
                 }
             }
     
