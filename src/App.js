@@ -51,6 +51,9 @@ function App() {
   return(
     <Router>
       <Switch>
+        <Route path='/' exact={true} >
+          <Redirect to='/login'/>
+        </Route>
         <Route path='/login' exact={true} >
           {user[0]?<Redirect to='/redirect'/>:<Login/>}
         </Route>
