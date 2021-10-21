@@ -58,68 +58,68 @@ function App() {
           {user[0]?<RedireccionCargo/>:<Redirect to='/login'/>}
         </Route>
         <Route path='/gestionarUsuarios' exact={true} >
-          <GestionarUsuarios/>
+          {user[0]?<GestionarUsuarios/>:<Redirect to='/login'/>}
         </Route>
         <Route path='/agregarUsuario' exact={true} >
-          <AgregarUsuario/>
+          {user[0]?<AgregarUsuario/>:<Redirect to='/login'/>}
         </Route>
         <Route path='/editarUsuario/:idUsuario'
           exact={true}
           render={(props) => 
-          <EditarUsuario {...props}/>
+            {user[0]? <EditarUsuario {...props}/>:<Redirect to='/login'/>}
         }/>
         <Route path='/gestionarDonadores' exact={true} >
-          <GestionarDonadores/>
+          {user[0]?<GestionarDonadores/>:<Redirect to='/login'/>}
         </Route>
         <Route path='/agregarDonador' exact={true} >
-          <AgregarDonador/>
+          {user[0]?<AgregarDonador/>:<Redirect to='/login'/>}
         </Route>
         <Route path='/editarDonador/:idDonador'
           exact={true}
           render={(props) =>
-          <EditarDonador {...props}/>
+            {user[0]?<EditarDonador {...props}/>:<Redirect to='/login'/>}
           }/>
         <Route path='/gestionarUnidades' exact={true} >
-          <GestionarUnidades/>
+          {user[0]?<GestionarUnidades/>:<Redirect to='/login'/>}
         </Route>
         <Route path='/agregarUnidad' exact={true} >
-          <AgregarUnidad/>
+          {user[0]?<AgregarUnidad/>:<Redirect to='/login'/>}
         </Route>
         <Route path='/editarUnidad/:idUnidad' 
           exact={true} 
           render={(props) =>
-          <EditarUnidad {...props}/>
+            {user[0]? <EditarUnidad {...props}/>:<Redirect to='/login'/>}
           }>
         </Route>
         <Route path='/gestionarRutas' exact={true} >
-          <GestionarRutas/>
+          {user[0]?<GestionarRutas/>:<Redirect to='/login'/>}
         </Route>
         <Route path='/editarRuta/:idRuta'
           exact={true}
           render={(props) => 
-          <EditarRuta {...props}/>
+            {user[0]?<EditarRuta {...props}/>:<Redirect to='/login'/>}
         }/>
         <Route path='/gestionDeOperadoresEnRuta' exact={true} >
-          <GestionarOperadoresRuta/>
+          {user[0]? <GestionarOperadoresRuta/>:<Redirect to='/login'/>}
         </Route>
         <Route path='/agregarRuta' exact={true} >
-          <AgregarRuta/>
+          {user[0]?<AgregarRuta/>:<Redirect to='/login'/>}
         </Route>
         <Route path='/asignarRutasDeRecoleccion' exact={true} >
-          <AsignarRutasDeRecoleccion/>
+          {user[0]?<AsignarRutasDeRecoleccion/>:<Redirect to='/login'/>}
         </Route>
         <Route path='/detalleOperadoresRuta/:idDriver'
           exact={true}
           render={(props) => 
-          <DetalleOperadoresRuta {...props}/>
+            {user[0]?<DetalleOperadoresRuta {...props}/>:<Redirect to='/login'/>}
         }/>
         <Route path='/asignarRutaDeEntrega' exact={true} >
-          <AsignarRutasEntrega/>
+          {user[0]?<AsignarRutasEntrega/>:<Redirect to='/login'/>}
         </Route>
         <Route path='/asignarEntregaOperador/:idOperador'
           exact={true}
           render={(props) => 
-            <AsignarEntregaOperador {...props}/>
+            {user[0]? <AsignarEntregaOperador {...props}/>:<Redirect to='/login'/>}
         }/>
         <Route>
           <ErrorRutaNoDefinida/>
