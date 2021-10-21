@@ -114,7 +114,7 @@ function FormularioEditarUsuario(props) {
                 </div>
                 <div className="item-formulario">
                     <label htmlFor="telefono" className="input-label bebas4">Número de teléfono*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="numTelefono" placeholder="Número a 10 dígitos" defaultValue ={props.user.telefono} onChange={handleChange}/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="telefono" placeholder="Número a 10 dígitos" defaultValue ={props.user.telefono} onChange={handleChange}/>
                 </div>
                 <div className="item-formulario">
                     <label htmlFor="email" className="input-label bebas4">Correo electrónico*</label>
