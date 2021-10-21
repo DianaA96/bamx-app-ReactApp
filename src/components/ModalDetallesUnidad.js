@@ -36,7 +36,6 @@ function ModalDetallesUnidad(props) {
         setStatus('loading')
         axios.get(`http://localhost:5000/vehicles/${props.vehicleId}`)
           .then((result)=>{
-              console.log(result)
             setVehicle(result.data.datosVehiculo)
             setStatus('resolved')
           })

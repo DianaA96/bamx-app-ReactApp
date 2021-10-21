@@ -1,5 +1,4 @@
-import React, {useState} from 'react'
-import Select from 'react-select'
+import React from 'react'
 import '../styles/formularios.css';
 import '../styles/general.css';
 import '../styles/glass.css';

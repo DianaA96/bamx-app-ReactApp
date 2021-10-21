@@ -3,7 +3,6 @@ import CardOperadorPendiente from './CardOperadorPendiente'
 import ModalAsignacionRuta from './ModalAsignacionRuta'
 import ModalConfirmacion from './ModalConfirmacion'
 import ErrorVersion1 from './ErrorVersion1'
-import EmptyState1 from './EmptyState1'
 import Loader from './Loader'
 import '../styles/views.css'
 import axios from 'axios'
@@ -44,7 +43,6 @@ function GridCardsGestionarUsuarios(props) {
         setStatus('loading')
         axios.get(`http://localhost:5000/drivers${queryString}${strInput}${queryStringOrden}${strOrden}`)
           .then((result)=>{
-              console.log(result)
             setUsers(result.data.listaUsuarios)
             setStatus('resolved')
           })

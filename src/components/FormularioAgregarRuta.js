@@ -8,14 +8,12 @@ import '../styles/glass.css';
 import '../styles/inputs.css';
 import '../styles/botones.css';
 
-function FormularioAgregarRuta(props) {
+function FormularioAgregarRuta() {
 
     const [ status, setStatus ] = useState('idle');
     const [ formStatus, setFormStatus ] = useState('pristine')
     const [ error, setError ] = useState(null);
     const [ donorValues, setDonorValues ] = useState([1])
-    const [ selectRutaValue, setSelectRutaValue ] = useState('')
-    const [ selectUnidadValue, setSelectUnidadValue ] = useState('')
     const [ arrIndices, setArrIndices ] = useState([])
     const [ seleccionDonadoresPost, setSeleccionDonadoresPost ] = useState([])
     const [ seleccionDonadoresEliminar, setSeleccionDonadoresEliminar ] = useState([])
@@ -72,7 +70,6 @@ function FormularioAgregarRuta(props) {
         axios.get(`http://localhost:5000/routes/extradonors/vehicles`)
           .then((result)=>{
             setDonorValues(result.data.ordinaryDonors)
-            console.log(donorValues)
             setStatus('resolved')
           })
           .catch((error)=>{
@@ -103,6 +100,7 @@ function FormularioAgregarRuta(props) {
                 )}
                 <div className="agregar-inputDonador espacio-extra">
                     <button className="btnMasGlass" 
+                            aria-label="agregar ruta"
                             type="button" 
                             onClick={addInput}><i class="fas fa-plus"></i>
                     </button>
@@ -113,7 +111,6 @@ function FormularioAgregarRuta(props) {
                             type="submit" 
                             disabled={formStatus === 'pristine' || nuevaRuta === 'vacía' ? true:false}
                             tag='button' 
-                            /* to={`/gestionarRutas`} */ 
                             className="btnVerde bebas2 blanco btn-formulario">
                             Guardar
                 </CustomLink>

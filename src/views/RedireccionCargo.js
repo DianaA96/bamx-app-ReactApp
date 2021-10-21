@@ -1,7 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import { useHistory } from 'react-router'
 import { useAuth} from '../auth-context'
-import tomapple from  '../assets/images/tomapple.png'
 import bamxMorelos from '../assets/images/logo_bamx_morelos.png'
 import '../styles/RedireccionCargo.css'
 
@@ -28,8 +27,6 @@ function RedireccionCargo() {
     const [timeLeft, setTimeLeft] = useState(5)
 
     const history = useHistory()
-
-    console.log(cargo)
 
     if(cargo === "admin"){
          // setTimeout may cause an error

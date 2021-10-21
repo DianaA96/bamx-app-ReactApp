@@ -30,37 +30,6 @@ function EditarRuta(props) {
           })
     },[])
 
-    /* function handleSave(){
-        const {nombre, determinante, cp, estado, municipio, colonia, calle, numExterior, telefono, correo} = donor;
-        let tipo = tipoDonador
-        
-        let rutaBack = {
-            ruta: {
-                nombre,
-                puntosDeRecoleccion: []
-            }
-        }
-        
-        axios({
-            method: 'patch',
-            url: `http://localhost:5000/routes/${props.match.params.idRuta}`,
-            data: rutaBack,
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            }
-        })
-        .then((result)=>{
-            alert('Donador actualizado correctamente');
-            console.log(rutaBack)
-            setModalConfirmacionVisibility(false);
-        })
-        .catch(error =>{
-            console.log(rutaBack)
-            alert('No se pudo actualizar el donador:', error);
-        })
-        
-    } */
-
     if(status === 'idle' || status === 'loading'){
         return <Loader/>
     }

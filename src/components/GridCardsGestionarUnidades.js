@@ -5,10 +5,9 @@ import axios from 'axios'
 import ModalConfirmacion from './ModalConfirmacion'
 import ModalDetallesUnidad from './ModalDetallesUnidad'
 import ErrorVersion1 from './ErrorVersion1'
-import EmptyState1 from './EmptyState1'
 import Loader from './Loader'
 
-function GridCardsGestionarUnidades() {
+function GridCardsGestionarUnidades(props) {
 
     const cardType = "unidad";
     const [modalVisibility, setModalVisibility] = useState(false)
@@ -36,12 +35,32 @@ function GridCardsGestionarUnidades() {
         })
     }
 
+    let queryString = ''
+
+    let queryStringTipo = '';
+    let strTipo = '';
+    let queryStringOrden = '';
+    let strOrden = '';
+    let strInput = '';
+
+    if (props.queryInput !== '') {
+        queryString = '?name=';
+        queryStringOrden = '';
+        strOrden = '';
+        strInput = props.queryInput
+    }
+
+    else if (props.orden !== '') {
+        queryString = ''
+        queryStringOrden = '?order=';
+        strOrden = props.orden;
+        strInput = '';
+    }
 
     useEffect(()=>{
         setStatus('loading')
         axios.get(`http://localhost:5000/vehicles`)
           .then((result)=>{
-              console.log(result)
             setVehicles(result.data.listaVehicles)
             setStatus('resolved')
           })
@@ -49,7 +68,7 @@ function GridCardsGestionarUnidades() {
             setError(error)
             setStatus('error')
           })
-    },[])
+    },[props.orden, props.queryInput])
 
     if(status === 'idle' || status === 'loading'){ 
         return <Loader/>

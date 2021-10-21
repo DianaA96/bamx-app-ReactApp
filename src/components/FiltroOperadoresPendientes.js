@@ -1,5 +1,4 @@
 import {React, useState} from 'react'
-import Select from 'react-select'
 import '../styles/general.css';
 import '../styles/glass.css';
 import '../styles/filtros.css';

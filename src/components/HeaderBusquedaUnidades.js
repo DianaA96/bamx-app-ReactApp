@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState} from 'react'
 import FiltroUnidades from './FiltroUnidades';
 import '../styles/HeaderBusqueda.css';
 import '../styles/general.css';
@@ -8,7 +8,7 @@ import '../styles/botones.css';
 import CustomLink from './CustomLink';
 import InputBusqueda from './InputBusqueda';
 
-function HeaderBusquedaUnidades() {
+function HeaderBusquedaUnidades(props) {
     const [ filtrosVisibility, setFiltrosVisibility] = useState('hidden');
     const [ queryInput, setQueryInput ] = useState('')
 
@@ -32,10 +32,10 @@ function HeaderBusquedaUnidades() {
                 </div>
            </div>
            <div className="headerBusqueda-bottom">
-                <InputBusqueda setQueryInput={setQueryInput}></InputBusqueda>
+                <InputBusqueda setQueryInput={props.setQueryInput}></InputBusqueda>
                 <div className="headerBusqueda-filtros">
                     <button className="btn-filtros bebas3 blanco" onClick={toggleFiltrosVisibility}>Agregar filtro<i class="fas fa-filter"></i></button>
-                    {filtrosVisibility === 'visible' ? <FiltroUnidades filtrosVisibility = {filtrosVisibility} setFiltrosVisibility={setFiltrosVisibility}></FiltroUnidades> : null}
+                    {filtrosVisibility === 'visible' ? <FiltroUnidades setOrden={props.setOrden} filtrosVisibility = {filtrosVisibility} setFiltrosVisibility={setFiltrosVisibility}></FiltroUnidades> : null}
                 </div>
            </div>
        </div>

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState } from 'react'
 import HeaderTitulo from '../components/HeaderTitulo'
 import FormularioAgregarUnidad from '../components/FormularioAgregarUnidad'
 import MenuPrincipal from '../components/MenuPrincipal'
@@ -38,7 +38,6 @@ function AgregarUnidad() {
 
         })
         .catch(error =>{
-            console.log(unidadBack)
             alert('No se pudo registrar la unidad:', error);
         })
     

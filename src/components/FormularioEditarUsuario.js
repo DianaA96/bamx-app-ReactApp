@@ -8,9 +8,6 @@ import '../styles/botones.css';
 
 function FormularioEditarUsuario(props) {
 
-    const [selectValue, setSelectValue] = useState('')
-    
-
     const optionsBodega = [
         { value: '1', label: 'Banco de Alimentos de Cuernavaca' },
         { value: '2', label: 'Banco de Alimentos de Temixco' },
@@ -83,7 +80,6 @@ function FormularioEditarUsuario(props) {
         },
         })
     }
-
 
     const handleSelectBodegaChange = selectedOption => {
         let { label, value } = selectedOption

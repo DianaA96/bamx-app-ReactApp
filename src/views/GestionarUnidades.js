@@ -1,10 +1,13 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState } from 'react'
 import HeaderBusquedaUnidades from '../components/HeaderBusquedaUnidades'
 import MenuPrincipal from '../components/MenuPrincipal'
 import GridCardsGestionarUnidades from '../components/GridCardsGestionarUnidades'
 import '../styles/views.css'
 
 function GestionarUnidades() {
+
+    const [ queryInput, setQueryInput ] = useState('')
+    const [ orden, setOrden ] = useState('asc')
 
         return (
             <body className="green-gradient">
@@ -13,9 +16,9 @@ function GestionarUnidades() {
                 </aside>
                 <main>
                     <header>
-                        <HeaderBusquedaUnidades></HeaderBusquedaUnidades>
+                        <HeaderBusquedaUnidades setQueryInput={setQueryInput} setOrden={setOrden}></HeaderBusquedaUnidades>
                     </header>
-                    <GridCardsGestionarUnidades></GridCardsGestionarUnidades>
+                    <GridCardsGestionarUnidades queryInput={queryInput} orden={orden}></GridCardsGestionarUnidades>
                 </main>
             </body>
         )

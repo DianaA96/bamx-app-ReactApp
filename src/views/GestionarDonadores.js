@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState } from 'react'
 import HeaderBusquedaDonadores from '../components/HeaderBusquedaDonadores'
 import MenuPrincipal from '../components/MenuPrincipal'
 import GridCardsGestionarDonadores from '../components/GridCardsGestionarDonadores'
@@ -6,6 +6,10 @@ import GridCardsGestionarDonadores from '../components/GridCardsGestionarDonador
 import '../styles/views.css'
 
 function GestionarDonadores() {
+    
+    const [ queryInput, setQueryInput ] = useState('')
+    const [ manageFiltroOrden, setmanageFiltroOrden ] = useState('asc')
+    const [ manageFiltroTipo, setmanageFiltroTipo ] = useState('')
 
     return (
         <body className="green-gradient">
@@ -14,10 +18,9 @@ function GestionarDonadores() {
             </aside>
             <main>
                 <header>
-                    <HeaderBusquedaDonadores></HeaderBusquedaDonadores>
+                    <HeaderBusquedaDonadores setQueryInput={setQueryInput} setmanageFiltroTipo={setmanageFiltroTipo} setmanageFiltroOrden={setmanageFiltroOrden}></HeaderBusquedaDonadores>
                 </header>
-                <GridCardsGestionarDonadores></GridCardsGestionarDonadores>
-                
+                <GridCardsGestionarDonadores queryInput={queryInput} tipo={manageFiltroTipo} orden={manageFiltroOrden}></GridCardsGestionarDonadores>
             </main>
         </body>
     )

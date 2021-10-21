@@ -8,7 +8,6 @@ import iconoAbarrote from '../assets/icons/iconoAbarrote.png'
 import iconoNoComestible from '../assets/icons/iconoNoComestible.png'
 import MapaRecoleccionOperador from './MapaRecoleccionOperador';
 import axios from 'axios';
-import CustomLink from './CustomLink';
 import Moment from 'react-moment';
 
 function CardOperadorDetalles(props) {
@@ -31,7 +30,6 @@ function CardOperadorDetalles(props) {
         setStatus('loading')
         axios.get(`http://localhost:5000/drivers/collectedquantitiespernote/${props.nota.idCollection}`)
         .then((result)=>{
-            console.log(result)
             setRecolecciones(result.data.notas)
             setStatus('resolved')
         })
@@ -42,7 +40,6 @@ function CardOperadorDetalles(props) {
         
         axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitud},${longitud}&key=AIzaSyClyBcaMD2Zv395bn61vMorT5ktmG2zQwc`)
         .then((result)=>{
-            console.log(result)
             setReversedGeocoding(result.data.results[4].formatted_address)
             setStatus('resolved')
         })
@@ -86,10 +83,9 @@ function CardOperadorDetalles(props) {
                <p className="manrope5">{`${props.nota.nota? "SÍ" : "NO"} recibió nota del donador.`}</p>
            </section>
            <section className="cardOperadorDetalles-4">
-                <button tag='button' className='btnMasGlass' onClick={showMapa}><i class="far fa-map"></i></button>
+                <button tag='button' className='btnMasGlass' onClick={showMapa} aria-label="mostrar mapa"><i class="far fa-map"></i></button>
                 <p>Ver en Maps</p>
            </section>
-           
            {mapaVisibility ? <MapaRecoleccionOperador latitud={latitud} longitud={longitud} reversedGeocoding={reversedGeocoding} setMapaVisibility={setMapaVisibility}></MapaRecoleccionOperador> : null}
        </div>
     )

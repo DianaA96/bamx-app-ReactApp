@@ -31,7 +31,6 @@ function ModalDetallesRuta(props) {
           .then((result)=>{
             donadores = result.data.listaDonadores
             donadores.map((donador)=>{
-                console.log(donador.nombre)
             })
             setStatus('resolved')
           })

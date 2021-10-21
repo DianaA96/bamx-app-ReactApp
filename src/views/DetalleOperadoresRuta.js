@@ -20,7 +20,6 @@ function DetalleOperadoresRuta(props) {
         setStatus('loading')
         axios.get(`http://localhost:5000/drivers/enroutedriver/${props.match.params.idDriver}`)
         .then((result)=>{
-            console.log(result)
             setDriver(result.data.chofer[0])
             setNotasRecoleccion(result.data.recoleccionesRealizadas)
             setStatus('resolved')

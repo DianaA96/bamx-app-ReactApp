@@ -5,8 +5,6 @@ import ErrorVersion1 from './ErrorVersion1'
 import Loader from './Loader'
 import axios from 'axios'
 
-let drivers = []
-
 function GridCardsAsignarRutasDeEntrega(props) {
 
     const [ status, setStatus ] = useState('')
@@ -17,9 +15,7 @@ function GridCardsAsignarRutasDeEntrega(props) {
         setStatus('loading')
         axios.get(`http://localhost:5000/drivers/assigndeliveries`)
         .then((result)=>{
-            //console.log(result.data.chofer)
             setDrivers(result.data.choferes)
-            console.log(drivers)
             setStatus('resolved')
         })
         .catch((error)=>{

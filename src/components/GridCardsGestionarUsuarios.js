@@ -40,7 +40,7 @@ function GridCardsGestionarUsuarios(props) {
             strInput = props.queryInput
     }
 
-    else if (props.cargo !== '' || props.order !== 'asc') {
+    else if (props.cargo !== '' || props.orden !== '') {
         queryString = ''
         queryStringOrden = '&order=';
         strCargo = props.cargo;
@@ -53,7 +53,6 @@ function GridCardsGestionarUsuarios(props) {
         setStatus('loading')
         axios.get(`http://localhost:5000/users${queryString}${strInput}${queryStringCargo}${strCargo}${queryStringOrden}${strOrden}`)
           .then((result)=>{
-              console.log(result)
             setUsers(result.data.listaUsuarios)
             setStatus('resolved')
           })
@@ -61,7 +60,7 @@ function GridCardsGestionarUsuarios(props) {
             setError(error)
             setStatus('error')
           })
-    }, [props.queryInput || props.order || props.cargo])
+    }, [props.queryInput, props.orden, props.cargo])
 
     function handleDelete(){
         axios.delete(`http://localhost:5000/users/${userId}`)
@@ -79,7 +78,6 @@ function GridCardsGestionarUsuarios(props) {
     if(status === 'idle' || status === 'loading'){
         return <Loader/>
     }
-    
     
     if(status === 'error'){
         return (

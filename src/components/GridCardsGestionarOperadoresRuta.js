@@ -15,7 +15,6 @@ function GridCardsGestionarOperadoresRuta(props) {
         setStatus('loading')
         axios.get(`http://localhost:5000/drivers/enroutedrivers`)
         .then((result)=>{
-            console.log(result)
             setDrivers(result.data.choferes)
             setStatus('resolved')
         })

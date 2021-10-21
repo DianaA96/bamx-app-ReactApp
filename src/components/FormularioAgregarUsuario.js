@@ -108,7 +108,6 @@ function FormularioAgregarUsuario(props) {
         let { label, value } = selectedOption
         setSelectValue(value);
         props.setCargo(value);
-        console.log(selectValue)
     }
 
     const handleSelectBodegaChange = selectedOption => {

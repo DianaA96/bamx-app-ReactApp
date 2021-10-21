@@ -12,18 +12,7 @@ import LogoAsignarRutasRec from '../assets/icons/iconoRecoleccion.png';
 import LogoGestionOperEnRut from '../assets/icons/iconoOperadorRuta.png';
 import LogoAsignarRutEnt from '../assets/icons/iconoBodega.png';
 import TabMenuPrincipal from "./TabMenuPrincipal";
-import styled, { keyframes } from "styled-components";
-import { fadeInDownBig } from 'react-animations'
 import { useAuth } from '../auth-context';
-const BounceInAnimation = keyframes`${fadeInDownBig}`;
-const BounceInDiv = styled.div`
-    backdrop-filter: blur( 20px );
-    border-radius: 25px;
-    -webkit-backdrop-filter: blur( 20px );
-    animation: 1 0.5s ${BounceInAnimation};
-`;
-
-
 
 function MenuPrincipal(props) {
     const { logout } = useAuth();

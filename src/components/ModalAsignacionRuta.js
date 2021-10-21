@@ -101,13 +101,11 @@ import '../styles/ModalDetallesRuta.css';
     const handleSelectRutaChange = selectedOption => {
         let { label, value } = selectedOption
         setSelectRutaValue(value);
-        console.log(selectRutaValue)
     }
 
     const handleSelectUnidadChange = selectedOption => {
         let { label, value } = selectedOption
         setSelectUnidadValue(value);
-        console.log(selectUnidadValue)
     }
 
     const customSelectStyles = {
@@ -208,7 +206,7 @@ import '../styles/ModalDetallesRuta.css';
                             ></ItemDonador>
                         )}
                         <div className="agregar-inputDonador espacio-extra">
-                            <button className="btnMasGlass" type="button" onClick={addInput}><i class="fas fa-plus"></i></button>
+                            <button className="btnMasGlass" type="button" aria-label="añadir donador" onClick={addInput}><i class="fas fa-plus"></i></button>
                             <p className="bebas4">Nuevo Donador</p>
                         </div>
                         <div className="item-formulario espacio-extra">

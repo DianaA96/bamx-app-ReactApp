@@ -14,7 +14,6 @@ function FormularioEditarRuta(props) {
     const [ formStatus, setFormStatus ] = useState('pristine')
     const [ error, setError ] = useState(null);
     const [ donorValues, setDonorValues ] = useState({})
-    const [ ruta, setRuta ] = useState()
     const donadorValues = [];
     var [ donadores, setDonadores ] = useState(props.ruta.puntosRecoleccion.length);
     const [ seleccionDonadoresPost, setSeleccionDonadoresPost ] = useState([])
@@ -34,7 +33,6 @@ function FormularioEditarRuta(props) {
         let route = {
             [event.target.name]: event.target.value,
         }
-        // Checar endpoint
         setNuevaRuta(route)
         setFormStatus('dirty')
     }
@@ -49,7 +47,6 @@ function FormularioEditarRuta(props) {
                 pr.splice(pr.indexOf(seleccionDonadoresEliminar[b]), 1)
             }
         }
-        console.log(pr)
         axios({
             method: 'patch',
             url: `http://localhost:5000/routes/${props.idRuta}/donors/`,
@@ -77,7 +74,6 @@ function FormularioEditarRuta(props) {
         axios.get(`http://localhost:5000/donors/donorsselect`)
           .then((result)=>{
             setDonorValues(result.data.donadores)
-            console.log(donorValues)
             setStatus('resolved')
           })
           .catch((error)=>{
@@ -114,7 +110,7 @@ function FormularioEditarRuta(props) {
                     donadoresExtraSeleccion={[]}></ItemDonador>
                 )}
                 <div className="agregar-inputDonador espacio-extra">
-                    <button className="btnMasGlass" type="button" onClick={addInput}><i class="fas fa-plus"></i></button>
+                    <button className="btnMasGlass" aria-label="agregar donador" type="button" onClick={addInput}><i class="fas fa-plus"></i></button>
                     <p className="bebas4">Nuevo Donador</p>
                 </div>
                 <CustomLink 

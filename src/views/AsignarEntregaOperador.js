@@ -88,7 +88,7 @@ function AsignarRutasEntrega(props) {
                 </header>
                 <section className="contenido">
                     <div className="agregar-bodega">
-                        <button className="btnMasGlass" type="button" onClick={addCard}><i class="fas fa-plus"></i></button>
+                        <button className="btnMasGlass" type="button" aria-label="añadir bodega" onClick={addCard}><i class="fas fa-plus"></i></button>
                         <h3 className="bebas3 blanco">Agregar bodega</h3>
                     </div>
                     <div className="cardsOperadorPendiente-container">

@@ -21,7 +21,6 @@ function EditarUnidad(props) {
         axios.get(`http://localhost:5000/vehicles/${props.match.params.idUnidad}`)
           .then((result)=>{
             setVehicle(result.data.datosVehiculo)
-            console.log(result.data.datosVehiculo)
             setStatus('resolved')
           })
           .catch((error)=>{
@@ -50,11 +49,9 @@ function EditarUnidad(props) {
         })
         .then((result)=>{
             alert('Unidad actualizada correctamente');
-            console.log(unidadBack)
             setModalConfirmacionVisibility(false);
         })
         .catch(error =>{
-            console.log(unidadBack)
             alert('No se pudo actualizar la unidad:', error);
         })
         
