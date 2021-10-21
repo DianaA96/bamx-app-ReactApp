@@ -18,6 +18,10 @@ function CardCuadrada(props) {
 
     switch(props.cardType){
         case "usuario":{
+
+            if(props.data.apellidoM==null){
+                props.data.apellidoM=''
+            }
             let descripcion;
             if(props.data.idDriver!=null){ 
                  descripcion = "Operador" 

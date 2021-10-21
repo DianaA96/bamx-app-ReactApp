@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import iconoUsuario from '../assets/icons/iconoUnidadDetalle.png'
+import iconoUsuario from '../assets/icons/iconoUser.png'
 import '../styles/general.css';
 import '../styles/ModalDetallesRuta.css';
 import '../styles/ModalDetallesUsuario.css';
@@ -77,7 +77,7 @@ function ModalDetallesUsuario(props) {
                             <section className="modalDetallesUsuario-body">
                                 <div className="modalTitulo">
                                     <p className="manrope4">{user.nombre}</p>
-                                    <p className="manrope4">{`${user.apellidoP} ${user.apellidoM}`}</p>
+                                    <p className="manrope4">{`${user.apellidoP} ${user.apellidoM != null ? user.apellidoM : ''}`}</p>
                                     <p className="manrope5">{props.cargo}</p>
                                 </div>
                             </section>
