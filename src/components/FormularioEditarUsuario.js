@@ -8,9 +8,6 @@ import '../styles/botones.css';
 
 function FormularioEditarUsuario(props) {
 
-    const [selectValue, setSelectValue] = useState('')
-    
-
     const optionsBodega = [
         { value: '1', label: 'Banco de Alimentos de Cuernavaca' },
         { value: '2', label: 'Banco de Alimentos de Temixco' },
@@ -84,7 +81,6 @@ function FormularioEditarUsuario(props) {
         })
     }
 
-
     const handleSelectBodegaChange = selectedOption => {
         let { label, value } = selectedOption
         props.setBodega(value);
@@ -118,7 +114,7 @@ function FormularioEditarUsuario(props) {
                 </div>
                 <div className="item-formulario">
                     <label htmlFor="telefono" className="input-label bebas4">Número de teléfono*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="numTelefono" placeholder="Número a 10 dígitos" defaultValue ={props.user.telefono} onChange={handleChange}/>
+                    <input type="text" className="inputDarkGlass manrope5" required name="telefono" placeholder="Número a 10 dígitos" defaultValue ={props.user.telefono} onChange={handleChange}/>
                 </div>
                 <div className="item-formulario">
                     <label htmlFor="email" className="input-label bebas4">Correo electrónico*</label>

@@ -9,23 +9,22 @@ import '../styles/botones.css';
 function FormularioAgregarUsuario(props) {
 
     const [selectValue, setSelectValue] = useState('')
-    
    
     const options = [
         { value: 'Operador', label: 'Operador' },
         { value: 'Coordinador de tráfico', label: 'Coordinador de tráfico' },
         { value: 'Receptor', label: 'Receptor' },
         { value: 'Administrador', label: 'Administrador' }
-      ]
+    ]
 
-      const optionsBodega = [
+    const optionsBodega = [
         { value: '1', label: 'Banco de Alimentos de Cuernavaca' },
         { value: '2', label: 'Banco de Alimentos de Temixco' },
         { value: '3', label: 'Banco de Alimentos de Jiutepec' },
         { value: '4', label: 'Banco de Alimentos Zapata' },
         { value: '5', label: 'Bodega Tlahuapan' },
         { value: '6', label: 'Bodega refrigerados' },
-      ]
+    ]
 
     const customSelectStyles = {
         control: (base, state) => ({
@@ -96,7 +95,6 @@ function FormularioAgregarUsuario(props) {
         })
     }
 
-
     function handleChange(event){
         let newUser = {
             ...props.user,
@@ -106,19 +104,16 @@ function FormularioAgregarUsuario(props) {
         props.setUser(newUser)
     }
 
-
     const handleSelectChange = selectedOption => {
         let { label, value } = selectedOption
         setSelectValue(value);
         props.setCargo(value);
-        console.log(selectValue)
     }
 
     const handleSelectBodegaChange = selectedOption => {
         let { label, value } = selectedOption
         props.setBodega(value);
     }
-
 
     function showModal(event){
         event.preventDefault();
@@ -142,7 +137,7 @@ function FormularioAgregarUsuario(props) {
                 </div>
                 <div className="item-formulario">
                     <label htmlFor="telefono" className="input-label bebas4">Número de teléfono*</label>
-                    <input type="text" className="inputDarkGlass manrope5" required name="telefono" placeholder="Número a 10 dígitos" onChange={handleChange}/>
+                    <input type="text" className="inputDarkGlass manrope5" minLength="10" maxLength='10' required name="telefono" placeholder="Número a 10 dígitos" onChange={handleChange}/>
                 </div>
                 <div className="item-formulario">
                     <label htmlFor="email" className="input-label bebas4">Correo electrónico*</label>
@@ -150,7 +145,7 @@ function FormularioAgregarUsuario(props) {
                 </div>
                 <div className="item-formulario">
                     <label htmlFor="contrasena" className="input-label bebas4">Contraseña*</label>
-                    <input type="password" className="inputDarkGlass manrope5" required name="contrasena" placeholder="Mínimo 7 caracteres. Números y letras." onChange={handleChange}/>
+                    <input type="password" className="inputDarkGlass manrope5" minLength="7" required name="contrasena" placeholder="Mínimo 7 caracteres. Números y letras." onChange={handleChange}/>
                 </div>
                 <div className="item-formulario espacio-extra">
                     <label htmlFor="rolUsuario" className="input-label bebas4">Cargo en la organización*</label>

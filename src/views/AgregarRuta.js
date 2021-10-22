@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState } from 'react'
 import HeaderTitulo from '../components/HeaderTitulo'
 import FormularioAgregarRuta from '../components/FormularioAgregarRuta'
 import MenuPrincipal from '../components/MenuPrincipal'

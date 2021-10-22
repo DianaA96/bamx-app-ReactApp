@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import Select from 'react-select'
 import '../styles/formularios.css';
 import '../styles/general.css';
@@ -7,8 +7,6 @@ import '../styles/inputs.css';
 import '../styles/botones.css';
 
 function FormularioAgregarDonador(props) {
-
-    
 
     const options = [
         { value: 'Recurrente', label: 'Recurrente' },
@@ -84,7 +82,6 @@ function FormularioAgregarDonador(props) {
         },
         })
     }
-
 
     const handleSelectChange = selectedOption => {
         let { label, value } = selectedOption

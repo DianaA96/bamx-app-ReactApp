@@ -10,18 +10,18 @@ import axios from 'axios'
 
 function GridCardsGestionarUsuarios(props) {
  
-    const [modalVisibility, setModalVisibility] = useState(false)
-    const [modalConfirmacionVisibility, setModalConfirmacionVisibility] = useState(false)
-    const [ userId, setUserId ] = useState('1');
     const cardType = "usuario";
-    const [ nombreRuta, setNombreRuta] = useState()
-    const [ idRuta, setIdRuta] = useState()
+    const [ modalVisibility, setModalVisibility ] = useState(false)
+    const [ modalConfirmacionVisibility, setModalConfirmacionVisibility] = useState(false)
+    const [ userId, setUserId ] = useState('1');
+    const [ nombreRuta, setNombreRuta ] = useState()
+    const [ idRuta, setIdRuta ] = useState()
     const [ ptosRecolect, setPtosRecolec ] = useState()
 
-    const [status, setStatus ] = useState('idle');
-    const [error, setError] = useState(null);
-    const [users, setUsers] = useState([]);
-    const [cargo, setCargo] = useState();
+    const [ status, setStatus ] = useState('idle');
+    const [ error, setError ] = useState(null);
+    const [ users, setUsers ] = useState([]);
+    const [ cargo, setCargo ] = useState();
 
     let queryString = ''
 
@@ -38,9 +38,9 @@ function GridCardsGestionarUsuarios(props) {
             strCargo = '';
             strOrden = '';
             strInput = props.queryInput
-        }
+    }
 
-    else if (props.cargo !== '' || props.order !== 'asc') {
+    else if (props.cargo !== '' || props.orden !== '') {
         queryString = ''
         queryStringOrden = '&order=';
         strCargo = props.cargo;
@@ -53,7 +53,6 @@ function GridCardsGestionarUsuarios(props) {
         setStatus('loading')
         axios.get(`http://localhost:5000/users${queryString}${strInput}${queryStringCargo}${strCargo}${queryStringOrden}${strOrden}`)
           .then((result)=>{
-              console.log(result)
             setUsers(result.data.listaUsuarios)
             setStatus('resolved')
           })
@@ -61,7 +60,7 @@ function GridCardsGestionarUsuarios(props) {
             setError(error)
             setStatus('error')
           })
-    }, [props.queryInput || props.order || props.cargo])
+    }, [props.queryInput, props.orden, props.cargo])
 
     function handleDelete(){
         axios.delete(`http://localhost:5000/users/${userId}`)
@@ -79,7 +78,6 @@ function GridCardsGestionarUsuarios(props) {
     if(status === 'idle' || status === 'loading'){
         return <Loader/>
     }
-    
     
     if(status === 'error'){
         return (

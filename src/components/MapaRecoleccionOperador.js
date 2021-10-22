@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import '../styles/general.css';
 import '../styles/ModalDetallesRuta.css';
 import '../styles/MapaRecoleccionOperador.css';
@@ -10,7 +10,6 @@ import Marker from './Marker';
 import styled, { keyframes } from "styled-components";
 import { fadeInDownBig } from 'react-animations'
 
-
 const BounceInAnimation = keyframes`${fadeInDownBig}`;
 const BounceInDiv = styled.div`
     backdrop-filter: blur( 20px );
@@ -20,8 +19,6 @@ const BounceInDiv = styled.div`
 `;
 
 function MapaRecoleccionOperador(props) {
-
-
 
     const center = {
         lat: props.latitud,

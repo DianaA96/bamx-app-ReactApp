@@ -160,7 +160,6 @@ function FormularioAsignarBodega(props) {
                 }
              }
         }
-        console.log(entrega)
 
         axios({
             method: 'post',
@@ -199,7 +198,6 @@ function FormularioAsignarBodega(props) {
             setThisNoComestible(parseInt(event.target.noComestible.value))
             setSubmitted(true)
             props.itemsBodegasEnabled.splice(props.itemsBodegasEnabled.indexOf(parseInt(thisBodega)), 1)
-            console.log(props.entregas)
             alert('Asignación de bodega a operador completa. No se podrá editar.')
         }
     }

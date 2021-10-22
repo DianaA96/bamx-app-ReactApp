@@ -28,16 +28,16 @@ function CardCuadrada(props) {
             }
             else if(props.data.idReceiver!=null){ 
                 descripcion = "Receptor" 
-           }
-           else if(props.data.idTrafficCoordinator!=null){ 
-                descripcion = "Trafico" 
             }
-            else if(props.data.idAdmin!=null){
-                descripcion="Admin"
+            else if(props.data.idTrafficCoordinator!=null){ 
+                    descripcion = "Tráfico" 
+                }
+            else if(props.data.idAdmin!=null){ 
+                descripcion = "Administrador" 
             }
-           else { 
-                descripcion = "Sin Cargo" 
-           }
+            else { 
+                    descripcion = "Sin cargo" 
+            }
             detalles = {
                 cardHeader: `${props.data.nombre} ${props.data.apellidoP} ${props.data.apellidoM}`,
                 cardDescription: descripcion,
@@ -70,7 +70,6 @@ function CardCuadrada(props) {
             };
             break;
         }
-            
         default:
             console.log('No hay detalles para mostrar')
     }
@@ -80,7 +79,6 @@ function CardCuadrada(props) {
         props.setIdRuta(props.data.idRoute)
         props.setNombreRuta(props.data.nombre)
         props.setPtosRecolec(props.data.puntosRecoleccion)
-        /* props.setArrPtosRecolec(props.data.) */
         switch(props.cardType){
             case "usuario":
                 props.setUserId(props.data.idUser)
@@ -110,21 +108,21 @@ function CardCuadrada(props) {
                 if(detalles.cardDescription=='Receptor'){
                     return 1
                 }
-                if(detalles.cardDescription=='Trafico'){
+                if(detalles.cardDescription=='Tráfico'){
                     return 2
                 }
-                if(detalles.cardDescription=='Admin'){
+                if(detalles.cardDescription=='Administrador'){
                     return 3
                 }
                 break;
-            case "donador":
-                return 4
-            case "unidad":
-                return 5
-            case "ruta":
-                return 6
-    }
-    }
+                case "donador":
+                    return 4
+                case "unidad":
+                    return 5
+                case "ruta":
+                    return 6
+                }
+            }
     
     return(
         <div className="cardCuadrada lightGlass" onClick={mostrarDetalles}>
@@ -132,8 +130,7 @@ function CardCuadrada(props) {
             <p className="manrope5">{detalles.cardDescription}<br/>{detalles.cardDescription1}</p>
             <div className="cardCuadrada-cont-img">
                 <img src={iconos[checkIcon()]} alt="icon"/>
-            </div>
-            
+            </div>   
         </div>
     )
 }

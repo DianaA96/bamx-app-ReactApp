@@ -51,6 +51,9 @@ function App() {
   return(
     <Router>
       <Switch>
+        <Route path='/' exact={true} >
+          <Redirect to='/login'/>
+        </Route>
         <Route path='/login' exact={true} >
           {user[0]?<Redirect to='/redirect'/>:<Login/>}
         </Route>
@@ -65,8 +68,7 @@ function App() {
         </Route>
         <Route path='/editarUsuario/:idUsuario'
           exact={true}
-          render={(props) => 
-            {user[0]? <EditarUsuario {...props}/>:<Redirect to='/login'/>}
+          render={(props) =>  <EditarUsuario {...props}/>
         }/>
         <Route path='/gestionarDonadores' exact={true} >
           {user[0]?<GestionarDonadores/>:<Redirect to='/login'/>}
@@ -76,8 +78,7 @@ function App() {
         </Route>
         <Route path='/editarDonador/:idDonador'
           exact={true}
-          render={(props) =>
-            {user[0]?<EditarDonador {...props}/>:<Redirect to='/login'/>}
+          render={(props) =><EditarDonador {...props}/>
           }/>
         <Route path='/gestionarUnidades' exact={true} >
           {user[0]?<GestionarUnidades/>:<Redirect to='/login'/>}
@@ -87,8 +88,7 @@ function App() {
         </Route>
         <Route path='/editarUnidad/:idUnidad' 
           exact={true} 
-          render={(props) =>
-            {user[0]? <EditarUnidad {...props}/>:<Redirect to='/login'/>}
+          render={(props) => <EditarUnidad {...props}/>
           }>
         </Route>
         <Route path='/gestionarRutas' exact={true} >
@@ -96,8 +96,7 @@ function App() {
         </Route>
         <Route path='/editarRuta/:idRuta'
           exact={true}
-          render={(props) => 
-            {user[0]?<EditarRuta {...props}/>:<Redirect to='/login'/>}
+          render={(props) =><EditarRuta {...props}/>
         }/>
         <Route path='/gestionDeOperadoresEnRuta' exact={true} >
           {user[0]? <GestionarOperadoresRuta/>:<Redirect to='/login'/>}
@@ -110,16 +109,14 @@ function App() {
         </Route>
         <Route path='/detalleOperadoresRuta/:idDriver'
           exact={true}
-          render={(props) => 
-            {user[0]?<DetalleOperadoresRuta {...props}/>:<Redirect to='/login'/>}
+          render={(props) => <DetalleOperadoresRuta {...props}/>
         }/>
         <Route path='/asignarRutaDeEntrega' exact={true} >
           {user[0]?<AsignarRutasEntrega/>:<Redirect to='/login'/>}
         </Route>
         <Route path='/asignarEntregaOperador/:idOperador'
           exact={true}
-          render={(props) => 
-            {user[0]? <AsignarEntregaOperador {...props}/>:<Redirect to='/login'/>}
+          render={(props) => <AsignarEntregaOperador {...props}/>
         }/>
         <Route>
           <ErrorRutaNoDefinida/>

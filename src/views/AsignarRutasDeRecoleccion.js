@@ -13,11 +13,8 @@ function AsignarRutasDeRecoleccion() {
 
     const [ queryInput, setQueryInput ] = useState('')
     const [ manageFiltroOrden, setmanageFiltroOrden ] = useState('asc')
-
     const [ modalVisibility, setModalVisibility] = useState(false)
-
     const [ operadorId, setOperadorId ] = useState()
-
     const [ status, setStatus ] = useState('')
     const [ error, setError ] = useState('')
     
@@ -25,7 +22,6 @@ function AsignarRutasDeRecoleccion() {
         setStatus('loading')
         axios.get(`http://localhost:5000/routes/extradonors/vehicles`)
           .then((result)=>{
-            console.log(result)
             rutas = result.data.rutas;
             donadoresExtraordinarios = result.data.extraDonors;
             unidades = result.data.unidades;

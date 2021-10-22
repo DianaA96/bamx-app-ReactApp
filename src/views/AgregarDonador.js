@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState } from 'react'
 import HeaderTitulo from '../components/HeaderTitulo'
 import FormularioAgregarDonador from '../components/FormularioAgregarDonador'
 import MenuPrincipal from '../components/MenuPrincipal'
@@ -40,13 +40,11 @@ function AgregarDonador() {
             }
         })
         .then((result)=>{
-            // props.onSave(result.data);
             alert('Donador registrado correctamente');
             setModalConfirmacionVisibility(false);
 
         })
         .catch(error =>{
-            console.log(donadorBack)
             alert('No se pudo registrar el Donador:', error);
         })
     

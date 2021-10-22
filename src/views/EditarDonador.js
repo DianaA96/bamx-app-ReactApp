@@ -60,11 +60,9 @@ function EditarDonador(props) {
         })
         .then((result)=>{
             alert('Donador actualizado correctamente');
-            console.log(donadorBack)
             setModalConfirmacionVisibility(false);
         })
         .catch(error =>{
-            console.log(donadorBack)
             alert('No se pudo actualizar el donador:', error);
         })
         

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState } from 'react'
 import HeaderTitulo from '../components/HeaderTitulo'
 import FormularioAgregarUsuario from '../components/FormularioAgregarUsuario'
 import MenuPrincipal from '../components/MenuPrincipal'
@@ -10,7 +10,6 @@ import '../styles/views.css'
 
 function AgregarUsuario() {
     const [modalConfirmacionVisibility, setModalConfirmacionVisibility] = useState(false)
-    const [ nombreUsuario, setNombreUsuario ] = useState('');
     const [user, setUser] = useState({})
     const [bodega, setBodega] = useState('')
     const [cargo, setCargo] = useState('')
@@ -43,13 +42,11 @@ function AgregarUsuario() {
                 }
             })
             .then((result)=>{
-                // props.onSave(result.data);
                 alert('Operador registrado correctamente');
                 setModalConfirmacionVisibility(false);
 
             })
             .catch(error =>{
-                console.log(operadorBack)
                 alert('No se pudo registrar el operador:', error);
             })
         }
@@ -84,7 +81,6 @@ function AgregarUsuario() {
                 setModalConfirmacionVisibility(false);
             })
             .catch(error =>{
-                console.log(receptorBack)
                 alert('No se pudo registrar el receptor:', error);
             })
         }
@@ -116,7 +112,6 @@ function AgregarUsuario() {
                 setModalConfirmacionVisibility(false);
             })
             .catch(error =>{
-                console.log(coordinadorBack)
                 alert('No se pudo registrar el coordinador de tráfico:', error);
             })
         }
@@ -148,7 +143,6 @@ function AgregarUsuario() {
                 setModalConfirmacionVisibility(false);
             })
             .catch(error =>{
-                console.log(administradorBack)
                 alert('No se pudo registrar el administrador:', error);
             })
         }

@@ -1,76 +1,18 @@
 import React from 'react'
-import Select from 'react-select'
 import '../styles/general.css';
 import '../styles/glass.css';
 import '../styles/filtros.css';
 import '../styles/FiltroAsignarRutas.css';
 
-function FiltroRutas() {
+function FiltroRutas(props) {
 
-    const options = [
-        { value: '1', label: '1' },
-        { value: '2', label: '2' },
-        { value: '3', label: '3' },
-        { value: '4', label: '4' },
-        { value: '5', label: '5' },
-        { value: '6', label: '6' }
-      ]
-
-    const customSelectStyles = {
-        control: (base, state) => ({
-            ...base,
-            background: "rgba(49, 48, 48, 0.46)",
-            backdropFilter: "blur( 30px )",
-            border: "1px solid rgba(255, 255, 255, 0.2)",
-            boxShadow: state.isFocused ? null : null,
-            padding: "0.4em 1em",
-            borderRadius: "25em",
-            fontSize: "18px",
-            color: "#F7F7F7",
-            fontFamily: "Manrope",
-            textAlign: "start"
-          }),
-        placeholder: base =>({
-            ...base,
-            color: "#F7F7F7",
-            opacity: "0.5"
-        }),
-        menu: base => ({
-            ...base,
-            borderRadius: "25px",
-            background: "#F7F7F7",
-            boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
-            backdropFilter: "blur( 80px )",
-            color: "#1A1A1A",
-            fontSize: "18px",
-            textAlign: "start",
-            fontFamily: "Manrope",
-        
-        }),
-        menuList: base => ({
-            ...base,
-            borderRadius: "25px",
-        }),
-        dropdownIndicator: base => ({
-            ...base,
-            color: "#F7F7F7"
-        }),
-        option: (base,{data, isDisabled, isFocused,isSelected}) => ({
-            ...base,
-            color: "#1A1A1A",
-            backgroundColor: isDisabled ? undefined: isSelected,
-            "&:hover ": {
-                background: "rgba(49, 48, 48, 0.46)",
-                backdropFilter: "blur(80px)"
-              },
-        }),
-        container: base => ({
-            ...base,
-            "@media only screen and (max-width: 576px)": {
-                ...base["@media only screen and (max-width: 576px)"],
-                width:"100%",
-        },
-        })
+    function manageFiltroOrden(event) {
+        if(event.target.id === "opcion-1"){
+            props.setOrden('asc')
+        }
+        else if (event.target.id === "opcion-2"){
+            props.setOrden('desc')
+        }
     }
 
     return (
@@ -79,8 +21,8 @@ function FiltroRutas() {
                 <div className="opcionesFiltro manrope5 blanco">
                     <p className="bebas3 blanco">Orden</p>
                     <div class="contenedorRadioButtons">
-                        <input type="radio" name="select" id="opcion-1" checked/>
-                        <input type="radio" name="select" id="opcion-2"/>
+                        <input type="radio" name="select" id="opcion-1" onChange={manageFiltroOrden} defaultChecked/>
+                        <input type="radio" name="select" id="opcion-2" onChange={manageFiltroOrden} />
                         <input type="radio" name="select" id="opcion-3"/>
                         <input type="radio" name="select" id="opcion-4"/>
                         <label for="opcion-1" class="opcion opcion-1">

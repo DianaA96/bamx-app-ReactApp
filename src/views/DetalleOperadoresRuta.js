@@ -5,6 +5,8 @@ import CardOperadorDetalles from '../components/CardOperadorDetalles'
 import '../styles/views.css'
 import '../styles/botones.css'
 import CustomLink from '../components/CustomLink'
+import ErrorVersion1 from '../components/ErrorVersion1'
+import Loader from '../components/Loader'
 import axios from 'axios'
 
 function DetalleOperadoresRuta(props) {
@@ -18,7 +20,6 @@ function DetalleOperadoresRuta(props) {
         setStatus('loading')
         axios.get(`http://localhost:5000/drivers/enroutedriver/${props.match.params.idDriver}`)
         .then((result)=>{
-            console.log(result)
             setDriver(result.data.chofer[0])
             setNotasRecoleccion(result.data.recoleccionesRealizadas)
             setStatus('resolved')
@@ -38,6 +39,7 @@ function DetalleOperadoresRuta(props) {
                 <header className="header-operador-ruta">
                     <HeaderOperadorRuta driver={driver}></HeaderOperadorRuta>
                 </header>
+                {status === 'idle' || status === 'loading'? <Loader/>:status === 'error'?<ErrorVersion1 nombreError={error.message}></ErrorVersion1>:null}
                 <section className="contenido">
                     <div className="cardsOperadorPendiente-container">
                         {notasRecoleccion.map((nota,i)=>

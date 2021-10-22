@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState} from 'react'
 import FiltroUsuarios from './FiltroUsuarios';
 import '../styles/HeaderBusqueda.css';
 import '../styles/general.css';
@@ -34,7 +34,7 @@ function HeaderBusquedaUsuarios(props) {
                 <h1 className="titulo-header bebas1 blanco">Gestionar usuarios</h1>
                 <div className="agregar-container">
                     <h3 className="bebas3 blanco">Agregar usuario</h3>
-                    <CustomLink tag='button' className='btnMasGlass' to='/agregarUsuario'><i class="fas fa-plus"></i></CustomLink>
+                    <CustomLink tag='button' className='btnMasGlass' to='/agregarUsuario' aria-label="agregar usuario"><i class="fas fa-plus"></i></CustomLink>
                 </div>
            </div>
            <div className="headerBusqueda-bottom">

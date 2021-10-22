@@ -10,9 +10,7 @@ function ItemDonador(props) {
     var [donadorVisibility, setDonadorVisibility] = useState("visible")
     const [selectValue, setSelectValue] = useState('')
     const indiceSelect = props.indiceSelect //Este useState almacena el índice del valor que se almacenará
-    let indiceInmutable = indiceSelect
     const [ arrIndices, setArrIndices ] = useState(props.donadoresExtraSeleccion)
-    const [ indiceItem, setIndiceItem ] = useState(indiceInmutable)
     
     const options = props.opcionesSelect
 
@@ -84,18 +82,13 @@ function ItemDonador(props) {
     function hideDonador(event){
         setDonadorVisibility("hidden");
         props.seleccionDonadoresEliminar.push(thisItemValue)
-        console.log(props.seleccionDonadoresEliminar)
         props.setFormStatus('dirty')
     }
 
     const handleSelectChange = selectedOption => {
         props.seleccionDonadoresPost.push(selectedOption.value)
         props.seleccionDonadoresEliminar.push(thisItemValue)
-        console.log("ELIMINAR")
-        console.log(props.seleccionDonadoresEliminar)
         setThisItemValue(selectedOption.value)
-        console.log("POST")
-        console.log(props.seleccionDonadoresPost)
         let { label, value } = selectedOption
         if(props.donadorValues.indexOf(value) == -1){
             props.donadorValues.push(value);
@@ -115,7 +108,7 @@ function ItemDonador(props) {
             <label htmlFor="donador" className="input-label bebas4">Punto de recolección / Donador*</label> 
             <div className="item-donador"> 
                 <Select name="donador" id="select-donador" placeholder ="Seleccione un donador*" options={options} styles={customSelectStyles} defaultValue={props.defaultValue} required onChange={handleSelectChange}/> 
-                <button className="btnMasGlass" type="button" onClick={hideDonador}><i class="fas fa-minus"></i></button> 
+                <button className="btnMasGlass" type="button" aria-label="ocultar donador" onClick={hideDonador}><i class="fas fa-minus"></i></button> 
             </div>
         </div>
     )

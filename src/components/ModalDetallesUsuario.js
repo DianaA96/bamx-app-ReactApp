@@ -37,7 +37,6 @@ function ModalDetallesUsuario(props) {
         axios.get(`http://localhost:5000/users/${props.userId}`)
           .then((result)=>{
             setUser(result.data.datosUsuario[0])
-            console.log(user)
             setStatus('resolved')
           })
           .catch((error)=>{

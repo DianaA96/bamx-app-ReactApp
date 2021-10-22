@@ -3,7 +3,6 @@ import CardCuadrada from '../components/CardCuadrada'
 import ModalDetallesRuta from '../components/ModalDetallesRuta'
 import ModalConfirmacion from '../components/ModalConfirmacion'
 import ErrorVersion1 from './ErrorVersion1'
-import EmptyState1 from './EmptyState1'
 import Loader from './Loader'
 import '../styles/views.css'
 import axios from 'axios'
@@ -58,18 +57,6 @@ function GridCardsGestionarRutas(props) {
             query = 'desc'
         }
 
-        // FALTA IMPLEMENTAR LA LÓGICA DEL COMPONENTE DEL FILTRO PARA QUE FILTRE POR NOMBRE
-
-        /* else if (props.orden === 'asc') {
-            queryString = '?donors='
-            query = 'asc'
-        }
-
-        else if (props.orden === 'desc') {
-            queryString = '?donors='
-            query = 'desc'
-        } */
-
         if (parseInt(props.fiPtosRecolec, 10) > 0) {
             queryString = '?numberDonors='
             query = props.fiPtosRecolec
@@ -97,7 +84,6 @@ function GridCardsGestionarRutas(props) {
         setStatus('loading')
         axios.get(`http://localhost:5000/routes${queryString}${query}`)
           .then((result)=>{
-            console.log(result)
             setRoutes(result.data.rutas)
             setStatus('resolved')
           })

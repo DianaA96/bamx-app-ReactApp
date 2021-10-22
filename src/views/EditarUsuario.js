@@ -60,12 +60,10 @@ function EditarUsuario(props) {
             })
             .then((result)=>{
                 alert('Operador actualizado correctamente');
-                console.log(operadorBack)
                 setModalConfirmacionVisibility(false);
 
             })
             .catch(error =>{
-                console.log(operadorBack)
                 alert('No se pudo actualizar el operador:', error);
             })
         }
@@ -100,7 +98,6 @@ function EditarUsuario(props) {
                 setModalConfirmacionVisibility(false);
             })
             .catch(error =>{
-                console.log(receptorBack)
                 alert('No se pudo actualizar el receptor:', error);
             })
         }
@@ -132,7 +129,6 @@ function EditarUsuario(props) {
                 setModalConfirmacionVisibility(false);
             })
             .catch(error =>{
-                console.log(coordinadorBack)
                 alert('No se pudo actualizar el receptor:', error);
             })
         }

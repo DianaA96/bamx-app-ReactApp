@@ -5,24 +5,50 @@ import axios from 'axios'
 import ModalConfirmacion from './ModalConfirmacion'
 import Loader from './Loader'
 import ModalDetallesDonador from './ModalDetallesDonador'
+import ErrorVersion1 from './ErrorVersion1'
 
-function GridCardsGestionarDonadores() {
-    const [modalVisibility, setModalVisibility] = useState(false)
-    const [modalConfirmacionVisibility, setModalConfirmacionVisibility] = useState(false)
+function GridCardsGestionarDonadores(props) {
+    const [ modalVisibility, setModalVisibility ] = useState(false)
+    const [ modalConfirmacionVisibility, setModalConfirmacionVisibility] = useState(false)
     const [ donorId, setDonorId ] = useState('');
     const cardType = "donador"
-    const [status, setStatus ] = useState('idle');
-    const [error, setError] = useState(null);
-    const [donors, setDonors] = useState([]);
-    const [ nombreRuta, setNombreRuta] = useState()
-    const [ idRuta, setIdRuta] = useState()
+    const [ status, setStatus ] = useState('idle');
+    const [ error, setError ] = useState(null);
+    const [ donors, setDonors ] = useState([]);
+    const [ nombreRuta, setNombreRuta ] = useState()
+    const [ idRuta, setIdRuta ] = useState()
     const [ ptosRecolect, setPtosRecolec ] = useState()
+
+    let queryString = ''
+
+    let queryStringTipo = '';
+    let strTipo = '';
+    let queryStringOrden = '';
+    let strOrden = '';
+    let strInput = '';
+
+    if (props.queryInput !== '') {
+            queryString = '?name=';
+            queryStringOrden = '';
+            queryStringTipo = '';
+            strTipo = '';
+            strOrden = '';
+            strInput = props.queryInput
+    }
+
+    else if (props.tipo !== '' || props.orden !== '') {
+        queryString = ''
+        queryStringOrden = '&order=';
+        strTipo = props.tipo;
+        queryStringTipo = '?type=';
+        strOrden = props.orden;
+        strInput = '';
+    }
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/donors`)
+        axios.get(`http://localhost:5000/donors${queryString}${strInput}${queryStringTipo}${strTipo}${queryStringOrden}${strOrden}`)
           .then((result)=>{
-              console.log(result)
             setDonors(result.data.listaDonadores)
             setStatus('resolved')
           })
@@ -30,7 +56,7 @@ function GridCardsGestionarDonadores() {
             setError(error)
             setStatus('error')
           })
-    },[])
+    },[props.queryInput, props.orden, props.tipo])
 
     
     function handleDelete(){
@@ -53,7 +79,7 @@ function GridCardsGestionarDonadores() {
     
     if(status === 'error'){
         return (
-            <p>{`${error.message} ${error.name}`}</p>
+            <ErrorVersion1 nombreError={error.message}></ErrorVersion1>
         )
     }
     
