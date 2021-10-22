@@ -47,7 +47,7 @@ function GridCardsGestionarDonadores(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/donors${queryString}${strInput}${queryStringTipo}${strTipo}${queryStringOrden}${strOrden}`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/donors${queryString}${strInput}${queryStringTipo}${strTipo}${queryStringOrden}${strOrden}`)
           .then((result)=>{
             setDonors(result.data.listaDonadores)
             setStatus('resolved')
@@ -60,7 +60,7 @@ function GridCardsGestionarDonadores(props) {
 
     
     function handleDelete(){
-        axios.delete(`http://localhost:5000/donors/${donorId}`)
+        axios.delete(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/donors/${donorId}`)
         .then((result)=>{
             setStatus('resolved')
             alert("Donador " + result.data.donadorEliminado.nombre + " deshabilitado")

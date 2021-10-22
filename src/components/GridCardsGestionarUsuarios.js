@@ -51,7 +51,7 @@ function GridCardsGestionarUsuarios(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/users${queryString}${strInput}${queryStringCargo}${strCargo}${queryStringOrden}${strOrden}`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/users${queryString}${strInput}${queryStringCargo}${strCargo}${queryStringOrden}${strOrden}`)
           .then((result)=>{
             setUsers(result.data.listaUsuarios)
             setStatus('resolved')
@@ -63,7 +63,7 @@ function GridCardsGestionarUsuarios(props) {
     }, [props.queryInput, props.orden, props.cargo])
 
     function handleDelete(){
-        axios.delete(`http://localhost:5000/users/${userId}`)
+        axios.delete(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/users/${userId}`)
         .then((result)=>{
             setStatus('resolved')
             alert("Usuario " + result.data.usuarioEliminado.nombreUsuario + " deshabilitado")

@@ -26,7 +26,7 @@ function AgregarUnidad() {
         }
         axios({
             method: 'post',
-            url: 'http://localhost:5000/vehicles',
+            url: 'http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/vehicles',
             data: unidadBack,
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',

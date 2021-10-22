@@ -23,7 +23,7 @@ function GridCardsGestionarUnidades(props) {
     const [vehicles, setVehicles] = useState([]);
     
     function handleDelete(){
-        axios.delete(`http://localhost:5000/vehicles/${vehicleId}`)
+        axios.delete(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/vehicles/${vehicleId}`)
         .then((result)=>{
             setStatus('resolved')
             alert("Usnidad " + result.data.usuarioEliminado.nombreUsuario + " deshabilitada")
@@ -59,7 +59,7 @@ function GridCardsGestionarUnidades(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/vehicles`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/vehicles`)
           .then((result)=>{
             setVehicles(result.data.listaVehicles)
             setStatus('resolved')

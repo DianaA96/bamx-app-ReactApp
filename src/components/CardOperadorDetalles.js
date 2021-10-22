@@ -28,7 +28,7 @@ function CardOperadorDetalles(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/drivers/collectedquantitiespernote/${props.nota.idCollection}`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/drivers/collectedquantitiespernote/${props.nota.idCollection}`)
         .then((result)=>{
             setRecolecciones(result.data.notas)
             setStatus('resolved')

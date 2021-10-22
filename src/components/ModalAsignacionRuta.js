@@ -57,7 +57,7 @@ import '../styles/ModalDetallesRuta.css';
 
         axios({
             method: 'post',
-            url: 'http://localhost:5000/routes/assignroute',
+            url: 'http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/routes/assignroute',
             data: {body:{idDriver, idRoute, idVehicle, donors, ...fecha}},
             headers: {'Content-Type': 'application/json'}
             }

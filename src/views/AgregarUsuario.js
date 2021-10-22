@@ -35,7 +35,7 @@ function AgregarUsuario() {
             }
             axios({
                 method: 'post',
-                url: 'http://localhost:5000/users/drivers',
+                url: 'http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/users/drivers',
                 data: operadorBack,
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
@@ -70,7 +70,7 @@ function AgregarUsuario() {
 
             axios({
                 method: 'post',
-                url: 'http://localhost:5000/users/receivers',
+                url: 'http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/users/receivers',
                 data: receptorBack,
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
@@ -101,7 +101,7 @@ function AgregarUsuario() {
 
             axios({
                 method: 'post',
-                url: 'http://localhost:5000/users/trafficCoordinators',
+                url: 'http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/users/trafficCoordinators',
                 data: coordinadorBack,
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
@@ -132,7 +132,7 @@ function AgregarUsuario() {
 
             axios({
                 method: 'post',
-                url: 'http://localhost:5000/users/admins',
+                url: 'http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/users/admins',
                 data: administradorBack,
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',

@@ -34,7 +34,7 @@ function ModalDetallesUsuario(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/users/${props.userId}`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/users/${props.userId}`)
           .then((result)=>{
             setUser(result.data.datosUsuario[0])
             setStatus('resolved')

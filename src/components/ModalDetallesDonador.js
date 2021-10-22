@@ -33,7 +33,7 @@ function ModalDetallesDonador(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/donors/${props.donorId}`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/donors/${props.donorId}`)
           .then((result)=>{
             setDonor(result.data.donador[0])
             setStatus('resolved')

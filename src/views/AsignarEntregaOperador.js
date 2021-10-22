@@ -38,7 +38,7 @@ function AsignarRutasEntrega(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/drivers/assignspecificdeliveries/${props.match.params.idOperador}`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/drivers/assignspecificdeliveries/${props.match.params.idOperador}`)
           .then((result)=>{
 
             let info = {

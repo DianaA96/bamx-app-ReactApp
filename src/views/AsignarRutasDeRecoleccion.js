@@ -20,7 +20,7 @@ function AsignarRutasDeRecoleccion() {
     
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/routes/extradonors/vehicles`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/routes/extradonors/vehicles`)
           .then((result)=>{
             rutas = result.data.rutas;
             donadoresExtraordinarios = result.data.extraDonors;

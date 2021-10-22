@@ -19,7 +19,7 @@ function EditarUsuario(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/users/${props.match.params.idUsuario}`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/users/${props.match.params.idUsuario}`)
           .then((result)=>{
             setUser(result.data.datosUsuario[0])
             setStatus('resolved')
@@ -52,7 +52,7 @@ function EditarUsuario(props) {
             }
             axios({
                 method: 'patch',
-                url: `http://localhost:5000/users/${props.match.params.idUsuario}/drivers`,
+                url: `http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/users/${props.match.params.idUsuario}/drivers`,
                 data: operadorBack,
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
@@ -87,7 +87,7 @@ function EditarUsuario(props) {
             
             axios({
                 method: 'patch',
-                url: `http://localhost:5000/users/${props.match.params.idUsuario}/receivers`,
+                url: `http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/users/${props.match.params.idUsuario}/receivers`,
                 data: receptorBack,
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
@@ -118,7 +118,7 @@ function EditarUsuario(props) {
             
             axios({
                 method: 'patch',
-                url: `http://localhost:5000/users/${props.match.params.idUsuario}/trafficCoordinators`,
+                url: `http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/users/${props.match.params.idUsuario}/trafficCoordinators`,
                 data: coordinadorBack,
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',

@@ -18,7 +18,7 @@ function EditarUnidad(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/vehicles/${props.match.params.idUnidad}`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/vehicles/${props.match.params.idUnidad}`)
           .then((result)=>{
             setVehicle(result.data.datosVehiculo)
             setStatus('resolved')
@@ -41,7 +41,7 @@ function EditarUnidad(props) {
         }
         axios({
             method: 'patch',
-            url: `http://localhost:5000/vehicles/${props.match.params.idUnidad}`,
+            url: `http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/vehicles/${props.match.params.idUnidad}`,
             data: unidadBack,
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',

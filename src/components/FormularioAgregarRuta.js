@@ -48,7 +48,7 @@ function FormularioAgregarRuta() {
         }
         axios({
             method: 'post',
-            url: 'http://localhost:5000/routes/donors',
+            url: 'http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/routes/donors',
             data: {route: {...nuevaRuta, pr}},
             headers: {'Content-Type': 'application/json'}
             }
@@ -67,7 +67,7 @@ function FormularioAgregarRuta() {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/routes/extradonors/vehicles`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/routes/extradonors/vehicles`)
           .then((result)=>{
             setDonorValues(result.data.ordinaryDonors)
             setStatus('resolved')

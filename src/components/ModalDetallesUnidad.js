@@ -34,7 +34,7 @@ function ModalDetallesUnidad(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/vehicles/${props.vehicleId}`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/vehicles/${props.vehicleId}`)
           .then((result)=>{
             setVehicle(result.data.datosVehiculo)
             setStatus('resolved')

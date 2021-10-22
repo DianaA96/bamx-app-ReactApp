@@ -13,7 +13,7 @@ function GridCardsAsignarRutasDeEntrega(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/drivers/assigndeliveries`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/drivers/assigndeliveries`)
         .then((result)=>{
             setDrivers(result.data.choferes)
             setStatus('resolved')

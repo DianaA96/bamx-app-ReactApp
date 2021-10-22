@@ -12,7 +12,7 @@ export function AuthProvider(props) {
     function login({ nombreUsuario, contrasena }) {
         console.log(contrasena)
         axios( {
-            url: 'http://localhost:5000/users/login',
+            url: 'http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/users/login',
             method: 'post',
             data: {
                 body: {

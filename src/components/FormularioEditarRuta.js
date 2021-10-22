@@ -49,7 +49,7 @@ function FormularioEditarRuta(props) {
         }
         axios({
             method: 'patch',
-            url: `http://localhost:5000/routes/${props.idRuta}/donors/`,
+            url: `http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/routes/${props.idRuta}/donors/`,
             data: {route: {...nuevaRuta, pr}},
             headers: {'Content-Type': 'application/json'}
             }
@@ -71,7 +71,7 @@ function FormularioEditarRuta(props) {
             arrDonadoresPorDefecto.push(props.ruta.puntosRecoleccion[m].idDonor)
         }
         setSeleccionDonadoresPost(arrDonadoresPorDefecto)
-        axios.get(`http://localhost:5000/donors/donorsselect`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/donors/donorsselect`)
           .then((result)=>{
             setDonorValues(result.data.donadores)
             setStatus('resolved')

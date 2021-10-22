@@ -19,7 +19,7 @@ function EditarDonador(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/donors/${props.match.params.idDonador}`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/donors/${props.match.params.idDonador}`)
           .then((result)=>{
             setDonor(result.data.donador[0])
             setStatus('resolved')
@@ -52,7 +52,7 @@ function EditarDonador(props) {
         
         axios({
             method: 'patch',
-            url: `http://localhost:5000/donors/${props.match.params.idDonador}`,
+            url: `http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/donors/${props.match.params.idDonador}`,
             data: donadorBack,
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',

@@ -18,7 +18,7 @@ function DetalleOperadoresRuta(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/drivers/enroutedriver/${props.match.params.idDriver}`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/drivers/enroutedriver/${props.match.params.idDriver}`)
         .then((result)=>{
             setDriver(result.data.chofer[0])
             setNotasRecoleccion(result.data.recoleccionesRealizadas)

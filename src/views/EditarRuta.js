@@ -19,7 +19,7 @@ function EditarRuta(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/routes/${props.match.params.idRuta}`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/routes/${props.match.params.idRuta}`)
           .then((result)=>{
             setRuta(result.data.ruta)
             setStatus('resolved')

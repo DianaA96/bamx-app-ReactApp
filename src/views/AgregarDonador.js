@@ -33,7 +33,7 @@ function AgregarDonador() {
         }
         axios({
             method: 'post',
-            url: 'http://localhost:5000/donors',
+            url: 'http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/donors',
             data: donadorBack,
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',

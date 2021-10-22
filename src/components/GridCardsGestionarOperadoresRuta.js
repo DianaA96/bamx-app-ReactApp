@@ -13,7 +13,7 @@ function GridCardsGestionarOperadoresRuta(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/drivers/enroutedrivers`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/drivers/enroutedrivers`)
         .then((result)=>{
             setDrivers(result.data.choferes)
             setStatus('resolved')

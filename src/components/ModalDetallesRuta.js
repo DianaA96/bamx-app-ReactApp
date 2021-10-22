@@ -27,7 +27,7 @@ function ModalDetallesRuta(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/donors?route=${props.idRuta}`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/donors?route=${props.idRuta}`)
           .then((result)=>{
             donadores = result.data.listaDonadores
             donadores.map((donador)=>{

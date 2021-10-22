@@ -163,7 +163,7 @@ function FormularioAsignarBodega(props) {
 
         axios({
             method: 'post',
-            url: `http://localhost:5000/routes/deliveries/assignedWarehouses/${props.id}`,
+            url: `http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/routes/deliveries/assignedWarehouses/${props.id}`,
             data: entrega,
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',

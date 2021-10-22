@@ -21,7 +21,7 @@ function GridCardsGestionarRutas(props) {
     const [error, setError] = useState(null); 
 
     function handleDelete(){
-        axios.delete(`http://localhost:5000/vehicles/${routeId}`)
+        axios.delete(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/vehicles/${routeId}`)
         .then((result)=>{
             setStatus('resolved')
             alert("Unidad " + result.data.usuarioEliminado.nombreUsuario + " deshabilitada")
@@ -68,7 +68,7 @@ function GridCardsGestionarRutas(props) {
     }
 
     function handleDelete(){
-        axios.delete(`http://localhost:5000/routes/${props.idRuta}`)
+        axios.delete(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/routes/${props.idRuta}`)
         .then((result)=>{
             setStatus('resolved')
             alert("Ruta " + props.nombreRuta + " deshabilitada correctamente.")
@@ -82,7 +82,7 @@ function GridCardsGestionarRutas(props) {
 
     useEffect(()=>{
         setStatus('loading')
-        axios.get(`http://localhost:5000/routes${queryString}${query}`)
+        axios.get(`http://bamxapi-env.eba-wsth22h3.us-east-1.elasticbeanstalk.com/routes${queryString}${query}`)
           .then((result)=>{
             setRoutes(result.data.rutas)
             setStatus('resolved')
